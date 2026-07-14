@@ -467,10 +467,28 @@ function updateCotizadorDescuentos() {
 }
 
 const WHATSAPP_LINK = 'https://wa.me/message/X7F7CLTC7732D1';
+let currentWhatsAppText = '';
 
 function buildWhatsAppUrl(text) {
   const separator = WHATSAPP_LINK.includes('?') ? '&' : '?';
   return `${WHATSAPP_LINK}${separator}text=${encodeURIComponent(text)}`;
+}
+
+function setWhatsAppOffer(text) {
+  currentWhatsAppText = text;
+  const url = buildWhatsAppUrl(text);
+  ['result-whatsapp-link', 'bottom-whatsapp-link'].forEach(id => {
+    const link = document.getElementById(id);
+    if (!link) return;
+    link.setAttribute('href', url);
+    link.setAttribute('data-offer-message', text);
+  });
+}
+
+function handleWhatsAppReservation() {
+  if (!currentWhatsAppText) updateCotizadorAgil();
+  if (!currentWhatsAppText || !navigator.clipboard?.writeText) return;
+  navigator.clipboard.writeText(currentWhatsAppText).catch(() => {});
 }
 
 function getCuposDisponibles(idioma, nivel, mes, horariosCount) {
@@ -577,8 +595,7 @@ ${lineasHorarios}`;
     </div>`;
 
   const whatsappText = `Hola ISA, vengo del cotizador de IKARUGA y quiero reservar esta oferta.\n\n${ofertaTexto}\n\n¿Me ayudás a avanzar con la inscripción?`;
-  document.getElementById('result-whatsapp-link')?.setAttribute('href', buildWhatsAppUrl(whatsappText));
-  document.getElementById('bottom-whatsapp-link')?.setAttribute('href', buildWhatsAppUrl(whatsappText));
+  setWhatsAppOffer(whatsappText);
 }
 function copyResultado(btn) {
   const el = document.getElementById('cotizador-agil-resultado');
@@ -626,6 +643,8 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCotizadorNiveles();
   initTarjetasIdioma();
   renderResumenCursos();
+  document.getElementById('result-whatsapp-link')?.addEventListener('click', handleWhatsAppReservation);
+  document.getElementById('bottom-whatsapp-link')?.addEventListener('click', handleWhatsAppReservation);
 });
   </script>
 </body>
