@@ -467,10 +467,28 @@ function updateCotizadorDescuentos() {
 }
 
 const WHATSAPP_LINK = 'https://wa.me/message/X7F7CLTC7732D1';
+let currentWhatsAppText = '';
 
 function buildWhatsAppUrl(text) {
   const separator = WHATSAPP_LINK.includes('?') ? '&' : '?';
   return `${WHATSAPP_LINK}${separator}text=${encodeURIComponent(text)}`;
+}
+
+function setWhatsAppOffer(text) {
+  currentWhatsAppText = text;
+  const url = buildWhatsAppUrl(text);
+  ['result-whatsapp-link', 'bottom-whatsapp-link'].forEach(id => {
+    const link = document.getElementById(id);
+    if (!link) return;
+    link.setAttribute('href', url);
+    link.setAttribute('data-offer-message', text);
+  });
+}
+
+function handleWhatsAppReservation() {
+  if (!currentWhatsAppText) updateCotizadorAgil();
+  if (!currentWhatsAppText || !navigator.clipboard?.writeText) return;
+  navigator.clipboard.writeText(currentWhatsAppText).catch(() => {});
 }
 
 function getCuposDisponibles(idioma, nivel, mes, horariosCount) {
@@ -538,15 +556,20 @@ function updateCotizadorAgil() {
   const precioNum = parsePrecioNumero(p.precio_hoy);
   const cuotaCalc = precioNum > 0 ? Math.round(precioNum / cuotas).toLocaleString('es-AR') : '—';
 
-  const ofertaTexto = `Oferta encontrada para *${nivel}* en *${mesLabel}*.
+  const ofertaTexto = `*Oferta seleccionada desde el cotizador*
 
-⚡ *Beneficio disponible: ${p.descuento} OFF*
-✅ Precio promocional: *${p.simbolo}${p.precio_hoy}*
-💳 ${cuotas} cuotas sin interés de *${p.simbolo}${cuotaCalc}*
-📍 País: ${paisNombres[pais]}
-🔥 Disponibilidad: ${cuposTexto}
+Idioma: *${idiomaNombres[idioma] || idioma}*
+Nivel: *${nivel}*
+Mes de inicio: *${mesLabel}*
+País: *${paisNombres[pais]}*
 
-Horarios disponibles:
+Beneficio: *${p.descuento} OFF*
+Precio promocional: *${p.simbolo}${p.precio_hoy}*
+Valor regular: ${p.simbolo}${p.precio_reg}
+Forma de pago: *${cuotas} cuotas sin interés de ${p.simbolo}${cuotaCalc}*
+Disponibilidad: *${cuposTexto}*
+
+Horarios que vio el alumno:
 ${lineasHorarios}`;
 
   target.innerHTML = `
@@ -571,9 +594,8 @@ ${lineasHorarios}`;
       Para reservar, tocá el botón de WhatsApp y continuá con ISA, tu asesora educativa de confianza.
     </div>`;
 
-  const whatsappText = `Hola, quiero reservar esta oferta de IKARUGA.\n\n${ofertaTexto}`;
-  document.getElementById('result-whatsapp-link')?.setAttribute('href', buildWhatsAppUrl(whatsappText));
-  document.getElementById('bottom-whatsapp-link')?.setAttribute('href', buildWhatsAppUrl(whatsappText));
+  const whatsappText = `Hola ISA, vengo del cotizador de IKARUGA y quiero reservar esta oferta.\n\n${ofertaTexto}\n\n¿Me ayudás a avanzar con la inscripción?`;
+  setWhatsAppOffer(whatsappText);
 }
 function copyResultado(btn) {
   const el = document.getElementById('cotizador-agil-resultado');
@@ -621,6 +643,8 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCotizadorNiveles();
   initTarjetasIdioma();
   renderResumenCursos();
+  document.getElementById('result-whatsapp-link')?.addEventListener('click', handleWhatsAppReservation);
+  document.getElementById('bottom-whatsapp-link')?.addEventListener('click', handleWhatsAppReservation);
 });
   </script>
 </body>
