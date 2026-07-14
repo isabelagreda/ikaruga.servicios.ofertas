@@ -471,9 +471,10 @@ const WHATSAPP_PHONE = '5493413483263';
 let currentWhatsAppText = '';
 
 function buildWhatsAppUrl(text) {
-  const baseUrl = WHATSAPP_PHONE
-    ? `https://wa.me/${WHATSAPP_PHONE}`
-    : WHATSAPP_LINK;
+  if (WHATSAPP_PHONE) {
+    return `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE}&text=${encodeURIComponent(text)}`;
+  }
+  const baseUrl = WHATSAPP_LINK;
   const separator = baseUrl.includes('?') ? '&' : '?';
   return `${baseUrl}${separator}text=${encodeURIComponent(text)}`;
 }
@@ -489,23 +490,24 @@ function setWhatsAppOffer(text) {
   });
 }
 
-function handleWhatsAppReservation() {
+function handleWhatsAppReservation(event) {
   updateCotizadorAgil();
   if (!currentWhatsAppText) return;
-  if (WHATSAPP_PHONE) {
-    window.open(buildWhatsAppUrl(currentWhatsAppText), '_blank', 'noopener');
-    return;
-  }
-  if (!navigator.clipboard?.writeText) return;
-  navigator.clipboard.writeText(currentWhatsAppText).then(() => {
-    if (!WHATSAPP_PHONE) {
+  const clickedLink = event?.currentTarget;
+  if (clickedLink) clickedLink.setAttribute('href', buildWhatsAppUrl(currentWhatsAppText));
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(currentWhatsAppText).then(() => {
+      if (!WHATSAPP_PHONE) {
+        alert('La oferta seleccionada se copió. Si WhatsApp abre sin el texto, pegala en el chat para que ISA reciba idioma, nivel, mes, país y precio.');
+      }
+    }).catch(() => {
+      if (!WHATSAPP_PHONE) {
+        alert('Si WhatsApp abre sin el texto, copiá la oferta que viste en pantalla y pegala en el chat.');
+      }
+    });
+  } else if (!WHATSAPP_PHONE) {
       alert('La oferta seleccionada se copió. Si WhatsApp abre sin el texto, pegala en el chat para que ISA reciba idioma, nivel, mes, país y precio.');
-    }
-  }).catch(() => {
-    if (!WHATSAPP_PHONE) {
-      alert('Si WhatsApp abre sin el texto, copiá la oferta que viste en pantalla y pegala en el chat.');
-    }
-  });
+  }
 }
 
 function getCuposDisponibles(idioma, nivel, mes, horariosCount) {
@@ -661,12 +663,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initTarjetasIdioma();
   renderResumenCursos();
   document.getElementById('result-whatsapp-link')?.addEventListener('click', (event) => {
-    event.preventDefault();
-    handleWhatsAppReservation();
+    handleWhatsAppReservation.call(event.currentTarget, event);
   });
   document.getElementById('bottom-whatsapp-link')?.addEventListener('click', (event) => {
-    event.preventDefault();
-    handleWhatsAppReservation();
+    handleWhatsAppReservation.call(event.currentTarget, event);
   });
 });
   </script>
