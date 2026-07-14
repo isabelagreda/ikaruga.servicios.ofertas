@@ -467,11 +467,15 @@ function updateCotizadorDescuentos() {
 }
 
 const WHATSAPP_LINK = 'https://wa.me/message/X7F7CLTC7732D1';
+const WHATSAPP_PHONE = '';
 let currentWhatsAppText = '';
 
 function buildWhatsAppUrl(text) {
-  const separator = WHATSAPP_LINK.includes('?') ? '&' : '?';
-  return `${WHATSAPP_LINK}${separator}text=${encodeURIComponent(text)}`;
+  const baseUrl = WHATSAPP_PHONE
+    ? `https://wa.me/${WHATSAPP_PHONE}`
+    : WHATSAPP_LINK;
+  const separator = baseUrl.includes('?') ? '&' : '?';
+  return `${baseUrl}${separator}text=${encodeURIComponent(text)}`;
 }
 
 function setWhatsAppOffer(text) {
@@ -488,7 +492,15 @@ function setWhatsAppOffer(text) {
 function handleWhatsAppReservation() {
   if (!currentWhatsAppText) updateCotizadorAgil();
   if (!currentWhatsAppText || !navigator.clipboard?.writeText) return;
-  navigator.clipboard.writeText(currentWhatsAppText).catch(() => {});
+  navigator.clipboard.writeText(currentWhatsAppText).then(() => {
+    if (!WHATSAPP_PHONE) {
+      alert('La oferta seleccionada se copió. Si WhatsApp abre sin el texto, pegala en el chat para que ISA reciba idioma, nivel, mes, país y precio.');
+    }
+  }).catch(() => {
+    if (!WHATSAPP_PHONE) {
+      alert('Si WhatsApp abre sin el texto, copiá la oferta que viste en pantalla y pegala en el chat.');
+    }
+  });
 }
 
 function getCuposDisponibles(idioma, nivel, mes, horariosCount) {
