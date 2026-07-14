@@ -467,7 +467,7 @@ function updateCotizadorDescuentos() {
 }
 
 const WHATSAPP_LINK = 'https://wa.me/message/X7F7CLTC7732D1';
-const WHATSAPP_PHONE = '';
+const WHATSAPP_PHONE = '5493413483263';
 let currentWhatsAppText = '';
 
 function buildWhatsAppUrl(text) {
@@ -490,8 +490,13 @@ function setWhatsAppOffer(text) {
 }
 
 function handleWhatsAppReservation() {
-  if (!currentWhatsAppText) updateCotizadorAgil();
-  if (!currentWhatsAppText || !navigator.clipboard?.writeText) return;
+  updateCotizadorAgil();
+  if (!currentWhatsAppText) return;
+  if (WHATSAPP_PHONE) {
+    window.open(buildWhatsAppUrl(currentWhatsAppText), '_blank', 'noopener');
+    return;
+  }
+  if (!navigator.clipboard?.writeText) return;
   navigator.clipboard.writeText(currentWhatsAppText).then(() => {
     if (!WHATSAPP_PHONE) {
       alert('La oferta seleccionada se copió. Si WhatsApp abre sin el texto, pegala en el chat para que ISA reciba idioma, nivel, mes, país y precio.');
@@ -655,8 +660,14 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCotizadorNiveles();
   initTarjetasIdioma();
   renderResumenCursos();
-  document.getElementById('result-whatsapp-link')?.addEventListener('click', handleWhatsAppReservation);
-  document.getElementById('bottom-whatsapp-link')?.addEventListener('click', handleWhatsAppReservation);
+  document.getElementById('result-whatsapp-link')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    handleWhatsAppReservation();
+  });
+  document.getElementById('bottom-whatsapp-link')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    handleWhatsAppReservation();
+  });
 });
   </script>
 </body>
