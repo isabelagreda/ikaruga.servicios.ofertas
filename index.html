@@ -538,15 +538,20 @@ function updateCotizadorAgil() {
   const precioNum = parsePrecioNumero(p.precio_hoy);
   const cuotaCalc = precioNum > 0 ? Math.round(precioNum / cuotas).toLocaleString('es-AR') : '—';
 
-  const ofertaTexto = `Oferta encontrada para *${nivel}* en *${mesLabel}*.
+  const ofertaTexto = `*Oferta seleccionada desde el cotizador*
 
-⚡ *Beneficio disponible: ${p.descuento} OFF*
-✅ Precio promocional: *${p.simbolo}${p.precio_hoy}*
-💳 ${cuotas} cuotas sin interés de *${p.simbolo}${cuotaCalc}*
-📍 País: ${paisNombres[pais]}
-🔥 Disponibilidad: ${cuposTexto}
+Idioma: *${idiomaNombres[idioma] || idioma}*
+Nivel: *${nivel}*
+Mes de inicio: *${mesLabel}*
+País: *${paisNombres[pais]}*
 
-Horarios disponibles:
+Beneficio: *${p.descuento} OFF*
+Precio promocional: *${p.simbolo}${p.precio_hoy}*
+Valor regular: ${p.simbolo}${p.precio_reg}
+Forma de pago: *${cuotas} cuotas sin interés de ${p.simbolo}${cuotaCalc}*
+Disponibilidad: *${cuposTexto}*
+
+Horarios que vio el alumno:
 ${lineasHorarios}`;
 
   target.innerHTML = `
@@ -571,7 +576,7 @@ ${lineasHorarios}`;
       Para reservar, tocá el botón de WhatsApp y continuá con ISA, tu asesora educativa de confianza.
     </div>`;
 
-  const whatsappText = `Hola, quiero reservar esta oferta de IKARUGA.\n\n${ofertaTexto}`;
+  const whatsappText = `Hola ISA, vengo del cotizador de IKARUGA y quiero reservar esta oferta.\n\n${ofertaTexto}\n\n¿Me ayudás a avanzar con la inscripción?`;
   document.getElementById('result-whatsapp-link')?.setAttribute('href', buildWhatsAppUrl(whatsappText));
   document.getElementById('bottom-whatsapp-link')?.setAttribute('href', buildWhatsAppUrl(whatsappText));
 }
