@@ -332,11 +332,11 @@ const zonasPorPais = {
     {label:"Estados Unidos Oeste / Los Ángeles", diff:-4}
   ],
   USD: [
-    {label:"Horario de mi dispositivo", diff:null},
-    {label:"España peninsular / Europa central", diff:5},
+    {label:"Europa central", diff:5},
     {label:"Europa occidental / Reino Unido", diff:4},
-    {label:"Estados Unidos Este / Miami / New York", diff:-1},
-    {label:"Estados Unidos Oeste / Los Ángeles", diff:-4},
+    {label:"América Este", diff:-1},
+    {label:"América Central", diff:-3},
+    {label:"América Oeste", diff:-4},
     {label:"Japón / Corea", diff:10},
     {label:"China / Tailandia", diff:11}
   ]
@@ -385,11 +385,28 @@ function getHorarioStatus() {
 
 function convertHorarios(nivHorarios, diff) {
   if (diff === 0) return nivHorarios;
+  const dias = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábados","Domingos"];
+  const diaIndex = {
+    "Lunes":0, "Martes":1, "Miércoles":2, "Miercoles":2, "Jueves":3, "Viernes":4, "Sábados":5, "Sabados":5, "Domingos":6
+  };
+  const addHours = (h, m, delta) => {
+    const total = parseInt(h, 10) * 60 + parseInt(m, 10) + delta * 60;
+    const dayShift = Math.floor(total / 1440);
+    const minutes = ((total % 1440) + 1440) % 1440;
+    return {
+      time: `${String(Math.floor(minutes / 60)).padStart(2,'0')}:${String(minutes % 60).padStart(2,'0')}`,
+      dayShift
+    };
+  };
+  const shiftDay = (dia, shift) => dias[(diaIndex[dia] + shift + 700) % 7];
   return nivHorarios.map(h => {
-    return h.replace(/(\d{2}):(\d{2}) a (\d{2}):(\d{2})/g, (_, h1, m1, h2, m2) => {
-      let nh1 = (parseInt(h1) + diff + 24) % 24;
-      let nh2 = (parseInt(h2) + diff + 24) % 24;
-      return `${String(nh1).padStart(2,'0')}:${m1} a ${String(nh2).padStart(2,'0')}:${m2}`;
+    return h.replace(/(Lunes|Martes|Miércoles|Miercoles|Jueves|Viernes|Sábados|Sabados|Domingos) de (\d{2}):(\d{2}) a (\d{2}):(\d{2}) hs\./g, (_, dia, h1, m1, h2, m2) => {
+      const start = addHours(h1, m1, diff);
+      const end = addHours(h2, m2, diff);
+      const startDay = shiftDay(dia, start.dayShift);
+      const endDay = shiftDay(dia, end.dayShift);
+      if (startDay === endDay) return `${startDay} de ${start.time} a ${end.time} hs.`;
+      return `${startDay} de ${start.time} a ${endDay} ${end.time} hs.`;
     });
   });
 }
