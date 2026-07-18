@@ -18,7 +18,7 @@
     .brand{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-dark)} h1{margin:5px 0 0;font-size:clamp(30px,4vw,52px);line-height:1;letter-spacing:0}
     .subtitle{max-width:620px;margin:10px 0 0;color:var(--muted);font-size:15px;line-height:1.55}.status{border:1px solid #cae6df;background:#effaf7;color:var(--brand-dark);padding:9px 12px;border-radius:8px;font-size:13px;font-weight:700;white-space:nowrap}
     .panel{background:var(--paper);border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);overflow:hidden}.toolbar{display:grid;grid-template-columns:repeat(6,minmax(145px,1fr));gap:12px;padding:18px;background:var(--paper-2);border-bottom:1px solid var(--line)}
-    label{display:block;margin-bottom:7px;color:var(--muted);font-size:12px;font-weight:800} select{width:100%;min-height:42px;border:1px solid var(--line);border-radius:8px;background:white;color:var(--ink);padding:9px 10px;font:inherit;font-size:14px} select:focus{outline:3px solid rgba(15,118,110,.18);border-color:var(--brand)} option:disabled{color:#aaa}
+    label{display:block;margin-bottom:7px;color:var(--muted);font-size:12px;font-weight:800} select,input{width:100%;min-height:42px;border:1px solid var(--line);border-radius:8px;background:white;color:var(--ink);padding:9px 10px;font:inherit;font-size:14px} select:focus,input:focus{outline:3px solid rgba(15,118,110,.18);border-color:var(--brand)} option:disabled{color:#aaa}.field-hint{display:block;margin-top:6px;color:var(--muted);font-size:11px;line-height:1.35}.timezone-status{margin-top:8px;color:var(--brand-dark);font-size:12px;font-weight:800}
     .result-head{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 18px;border-bottom:1px solid var(--line)}.result-title{font-weight:850}.copy-btn{border:0;border-radius:8px;background:var(--brand);color:white;padding:10px 14px;font-weight:850;cursor:pointer;min-width:135px;text-decoration:none;text-align:center}.copy-btn:hover{background:var(--brand-dark)}.copy-btn.copied{background:var(--ok)}
     .message{min-height:330px;white-space:pre-wrap;padding:22px;font-size:15px;line-height:1.55;background:white}.note{padding:12px 18px;border-top:1px solid var(--line);background:#fff8e9;color:#76520f;font-size:13px;line-height:1.45}.summary{margin-top:22px}.summary h2{margin:0 0 10px;font-size:18px}.internal-control{display:none}.whatsapp-bar{margin-top:22px;background:#0f766e;color:white;border-radius:8px;padding:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:var(--shadow)}.whatsapp-bar strong{display:block;font-size:20px;margin-bottom:4px}.whatsapp-bar span{color:#d9fff7;font-size:14px}.whatsapp-bar a{background:white;color:#0f5f58}.whatsapp-bar a:hover{background:#e8fffa;color:#0f5f58}
     table{width:100%;border-collapse:collapse;overflow:hidden;background:white;border:1px solid var(--line);border-radius:8px} th,td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;font-size:13px} th{background:#eee8dc;color:#4c473f;font-size:12px;text-transform:uppercase} tbody tr:last-child td{border-bottom:0}
@@ -154,27 +154,65 @@
     .language-card .lang-note{display:none}
     @media(max-width:920px){.hero{grid-template-columns:1fr}.hero-offer-card{display:none}.client-benefits{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr}.brand-logo-img{width:min(300px,78vw)}.hero{padding:20px}.hero h1{font-size:36px}.hero-actions a{width:100%;}.whatsapp-bar{align-items:stretch;flex-direction:column}.whatsapp-copy{align-items:flex-start}.isa-avatar{width:56px;height:56px}.offer-summary,.offer-detail{grid-template-columns:1fr}}
     @media(max-width:920px){.language-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}.language-card{min-width:210px;scroll-snap-align:start}.language-gallery-head{display:block}.language-gallery-head span{display:block;text-align:left;margin-top:6px}}
+    .mobile-sticky-cta{display:none}
+    @media(max-width:760px){
+      body{background:#f4f1eb;padding-bottom:86px}
+      main{padding-top:12px;display:flex;flex-direction:column}
+      .hero{order:1}.panel{order:2}.language-gallery{order:3}.whatsapp-bar{order:4}
+      .hero{min-height:0!important;padding:12px 12px 14px;margin-bottom:10px;gap:0;background:#101010}
+      .brand-lockup{margin-bottom:8px;padding:5px 7px}
+      .brand-logo-img{width:min(155px,58vw)}
+      .eyebrow-line{font-size:10px;padding:6px 9px;margin-bottom:8px}
+      .hero h1{font-size:23px;line-height:1.02;margin-top:0}
+      .hero .subtitle{font-size:12px;line-height:1.3;margin-top:6px}
+      .hero-actions{margin-top:10px}
+      .hero-actions a{min-height:42px;padding:10px 12px;font-size:13px}
+      .hero-actions .hero-secondary{display:none}
+      .language-gallery{margin-top:12px;padding:12px}
+      .language-gallery-head h2{font-size:18px}
+      .language-card{min-width:142px;padding:13px 12px}
+      .lang-name{font-size:19px}
+      .toolbar{padding:14px;gap:10px}
+      .toolbar label{font-size:11px}
+      select{min-height:44px;font-size:15px}
+      .field-hint{font-size:10px}
+      .timezone-status{font-size:11px;margin-top:6px}
+      .result-head{padding:12px 14px}
+      .result-title{font-size:16px}
+      .availability-pill{font-size:11px}
+      .message{padding:12px;border-left-width:5px}
+      .offer-summary{gap:8px;margin-bottom:10px}
+      .offer-metric{padding:11px}
+      .offer-metric .metric-value{font-size:22px}
+      .offer-detail{gap:10px}
+      .offer-box{padding:12px}
+      .client-benefits{display:none}
+      .whatsapp-bar{margin-bottom:12px}
+      .mobile-sticky-cta{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:40;background:#e30613;color:#fff;text-align:center;text-decoration:none;border-radius:8px;padding:14px 12px;font-weight:950;box-shadow:0 16px 40px rgba(0,0,0,.28)}
+    }
 
   </style>
 </head>
 <body>
   <main>
-    <header class="hero"><div class="hero-copy"><div class="brand-lockup" aria-label="IKARUGA"><img class="brand-logo-img" src="assets/ikaruga-logo-clean.png" alt="IKARUGA Servicios"></div><div class="eyebrow-line">Inscripciones abiertas</div><h1>Encontrá la mejor oferta para empezar tu curso</h1><p class="subtitle">Elegí idioma, mirá las opciones más convenientes y reservá tu cupo con acompañamiento de ISA.</p><div class="hero-actions"><a class="hero-primary" href="#idiomas-disponibles">Buscar oferta</a><a class="hero-secondary" href="#bottom-whatsapp-link">Hablar con ISA</a></div></div><aside class="hero-offer-card" aria-label="Resumen de oferta"><div><div class="label">Promos activas</div><div class="big">Cupos limitados</div><p>Precios promocionales, cuotas y horarios disponibles para nuevos alumnos.</p><div class="isa-hero"><img src="assets/isa-asesora-web.jpg" alt="ISA, asesora educativa de confianza"><div><strong>ISA</strong><span>Tu asesora educativa de confianza</span></div></div></div><div class="mini-proof"><div>Descuentos seleccionados</div><div>Cuotas sin interés</div><div>Reserva por WhatsApp</div></div></aside></header>
+    <header class="hero"><div class="hero-copy"><div class="brand-lockup" aria-label="IKARUGA"><img class="brand-logo-img" src="assets/ikaruga-logo-clean.png" alt="IKARUGA Servicios"></div><div class="eyebrow-line">Inscripciones abiertas</div><h1>Cotizá tu curso de idiomas con promo activa</h1><p class="subtitle">Elegí idioma, país y horario. Te mostramos la mejor opción disponible para reservar con ISA.</p><div class="hero-actions"><a class="hero-primary" href="#cotizador-panel">Cotizar ahora</a><a class="hero-secondary" href="#bottom-whatsapp-link">Hablar con ISA</a></div></div><aside class="hero-offer-card" aria-label="Resumen de oferta"><div><div class="label">Promos activas</div><div class="big">Cupos limitados</div><p>Precios promocionales, cuotas y horarios disponibles para nuevos alumnos.</p><div class="isa-hero"><img src="assets/isa-asesora-web.jpg" alt="ISA, asesora educativa de confianza"><div><strong>ISA</strong><span>Tu asesora educativa de confianza</span></div></div></div><div class="mini-proof"><div>Mejor oferta disponible</div><div>Cuotas sin interés</div><div>Reserva por WhatsApp</div></div></aside></header>
     <section class="language-gallery" id="idiomas-disponibles" aria-label="Idiomas disponibles"><div class="language-gallery-head"><h2>Idiomas disponibles</h2><span>Tocá un idioma para ver su oferta</span></div><div class="language-grid"><button class="language-card active" type="button" data-idioma="japones" aria-label="Cotizar Japonés"><span class="lang-kicker">Cotizar</span><span class="lang-name">Japonés</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="coreano" aria-label="Cotizar Coreano"><span class="lang-kicker">Cotizar</span><span class="lang-name">Coreano</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="chino" aria-label="Cotizar Chino Mandarín"><span class="lang-kicker">Cotizar</span><span class="lang-name">Chino</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="tailandes" aria-label="Cotizar Tailandés"><span class="lang-kicker">Cotizar</span><span class="lang-name">Tailandés</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="ingles" aria-label="Cotizar Inglés"><span class="lang-kicker">Cotizar</span><span class="lang-name">Inglés</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="aleman" aria-label="Cotizar Alemán"><span class="lang-kicker">Cotizar</span><span class="lang-name">Alemán</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="italiano" aria-label="Cotizar Italiano"><span class="lang-kicker">Cotizar</span><span class="lang-name">Italiano</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="ruso" aria-label="Cotizar Ruso"><span class="lang-kicker">Cotizar</span><span class="lang-name">Ruso</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button></div></section><section class="panel" id="cotizador-panel" aria-label="Cotizador ágil">
       <div class="toolbar">
         <div><label for="ca-idioma">Idioma</label><select id="ca-idioma" onchange="updateCotizadorNiveles()"><option value="japones">Japonés</option><option value="coreano">Coreano</option><option value="chino">Chino Mandarín</option><option value="tailandes">Tailandés</option><option value="ingles">Inglés</option><option value="aleman">Alemán</option><option value="italiano">Italiano</option><option value="ruso">Ruso</option></select></div>
         <div><label for="ca-nivel">Nivel</label><select id="ca-nivel" onchange="updateCotizadorMeses()"></select></div>
         <div><label for="ca-mes">Mes</label><select id="ca-mes" onchange="updateCotizadorAgil()"></select></div>
-        <div><label for="ca-pais">País / moneda</label><select id="ca-pais" onchange="updateCotizadorAgil()"><option value="ARG">Argentina · ARS</option><option value="CHL">Chile · USD</option><option value="COL">Colombia · USD</option><option value="ECU">Ecuador · USD</option><option value="HND">Honduras · USD</option><option value="MEX">México (CDMX) · MXN</option><option value="PRY">Paraguay · USD</option><option value="PER">Perú · USD</option><option value="VEN">Venezuela · USD</option><option value="URY">Uruguay · USD</option><option value="ESP">España · USD</option><option value="CAN">Canadá · USD</option><option value="CRI">Costa Rica · USD</option><option value="BOL">Bolivia · USD</option><option value="PAN">Panamá · USD</option><option value="SLV">El Salvador · USD</option></select></div>
+        <div><label for="ca-pais">País</label><select id="ca-pais" onchange="updateCotizadorPais()"><option value="ARG">Argentina</option><option value="BOL">Bolivia</option><option value="BRA">Brasil</option><option value="CAN">Canadá</option><option value="CHL">Chile</option><option value="COL">Colombia</option><option value="CRI">Costa Rica</option><option value="CUB">Cuba</option><option value="ECU">Ecuador</option><option value="SLV">El Salvador</option><option value="ESP">España</option><option value="USA">Estados Unidos</option><option value="GTM">Guatemala</option><option value="HND">Honduras</option><option value="MEX">México</option><option value="NIC">Nicaragua</option><option value="PAN">Panamá</option><option value="PRY">Paraguay</option><option value="PER">Perú</option><option value="DOM">República Dominicana</option><option value="URY">Uruguay</option><option value="VEN">Venezuela</option><option value="USD">Otro país</option></select></div>
+        <div id="ca-zona-wrap"><label for="ca-zona">¿Desde dónde vas a tomar la clase?</label><select id="ca-zona" onchange="updateCotizadorAgil()"></select><span class="field-hint">Usamos esta zona para mostrar tu horario local.</span><div class="timezone-status" id="ca-timezone-status"></div></div>
         <div class="internal-control"><label for="ca-descuento">Descuento</label><select id="ca-descuento" onchange="updateCotizadorAgil()"></select></div>
         <div class="internal-control"><label for="ca-cuotas">Cuotas</label><select id="ca-cuotas" onchange="updateCotizadorAgil()"><option value="1">1 pago</option><option value="2">2 cuotas</option><option value="3">3 cuotas</option><option value="4" selected>4 cuotas</option></select></div>
       </div>
-      <div class="result-head"><div><div class="result-title">Oferta disponible</div><div class="availability-pill" id="availability-pill">Cupos disponibles</div></div><a class="copy-btn" id="result-whatsapp-link" href="#" target="_blank" rel="noopener">Reservar por WhatsApp</a></div>
+      <div class="result-head"><div><div class="result-title">Mejor oferta encontrada</div><div class="availability-pill" id="availability-pill">Cupos disponibles</div></div><a class="copy-btn" id="result-whatsapp-link" href="#" target="_blank" rel="noopener">Enviar mi cotización a ISA</a></div>
       <div class="message" id="cotizador-agil-resultado"></div>
       <div class="note">Promociones sujetas a disponibilidad de cupos al momento de la reserva.</div>
     </section>
     <section class="client-benefits" aria-label="Beneficios IKARUGA"><article class="client-benefit"><div class="icon">1</div><strong>Elegí tu idioma</strong><span>Japonés, coreano, chino, tailandés, inglés, alemán, italiano o ruso.</span></article><article class="client-benefit"><div class="icon">2</div><strong>Compará la oferta</strong><span>Vas a ver precio promocional, cuotas y horarios disponibles.</span></article><article class="client-benefit"><div class="icon">3</div><strong>Reservá tu cupo</strong><span>ISA, tu asesora educativa de confianza, te acompaña por WhatsApp.</span></article></section>
-    <section class="whatsapp-bar" aria-label="Finalizar por WhatsApp"><div class="whatsapp-copy"><img class="isa-avatar" src="assets/isa-asesora-web.jpg" alt="ISA"><div><strong>¿Querés reservar tu lugar?</strong><span>Escribile a ISA, tu asesora educativa de confianza, y avanzá con la opción que elegiste.</span></div></div><a class="copy-btn" id="bottom-whatsapp-link" href="#" target="_blank" rel="noopener">Reservar por WhatsApp</a></section>
+    <section class="whatsapp-bar" aria-label="Finalizar por WhatsApp"><div class="whatsapp-copy"><img class="isa-avatar" src="assets/isa-asesora-web.jpg" alt="ISA"><div><strong>¿Querés reservar tu lugar?</strong><span>Escribile a ISA, tu asesora educativa de confianza, y avanzá con la opción que elegiste.</span></div></div><a class="copy-btn" id="bottom-whatsapp-link" href="#" target="_blank" rel="noopener">Quiero reservar esta oferta</a></section>
+    <a class="mobile-sticky-cta" id="mobile-whatsapp-link" href="#" target="_blank" rel="noopener">Reservar esta oferta por WhatsApp</a>
   </main>
   <script>
 const horariosARG = {
@@ -248,7 +286,102 @@ const horariosARG = {
   }
 };
 
-const tzDiff = {ARG:0, CHL:-1, COL:-2, ECU:-2, HND:-3, MEX:-3, PRY:-1, PER:-2, VEN:-1, URY:0, ESP:5, CAN:-1, CRI:-3, BOL:-1, PAN:-2, SLV:-3};
+const zonasPorPais = {
+  ARG: [{label:"Argentina", diff:0}],
+  BOL: [{label:"Bolivia", diff:-1}],
+  BRA: [
+    {label:"Brasil / Brasília / São Paulo", diff:0},
+    {label:"Brasil / Manaus", diff:-1},
+    {label:"Brasil / Acre", diff:-2}
+  ],
+  CHL: [{label:"Chile continental", diff:-1}],
+  COL: [{label:"Colombia", diff:-2}],
+  CUB: [{label:"Cuba / La Habana", diff:-1}],
+  ECU: [{label:"Ecuador continental", diff:-2}],
+  GTM: [{label:"Guatemala", diff:-3}],
+  HND: [{label:"Honduras", diff:-3}],
+  MEX: [
+    {label:"CDMX / Centro de México", diff:-3},
+    {label:"Cancún / Quintana Roo", diff:-2},
+    {label:"Tijuana / Baja California", diff:-4}
+  ],
+  PRY: [{label:"Paraguay", diff:-1}],
+  PER: [{label:"Perú", diff:-2}],
+  DOM: [{label:"República Dominicana", diff:-1}],
+  VEN: [{label:"Venezuela", diff:-1}],
+  URY: [{label:"Uruguay", diff:0}],
+  ESP: [
+    {label:"España peninsular / Madrid", diff:5},
+    {label:"Islas Canarias", diff:4}
+  ],
+  CAN: [
+    {label:"Toronto / Ottawa / Montreal", diff:-1},
+    {label:"Winnipeg / Manitoba", diff:-2},
+    {label:"Calgary / Edmonton", diff:-3},
+    {label:"Vancouver / British Columbia", diff:-4},
+    {label:"Halifax / Atlántico", diff:0}
+  ],
+  CRI: [{label:"Costa Rica", diff:-3}],
+  NIC: [{label:"Nicaragua", diff:-3}],
+  PAN: [{label:"Panamá", diff:-2}],
+  SLV: [{label:"El Salvador", diff:-3}],
+  USA: [
+    {label:"Estados Unidos Este / Miami / New York", diff:-1},
+    {label:"Estados Unidos Central / Chicago / Texas", diff:-2},
+    {label:"Estados Unidos Montaña / Denver", diff:-3},
+    {label:"Estados Unidos Oeste / Los Ángeles", diff:-4}
+  ],
+  USD: [
+    {label:"Horario de mi dispositivo", diff:null},
+    {label:"España peninsular / Europa central", diff:5},
+    {label:"Europa occidental / Reino Unido", diff:4},
+    {label:"Estados Unidos Este / Miami / New York", diff:-1},
+    {label:"Estados Unidos Oeste / Los Ángeles", diff:-4},
+    {label:"Japón / Corea", diff:10},
+    {label:"China / Tailandia", diff:11}
+  ]
+};
+
+function getDeviceTimezoneDiff() {
+  return Math.round((-new Date().getTimezoneOffset() / 60) - (-3));
+}
+
+function getZonasPais(pais) {
+  return zonasPorPais[pais] || zonasPorPais.USD;
+}
+
+function updateZonasHorario() {
+  const pais = document.getElementById('ca-pais')?.value || 'ARG';
+  const zonaSelect = document.getElementById('ca-zona');
+  if (!zonaSelect) return;
+  const zonas = getZonasPais(pais);
+  const current = zonaSelect.value;
+  zonaSelect.innerHTML = zonas.map((zona, index) => `<option value="${index}">${zona.label}</option>`).join('');
+  if (zonas[Number(current)]) zonaSelect.value = current;
+}
+
+function updateCotizadorPais() {
+  updateZonasHorario();
+  updateCotizadorAgil();
+}
+
+function getZonaSeleccionada() {
+  const pais = document.getElementById('ca-pais')?.value || 'ARG';
+  const zonaSelect = document.getElementById('ca-zona');
+  const zonas = getZonasPais(pais);
+  const index = Number(zonaSelect?.value || 0);
+  return zonas[index] || zonas[0];
+}
+
+function getHorarioDiff() {
+  const zona = getZonaSeleccionada();
+  return zona.diff == null ? getDeviceTimezoneDiff() : zona.diff;
+}
+
+function getHorarioStatus() {
+  const zona = getZonaSeleccionada();
+  return `Horario ajustado para ${zona.label}.`;
+}
 
 function convertHorarios(nivHorarios, diff) {
   if (diff === 0) return nivHorarios;
@@ -259,6 +392,23 @@ function convertHorarios(nivHorarios, diff) {
       return `${String(nh1).padStart(2,'0')}:${m1} a ${String(nh2).padStart(2,'0')}:${m2}`;
     });
   });
+}
+
+function limpiarEtiquetaHorario(horario) {
+  return horario.replace(/^Comisión\s+[^·]+·\s+Grupo\s+\d+\s+·\s*/i, '');
+}
+
+function deduplicarHorarios(horarios) {
+  const vistos = new Set();
+  const unicos = [];
+  horarios.forEach(horario => {
+    const limpio = limpiarEtiquetaHorario(horario);
+    const key = limpio.toLowerCase().replace(/\s+/g, ' ').trim();
+    if (vistos.has(key)) return;
+    vistos.add(key);
+    unicos.push(limpio);
+  });
+  return unicos;
 }
 
 const tablaDescuentos = {
@@ -400,9 +550,16 @@ const nivelesPorIdioma = {
   ruso:      [{nivel:"Ruso 1",cierre:"promo"}]
 };
 
-const paisNombres = {ARG:"Argentina",CHL:"Chile",COL:"Colombia",ECU:"Ecuador",HND:"Honduras",MEX:"México (CDMX)",PRY:"Paraguay",PER:"Perú",VEN:"Venezuela",URY:"Uruguay",ESP:"España",CAN:"Canadá",CRI:"Costa Rica",BOL:"Bolivia",PAN:"Panamá",SLV:"El Salvador"};
+const paisNombres = {ARG:"Argentina",BOL:"Bolivia",BRA:"Brasil",CAN:"Canadá",CHL:"Chile",COL:"Colombia",CRI:"Costa Rica",CUB:"Cuba",ECU:"Ecuador",SLV:"El Salvador",ESP:"España",USA:"Estados Unidos",GTM:"Guatemala",HND:"Honduras",MEX:"México",NIC:"Nicaragua",PAN:"Panamá",PRY:"Paraguay",PER:"Perú",DOM:"República Dominicana",URY:"Uruguay",VEN:"Venezuela",USD:"Otro país"};
 
 const idiomaNombres = {japones:"Japonés",coreano:"Coreano",chino:"Chino Mandarín",tailandes:"Tailandés",ingles:"Inglés",aleman:"Alemán",italiano:"Italiano",ruso:"Ruso"};
+
+function getPaisLabel(pais) {
+  const paisBase = paisNombres[pais] || pais || 'tu país';
+  const zona = getZonaSeleccionada();
+  if (zona?.label === paisBase) return paisBase;
+  return zona?.label ? `${paisBase} · ${zona.label}` : paisBase;
+}
 
 function horarioTieneCupo(horario) {
   return !/(cupos?\s+completos?|completo|curso\s+cerrado|cerrado)/i.test(horario);
@@ -494,7 +651,7 @@ function buildWhatsAppUrl(text) {
 function setWhatsAppOffer(text) {
   currentWhatsAppText = text;
   const url = buildWhatsAppUrl(text);
-  ['result-whatsapp-link', 'bottom-whatsapp-link'].forEach(id => {
+  ['result-whatsapp-link', 'bottom-whatsapp-link', 'mobile-whatsapp-link'].forEach(id => {
     const link = document.getElementById(id);
     if (!link) return;
     link.setAttribute('href', url);
@@ -512,7 +669,7 @@ function handleWhatsAppReservation(event) {
       idioma: document.getElementById('ca-idioma')?.value || '',
       nivel: document.getElementById('ca-nivel')?.value || '',
       mes: document.getElementById('ca-mes')?.value || '',
-      pais: document.getElementById('ca-pais')?.value || ''
+      pais: getPaisLabel(document.getElementById('ca-pais')?.value || '')
     });
   }
   if (navigator.clipboard?.writeText) {
@@ -567,6 +724,9 @@ function updateCotizadorAgil() {
   const nivel = document.getElementById('ca-nivel')?.value || 'Japonés 1';
   const mes = document.getElementById('ca-mes')?.value || 'todos';
   const pais = document.getElementById('ca-pais')?.value || 'ARG';
+  const paisLabel = getPaisLabel(pais);
+  const timezoneStatus = document.getElementById('ca-timezone-status');
+  if (timezoneStatus) timezoneStatus.textContent = getHorarioStatus(pais);
   const descSel = document.getElementById('ca-descuento');
   const descOpts = getDescuentosOferta(idioma, nivel, mes);
   if (descSel && descOpts.length) {
@@ -577,7 +737,8 @@ function updateCotizadorAgil() {
   if (!target) return;
 
   const horariosBase = filtrarHorariosPorMes(horariosARG[idioma]?.[nivel] || [], mes);
-  const horariosLocal = convertHorarios(horariosBase, tzDiff[pais] ?? 0);
+  const diffHorario = getHorarioDiff(pais);
+  const horariosLocal = deduplicarHorarios(convertHorarios(horariosBase, diffHorario));
   const p = getCotizadorPrecio(idioma, nivel, pais, descKey, mes);
   const maxCuotas = getCotizadorMaxCuotas(idioma, nivel, mes);
   const cuotasSel = document.getElementById('ca-cuotas');
@@ -600,7 +761,7 @@ function updateCotizadorAgil() {
 Idioma: *${idiomaNombres[idioma] || idioma}*
 Nivel: *${nivel}*
 Mes de inicio: *${mesLabel}*
-País: *${paisNombres[pais]}*
+País / horario: *${paisLabel}*
 
 Beneficio: *${p.descuento} OFF*
 Precio promocional: *${p.simbolo}${p.precio_hoy}*
@@ -613,24 +774,24 @@ ${lineasHorarios}`;
 
   target.innerHTML = `
     <div class="offer-summary">
-      <div class="offer-metric strong"><span class="metric-label">Beneficio</span><span class="metric-value">${escapeHtml(p.descuento)} OFF</span></div>
+      <div class="offer-metric strong"><span class="metric-label">Precio promocional</span><span class="metric-value">${escapeHtml(p.simbolo)}${escapeHtml(p.precio_hoy)}</span></div>
       <div class="offer-metric"><span class="metric-label">Cuotas sin interés</span><span class="metric-value">${cuotas} x ${escapeHtml(p.simbolo)}${escapeHtml(cuotaCalc)}</span></div>
       <div class="offer-metric"><span class="metric-label">Disponibilidad</span><span class="metric-value">${escapeHtml(cuposTexto)}</span></div>
     </div>
     <div class="offer-detail">
       <div class="offer-box">
         <h3>${escapeHtml(nivel)} · ${escapeHtml(mesLabel)}</h3>
-        <p><strong>Precio promocional:</strong> ${escapeHtml(p.simbolo)}${escapeHtml(p.precio_hoy)}</p>
+        <p><strong>Beneficio aplicado:</strong> ${escapeHtml(p.descuento)} OFF</p>
         <p><strong>Valor regular:</strong> ${escapeHtml(p.simbolo)}${escapeHtml(p.precio_reg)}</p>
         <p>Incluye cursada en vivo y certificación UAI en los cursos correspondientes.</p>
       </div>
       <div class="offer-box">
-        <h3>Horarios disponibles (${escapeHtml(paisNombres[pais])})</h3>
+        <h3>Horarios disponibles (${escapeHtml(paisLabel)})</h3>
         ${horariosHtml}
       </div>
     </div>
     <div class="offer-box" style="margin-top:14px">
-      Para reservar, tocá el botón de WhatsApp y continuá con ISA, tu asesora educativa de confianza.
+      Para avanzar, tocá "Enviar mi cotización a ISA" y te llega la opción exacta por WhatsApp.
     </div>`;
 
   const whatsappText = `Hola ISA, vengo del cotizador de IKARUGA y quiero reservar esta oferta.\n\n${ofertaTexto}\n\n¿Me ayudás a avanzar con la inscripción?`;
@@ -679,6 +840,7 @@ function initTarjetasIdioma() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  updateZonasHorario();
   updateCotizadorNiveles();
   initTarjetasIdioma();
   renderResumenCursos();
@@ -686,6 +848,9 @@ document.addEventListener('DOMContentLoaded', () => {
     handleWhatsAppReservation.call(event.currentTarget, event);
   });
   document.getElementById('bottom-whatsapp-link')?.addEventListener('click', (event) => {
+    handleWhatsAppReservation.call(event.currentTarget, event);
+  });
+  document.getElementById('mobile-whatsapp-link')?.addEventListener('click', (event) => {
     handleWhatsAppReservation.call(event.currentTarget, event);
   });
 });
