@@ -144,6 +144,7 @@
     .language-gallery-head{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:14px;color:#fff}
     .language-gallery-head h2{margin:0;font-size:24px;text-transform:uppercase;line-height:1}
     .language-gallery-head span{font-size:13px;color:#f4f1eb;text-align:right}
+    .mobile-swipe-hint{display:none}
     .language-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
     .language-card{position:relative;display:flex;min-height:112px;border:1px solid rgba(255,255,255,.14);border-radius:8px;overflow:hidden;background:#fff;text-decoration:none;color:#101010;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);padding:14px;text-align:left;cursor:pointer;font:inherit;flex-direction:column;justify-content:space-between}
     .language-card:before{content:"";position:absolute;right:-34px;top:-42px;width:120px;height:120px;border-radius:50%;background:#e30613;opacity:.12}
@@ -152,6 +153,10 @@
     .language-card .lang-kicker{position:relative;z-index:1;display:inline-flex;align-self:flex-start;background:#101010;color:#fff;padding:6px 8px;font-size:10px;font-weight:950;text-transform:uppercase;letter-spacing:.04em}
     .language-card .lang-name{position:relative;z-index:1;display:block;margin-top:16px;color:#e30613;font-size:clamp(24px,2.7vw,34px);line-height:.92;font-weight:950;text-transform:uppercase;letter-spacing:0}
     .language-card .lang-note{display:none}
+    .proof-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:14px;background:#fff;border-top:1px solid #eee}
+    .proof-item{border:1px solid #eadfda;border-radius:8px;background:#fffaf7;padding:12px}
+    .proof-item strong{display:block;color:#101010;font-size:13px;text-transform:uppercase;line-height:1.15}
+    .proof-item span{display:block;margin-top:5px;color:#655d56;font-size:12px;line-height:1.35}
     @media(max-width:920px){.hero{grid-template-columns:1fr}.hero-offer-card{display:none}.client-benefits{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr}.brand-logo-img{width:min(300px,78vw)}.hero{padding:20px}.hero h1{font-size:36px}.hero-actions a{width:100%;}.whatsapp-bar{align-items:stretch;flex-direction:column}.whatsapp-copy{align-items:flex-start}.isa-avatar{width:56px;height:56px}.offer-summary,.offer-detail{grid-template-columns:1fr}}
     @media(max-width:920px){.language-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}.language-card{min-width:210px;scroll-snap-align:start}.language-gallery-head{display:block}.language-gallery-head span{display:block;text-align:left;margin-top:6px}}
     .mobile-sticky-cta{display:none}
@@ -169,9 +174,17 @@
       .hero-actions a{min-height:42px;padding:10px 12px;font-size:13px}
       .hero-actions .hero-secondary{display:none}
       .language-gallery{margin-top:12px;padding:12px}
+      .language-gallery-head{margin-bottom:8px}
       .language-gallery-head h2{font-size:18px}
-      .language-card{min-width:142px;padding:13px 12px}
-      .lang-name{font-size:19px}
+      .language-gallery-head span{display:none}
+      .mobile-swipe-hint{display:block;color:#f4f1eb;font-size:11px;margin:-2px 0 10px;opacity:.84}
+      .language-grid{gap:8px;padding:0 2px 2px;scrollbar-width:none}
+      .language-grid::-webkit-scrollbar{display:none}
+      .language-card{min-width:calc((100vw - 48px) / 2.3);min-height:96px;padding:10px 10px;border-radius:7px}
+      .language-card:before{width:88px;height:88px;right:-26px;top:-24px}
+      .language-card:after{height:5px}
+      .language-card .lang-kicker{font-size:10px;padding:5px 7px}
+      .language-card .lang-name{font-size:18px;margin-top:18px;line-height:.95}
       .toolbar{padding:14px;gap:10px}
       .toolbar label{font-size:11px}
       select{min-height:44px;font-size:15px}
@@ -186,6 +199,10 @@
       .offer-metric .metric-value{font-size:22px}
       .offer-detail{gap:10px}
       .offer-box{padding:12px}
+      .proof-strip{grid-template-columns:1fr 1fr;padding:12px;gap:8px}
+      .proof-item{padding:10px}
+      .proof-item strong{font-size:11px}
+      .proof-item span{font-size:11px}
       .client-benefits{display:none}
       .whatsapp-bar{margin-bottom:12px}
       .mobile-sticky-cta{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:40;background:#e30613;color:#fff;text-align:center;text-decoration:none;border-radius:8px;padding:14px 12px;font-weight:950;box-shadow:0 16px 40px rgba(0,0,0,.28)}
@@ -196,7 +213,7 @@
 <body>
   <main>
     <header class="hero"><div class="hero-copy"><div class="brand-lockup" aria-label="IKARUGA"><img class="brand-logo-img" src="assets/ikaruga-logo-clean.png" alt="IKARUGA Servicios"></div><div class="eyebrow-line">Inscripciones abiertas</div><h1>Cotizá tu curso de idiomas con promo activa</h1><p class="subtitle">Elegí idioma, país y horario. Te mostramos la mejor opción disponible para reservar con ISA.</p><div class="hero-actions"><a class="hero-primary" href="#cotizador-panel">Cotizar ahora</a><a class="hero-secondary" href="#bottom-whatsapp-link">Hablar con ISA</a></div></div><aside class="hero-offer-card" aria-label="Resumen de oferta"><div><div class="label">Promos activas</div><div class="big">Cupos limitados</div><p>Precios promocionales, cuotas y horarios disponibles para nuevos alumnos.</p><div class="isa-hero"><img src="assets/isa-asesora-web.jpg" alt="ISA, asesora educativa de confianza"><div><strong>ISA</strong><span>Tu asesora educativa de confianza</span></div></div></div><div class="mini-proof"><div>Mejor oferta disponible</div><div>Cuotas sin interés</div><div>Reserva por WhatsApp</div></div></aside></header>
-    <section class="language-gallery" id="idiomas-disponibles" aria-label="Idiomas disponibles"><div class="language-gallery-head"><h2>Idiomas disponibles</h2><span>Tocá un idioma para ver su oferta</span></div><div class="language-grid"><button class="language-card active" type="button" data-idioma="japones" aria-label="Cotizar Japonés"><span class="lang-kicker">Cotizar</span><span class="lang-name">Japonés</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="coreano" aria-label="Cotizar Coreano"><span class="lang-kicker">Cotizar</span><span class="lang-name">Coreano</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="chino" aria-label="Cotizar Chino Mandarín"><span class="lang-kicker">Cotizar</span><span class="lang-name">Chino</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="tailandes" aria-label="Cotizar Tailandés"><span class="lang-kicker">Cotizar</span><span class="lang-name">Tailandés</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="ingles" aria-label="Cotizar Inglés"><span class="lang-kicker">Cotizar</span><span class="lang-name">Inglés</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="aleman" aria-label="Cotizar Alemán"><span class="lang-kicker">Cotizar</span><span class="lang-name">Alemán</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="italiano" aria-label="Cotizar Italiano"><span class="lang-kicker">Cotizar</span><span class="lang-name">Italiano</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="ruso" aria-label="Cotizar Ruso"><span class="lang-kicker">Cotizar</span><span class="lang-name">Ruso</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button></div></section><section class="panel" id="cotizador-panel" aria-label="Cotizador ágil">
+    <section class="language-gallery" id="idiomas-disponibles" aria-label="Idiomas disponibles"><div class="language-gallery-head"><h2>Idiomas disponibles</h2><span>Tocá un idioma para ver su oferta</span></div><div class="mobile-swipe-hint">Deslizá para ver más idiomas</div><div class="language-grid"><button class="language-card active" type="button" data-idioma="japones" aria-label="Cotizar Japonés"><span class="lang-kicker">Cotizar</span><span class="lang-name">Japonés</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="coreano" aria-label="Cotizar Coreano"><span class="lang-kicker">Cotizar</span><span class="lang-name">Coreano</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="chino" aria-label="Cotizar Chino Mandarín"><span class="lang-kicker">Cotizar</span><span class="lang-name">Chino</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="tailandes" aria-label="Cotizar Tailandés"><span class="lang-kicker">Cotizar</span><span class="lang-name">Tailandés</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="ingles" aria-label="Cotizar Inglés"><span class="lang-kicker">Cotizar</span><span class="lang-name">Inglés</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="aleman" aria-label="Cotizar Alemán"><span class="lang-kicker">Cotizar</span><span class="lang-name">Alemán</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="italiano" aria-label="Cotizar Italiano"><span class="lang-kicker">Cotizar</span><span class="lang-name">Italiano</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button><button class="language-card" type="button" data-idioma="ruso" aria-label="Cotizar Ruso"><span class="lang-kicker">Cotizar</span><span class="lang-name">Ruso</span><span class="lang-note">Ver ofertas y horarios disponibles.</span></button></div></section><section class="panel" id="cotizador-panel" aria-label="Cotizador ágil">
       <div class="toolbar">
         <div><label for="ca-idioma">Idioma</label><select id="ca-idioma" onchange="updateCotizadorNiveles()"><option value="japones">Japonés</option><option value="coreano">Coreano</option><option value="chino">Chino Mandarín</option><option value="tailandes">Tailandés</option><option value="ingles">Inglés</option><option value="aleman">Alemán</option><option value="italiano">Italiano</option><option value="ruso">Ruso</option></select></div>
         <div><label for="ca-nivel">Nivel</label><select id="ca-nivel" onchange="updateCotizadorMeses()"></select></div>
@@ -209,6 +226,12 @@
       <div class="result-head"><div><div class="result-title">Mejor oferta encontrada</div><div class="availability-pill" id="availability-pill">Cupos disponibles</div></div><a class="copy-btn" id="result-whatsapp-link" href="#" target="_blank" rel="noopener">Enviar mi cotización a ISA</a></div>
       <div class="message" id="cotizador-agil-resultado"></div>
       <div class="note">Promociones sujetas a disponibilidad de cupos al momento de la reserva.</div>
+      <div class="proof-strip" aria-label="Beneficios incluidos">
+        <div class="proof-item"><strong>Clases en vivo</strong><span>Aprendés con cursada online y acompañamiento durante el proceso.</span></div>
+        <div class="proof-item"><strong>Certificación UAI</strong><span>Disponible según el curso elegido y la comisión seleccionada.</span></div>
+        <div class="proof-item"><strong>Horario local</strong><span>El cotizador adapta la comisión al país y zona horaria del alumno.</span></div>
+        <div class="proof-item"><strong>Reserva asistida</strong><span>ISA recibe tu oferta exacta por WhatsApp para ayudarte a avanzar.</span></div>
+      </div>
     </section>
     <section class="client-benefits" aria-label="Beneficios IKARUGA"><article class="client-benefit"><div class="icon">1</div><strong>Elegí tu idioma</strong><span>Japonés, coreano, chino, tailandés, inglés, alemán, italiano o ruso.</span></article><article class="client-benefit"><div class="icon">2</div><strong>Compará la oferta</strong><span>Vas a ver precio promocional, cuotas y horarios disponibles.</span></article><article class="client-benefit"><div class="icon">3</div><strong>Reservá tu cupo</strong><span>ISA, tu asesora educativa de confianza, te acompaña por WhatsApp.</span></article></section>
     <section class="whatsapp-bar" aria-label="Finalizar por WhatsApp"><div class="whatsapp-copy"><img class="isa-avatar" src="assets/isa-asesora-web.jpg" alt="ISA"><div><strong>¿Querés reservar tu lugar?</strong><span>Escribile a ISA, tu asesora educativa de confianza, y avanzá con la opción que elegiste.</span></div></div><a class="copy-btn" id="bottom-whatsapp-link" href="#" target="_blank" rel="noopener">Quiero reservar esta oferta</a></section>
@@ -808,7 +831,7 @@ ${lineasHorarios}`;
       </div>
     </div>
     <div class="offer-box" style="margin-top:14px">
-      Para avanzar, tocá "Enviar mi cotización a ISA" y te llega la opción exacta por WhatsApp.
+      Esta opción combina precio promocional, cupo disponible y horario local para que puedas decidir rápido. Para avanzar, tocá "Enviar mi cotización a ISA".
     </div>`;
 
   const whatsappText = `Hola ISA, vengo del cotizador de IKARUGA y quiero reservar esta oferta.\n\n${ofertaTexto}\n\n¿Me ayudás a avanzar con la inscripción?`;
