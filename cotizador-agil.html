@@ -224,6 +224,55 @@
       .mobile-sticky-cta{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:40;background:#e30613;color:#fff;text-align:center;text-decoration:none;border-radius:8px;padding:14px 12px;font-weight:950;box-shadow:0 16px 40px rgba(0,0,0,.28)}
     }
 
+    /* Ajustes finales para PC, iOS y Android */
+    html{scroll-padding-top:14px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+    body{overflow-x:hidden}
+    button,a,select{touch-action:manipulation;-webkit-tap-highlight-color:rgba(227,6,19,.18)}
+    .copy-btn,.hero-actions a,.mobile-sticky-cta{min-height:44px}
+    @media(min-width:1024px){
+      main{width:min(1160px,calc(100% - 36px))}
+      .toolbar{grid-template-columns:repeat(12,minmax(0,1fr));align-items:start}
+      .toolbar>div{grid-column:span 3}
+      #ca-zona-wrap{grid-column:span 6}
+      .message{min-height:300px}
+      .games-promo{grid-template-columns:minmax(0,1fr) 240px}
+    }
+    @media(min-width:761px) and (max-width:1023px){
+      main{padding:18px 14px 34px}
+      .hero{grid-template-columns:1fr;padding:20px}
+      .hero-offer-card{display:none}
+      .toolbar{grid-template-columns:repeat(2,minmax(0,1fr))}
+      #ca-zona-wrap{grid-column:1 / -1}
+      .language-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+      .games-promo{grid-template-columns:1fr 210px}
+    }
+    @media(max-width:760px){
+      html{scroll-padding-top:10px}
+      body{padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+      main{width:100%;max-width:480px;margin:0 auto;padding-left:10px;padding-right:10px}
+      .toolbar{grid-template-columns:1fr}
+      .toolbar>div,#ca-zona-wrap{grid-column:auto}
+      select,input{font-size:16px;min-height:48px;padding:10px 11px}
+      .copy-btn,.hero-actions a,.mobile-sticky-cta{min-height:48px}
+      .result-head .copy-btn{display:none}
+      .mobile-sticky-cta{left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));padding:15px 12px}
+      .whatsapp-bar{display:none}
+      .games-promo-action small{text-align:left}
+    }
+    @media(max-width:380px){
+      main{padding-left:8px;padding-right:8px}
+      .hero h1{font-size:21px}
+      .brand-logo-img{width:min(145px,56vw)}
+      .language-card{min-width:calc((100vw - 42px) / 2.15)}
+      .language-card .lang-name{font-size:16px}
+      .offer-metric .metric-value{font-size:20px}
+      .games-promo h2{font-size:17px}
+    }
+    @media(hover:hover) and (pointer:fine){
+      .copy-btn,.hero-actions a,.language-card{transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease}
+      .copy-btn:hover,.hero-actions a:hover,.language-card:hover{transform:translateY(-1px)}
+    }
+
   </style>
 </head>
 <body>
