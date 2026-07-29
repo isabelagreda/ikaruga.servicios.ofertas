@@ -162,6 +162,7 @@
     .games-promo-kicker{display:inline-flex;background:#101010;color:#fff;padding:6px 8px;font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
     .games-promo h2{margin:0;font-size:23px;line-height:1.05;text-transform:uppercase;letter-spacing:0}
     .games-promo p{margin:8px 0 0;color:#5f5750;font-size:13px;line-height:1.45;max-width:720px}
+    .games-promo-detail{font-weight:800;color:#101010!important}
     .games-promo-points{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 0}
     .games-promo-points span{background:#fff7f7;border:1px solid #f1d0d2;color:#101010;border-radius:999px;padding:7px 9px;font-size:11px;font-weight:850;line-height:1.1}
     .games-promo-action{display:grid;gap:8px;align-content:center}
@@ -298,7 +299,7 @@
         <div class="proof-item"><strong>Acompañamiento de ISA</strong><span>ISA recibe tu opción exacta por WhatsApp para ayudarte a avanzar.</span></div>
       </div>
     </section>
-    <section class="games-promo" aria-label="Promo curso de programación de videojuegos"><div class="games-promo-copy"><div class="games-promo-kicker">También en IKARUGA</div><h2>Programación de videojuegos 3D con Unity 6</h2><p>Si además de idiomas te interesa crear videojuegos, podés consultar por esta formación técnica para iniciar en Unity 6, C# y desarrollo de un proyecto jugable en PC.</p><div class="games-promo-points"><span>4 meses</span><span>48 horas reloj</span><span>Unity 6 + C#</span><span>Proyecto final</span><span>Windows 10+ y 15 GB libres</span></div></div><div class="games-promo-action"><a class="copy-btn" id="games-whatsapp-link" href="#" target="_blank" rel="noopener">Consultar con ISA</a><small>Te responde con comisión, beneficio vigente y requisitos.</small></div></section>
+    <section class="games-promo" aria-label="Promo curso de programación de videojuegos"><div class="games-promo-copy"><div class="games-promo-kicker">También en IKARUGA</div><h2>Programación de videojuegos 3D con Unity 6</h2><p>Si además de idiomas te interesa crear videojuegos, podés consultar por esta formación técnica para iniciar en Unity 6, C# y desarrollo de un proyecto jugable en PC.</p><div class="games-promo-points"><span>4 meses</span><span>48 horas reloj</span><span>Unity 6 + C#</span><span>Proyecto final</span><span>Windows 10+ y 15 GB libres</span></div><p class="games-promo-detail" id="games-promo-detail">Horario y valor promocional disponibles al consultar con ISA.</p></div><div class="games-promo-action"><a class="copy-btn" id="games-whatsapp-link" href="#" target="_blank" rel="noopener">Consultar con ISA</a><small>Te responde con comisión, beneficio vigente y requisitos.</small></div></section>
     <section class="client-benefits" aria-label="Beneficios IKARUGA"><article class="client-benefit"><div class="icon">1</div><strong>Elegí tu idioma</strong><span>Japonés, coreano, chino, tailandés, inglés, alemán, italiano o ruso.</span></article><article class="client-benefit"><div class="icon">2</div><strong>Revisá tu opción</strong><span>Vas a ver precio promocional, cuotas y horarios adaptados a tu país.</span></article><article class="client-benefit"><div class="icon">3</div><strong>Avanzá con ISA</strong><span>Tu asesora educativa recibe la opción elegida para acompañarte por WhatsApp.</span></article></section>
     <section class="whatsapp-bar" aria-label="Finalizar por WhatsApp"><div class="whatsapp-copy"><img class="isa-avatar" src="assets/isa-asesora-web.jpg" alt="ISA"><div><strong>¿Querés avanzar con tu curso?</strong><span>Enviá tu opción a ISA, tu asesora educativa de confianza, para recibir acompañamiento en la inscripción.</span></div></div><a class="copy-btn" id="bottom-whatsapp-link" href="#" target="_blank" rel="noopener">Enviar esta opción a ISA</a></section>
     <a class="mobile-sticky-cta" id="mobile-whatsapp-link" href="#" target="_blank" rel="noopener">Enviar esta opción a ISA</a>
@@ -309,6 +310,7 @@ const horariosARG = {
     "Japonés 1": [
       "Comisión R · Grupo 1 · Sábados de 16:00 a 19:00 hs. (Inicia 18/07 · Finaliza 10/10 · Julio 4 módulos)",
       "Comisión R · Grupo 2 · Sábados de 16:00 a 19:00 hs. (Inicia 18/07 · Finaliza 10/10 · Julio 4 módulos)",
+      "Comisión W · Miércoles de 21:00 a 00:00 hs. (Inicia 19/08 · Finaliza 09/12 · Agosto 5 módulos)",
       "Comisión T · Domingos de 14:00 a 17:00 hs. (Inicia 20/09 · Finaliza 13/12 · Septiembre 4 módulos)",
       "Comisión U · Lunes de 21:00 a 00:00 hs. (Inicia 21/09 · Finaliza 14/12 · Septiembre 4 módulos)",
       "Comisión V · Miércoles de 21:00 a 00:00 hs. (Inicia 21/10 · Finaliza 13/01 · Octubre 4 módulos)"
@@ -363,7 +365,10 @@ const horariosARG = {
     "Inglés A2": ["Comisión A · Miércoles de 20:00 a 22:00 hs. (Inicia 19/08 · Finaliza 11/11 · Agosto 4 módulos)"]
   },
   aleman: {
-    "Alemán A1": ["Comisión B · Sábados de 16:00 a 19:00 hs. (Inicia 22/08 · Finaliza 12/12 · Agosto 5 módulos)"],
+    "Alemán A1": [
+      "Comisión B · Sábados de 16:00 a 19:00 hs. (Inicia 22/08 · Finaliza 12/12 · Agosto 5 módulos)",
+      "Comisión C · Miércoles de 21:00 a 00:00 hs. (Inicia 23/09 · Finaliza 09/12 · Septiembre 4 módulos)"
+    ],
     "Alemán A2": ["Comisión B · Domingos de 14:00 a 17:00 hs. (Inicia 23/08 · Finaliza 13/12 · Agosto 5 módulos)"]
   },
   italiano: {
@@ -626,7 +631,7 @@ function getDescuentosDisponibles(idioma, nivel) {
 }
 
 function getDescuentosOferta(idioma, nivel, mes) {
-  const maxPct = (mes === 'septiembre' || mes === 'octubre') ? 30 : 40;
+  const maxPct = ((mes === 'septiembre' || mes === 'octubre') && ['ingles','italiano'].includes(idioma)) ? 30 : 40;
   return getDescuentosDisponibles(idioma, nivel)
     .filter(o => parseInt(o.pct, 10) <= maxPct);
 }
@@ -743,7 +748,23 @@ function updateCotizadorDescuentos() {
 
 const WHATSAPP_LINK = 'https://wa.me/message/X7F7CLTC7732D1';
 const WHATSAPP_PHONE = '5493413483263';
-const VIDEOJUEGOS_WHATSAPP_TEXT = `Hola ISA, vengo del cotizador de IKARUGA y quiero consultar por la promo de difusión del curso de Programación de Videojuegos 3D con Unity 6.
+const VIDEOJUEGOS_HORARIOS_ARG = [
+  'Comisión A · Domingos de 14:00 a 17:00 hs. (Inicia 20/09 · Finaliza 13/12 · Septiembre 4 módulos)'
+];
+const VIDEOJUEGOS_PRECIOS = {
+  ARG: { simbolo: '$', reg: '790.000', d40: '474.000' },
+  MEX: { simbolo: '$', reg: '8.030', d40: '4.810' },
+  USD: { simbolo: 'USD ', reg: '407', d40: '243' }
+};
+
+function getVideojuegosOfertaText() {
+  const pais = document.getElementById('ca-pais')?.value || 'ARG';
+  const paisLabel = getPaisLabel(pais);
+  const precioKey = getPaisKey(pais);
+  const precio = VIDEOJUEGOS_PRECIOS[precioKey] || VIDEOJUEGOS_PRECIOS.USD;
+  const horarios = deduplicarHorarios(convertHorarios(VIDEOJUEGOS_HORARIOS_ARG, getHorarioDiff()));
+  const horarioTexto = horarios.map(h => `- ${h}`).join('\n');
+  return `Hola ISA, vengo del cotizador de IKARUGA y quiero consultar por la promo de difusión del curso de Programación de Videojuegos 3D con Unity 6.
 
 Me interesa recibir información sobre:
 - Comisión disponible
@@ -751,7 +772,18 @@ Me interesa recibir información sobre:
 - Forma de pago
 - Requisitos para cursar
 
-Vi que es una formación de 4 meses / 48 horas reloj, con Unity 6, C# y proyecto final ejecutable en PC. ¿Me ayudás con los detalles?`;
+Datos que vi en la página:
+- País/zona: ${paisLabel}
+- Horario disponible:
+${horarioTexto}
+- Valor regular: ${precio.simbolo}${precio.reg}
+- Promo de referencia 40% OFF: ${precio.simbolo}${precio.d40}
+- Duración: 4 meses / 48 horas reloj
+- Herramientas: Unity 6 + C#
+- Requisitos: Windows 10+ y 15 GB libres
+
+¿Me ayudás con los detalles para avanzar?`;
+}
 let currentWhatsAppText = '';
 
 function buildWhatsAppUrl(text) {
@@ -805,16 +837,31 @@ function handleWhatsAppReservation(event) {
 function initVideojuegosPromo() {
   const link = document.getElementById('games-whatsapp-link');
   if (!link) return;
-  link.setAttribute('href', buildWhatsAppUrl(VIDEOJUEGOS_WHATSAPP_TEXT));
-  link.setAttribute('data-offer-message', VIDEOJUEGOS_WHATSAPP_TEXT);
+  updateVideojuegosPromo();
   link.addEventListener('click', () => {
-    link.setAttribute('href', buildWhatsAppUrl(VIDEOJUEGOS_WHATSAPP_TEXT));
+    updateVideojuegosPromo();
     if (typeof gtag === 'function') {
       gtag('event', 'whatsapp_videojuegos_click', {
         curso: 'Programación de Videojuegos 3D con Unity 6'
       });
     }
   });
+}
+
+function updateVideojuegosPromo() {
+  const link = document.getElementById('games-whatsapp-link');
+  const detail = document.getElementById('games-promo-detail');
+  const pais = document.getElementById('ca-pais')?.value || 'ARG';
+  const paisLabel = getPaisLabel(pais);
+  const precioKey = getPaisKey(pais);
+  const precio = VIDEOJUEGOS_PRECIOS[precioKey] || VIDEOJUEGOS_PRECIOS.USD;
+  const horario = deduplicarHorarios(convertHorarios(VIDEOJUEGOS_HORARIOS_ARG, getHorarioDiff()))[0] || VIDEOJUEGOS_HORARIOS_ARG[0];
+  const text = getVideojuegosOfertaText();
+  if (detail) detail.textContent = `Horario (${paisLabel}): ${horario}. Promo referencia 40% OFF: ${precio.simbolo}${precio.d40}.`;
+  if (link) {
+    link.setAttribute('href', buildWhatsAppUrl(text));
+    link.setAttribute('data-offer-message', text);
+  }
 }
 
 function getCuposDisponibles(idioma, nivel, mes, horariosCount) {
@@ -926,6 +973,7 @@ ${lineasHorarios}`;
 
   const whatsappText = `Hola ISA, vengo del cotizador de IKARUGA y quiero avanzar con esta opción.\n\n${ofertaTexto}\n\n¿Me ayudás con la inscripción?`;
   setWhatsAppOffer(whatsappText);
+  updateVideojuegosPromo();
 }
 function copyResultado(btn) {
   const el = document.getElementById('cotizador-agil-resultado');
