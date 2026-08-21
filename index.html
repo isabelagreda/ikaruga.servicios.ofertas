@@ -1,0 +1,1339 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IKARUGA Idiomas | Elegí tu horario</title>
+  <meta name="description" content="Elegí tu país, idioma, nivel y horario. Mirá el valor visible de tu curso y seguí por WhatsApp con ISA para reservar tu lugar en IKARUGA Idiomas.">
+  <style>
+    :root{
+      --bg:#f5efe7;
+      --paper:#fffdfa;
+      --ink:#181314;
+      --muted:#65584d;
+      --line:#e7d7c6;
+      --brand:#df2026;
+      --brand-dark:#a51019;
+      --charcoal:#231f20;
+      --charcoal-soft:#322b2d;
+      --gold:#d9b46a;
+      --gold-soft:#fff2dc;
+      --chip:#f7efe5;
+      --shadow:0 18px 44px rgba(24,19,20,.10);
+    }
+    *{box-sizing:border-box}
+    html{
+      scroll-behavior:smooth;
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(223,32,38,.12), transparent 24%),
+        radial-gradient(circle at top right, rgba(217,180,106,.14), transparent 22%),
+        linear-gradient(180deg,#171314 0,#2a2022 180px,var(--bg) 180px,var(--bg) 100%);
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    button,a,select{
+      touch-action:manipulation;
+      -webkit-tap-highlight-color:rgba(217,15,33,.16);
+    }
+    img{display:block;max-width:100%}
+    main{
+      width:min(100% - 16px, 460px);
+      margin:0 auto;
+      padding:max(12px, env(safe-area-inset-top,0px)) 0 calc(98px + env(safe-area-inset-bottom,0px));
+    }
+    .hero{
+      background:
+        linear-gradient(135deg, rgba(24,19,20,.98), rgba(35,31,32,.96) 56%, rgba(223,32,38,.84)),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0));
+      color:#fff;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 24px 72px rgba(0,0,0,.24);
+      padding:12px;
+    }
+    .brand-lockup{
+      display:inline-flex;
+      background:#fff;
+      padding:4px 6px;
+      border-radius:10px;
+      box-shadow:0 14px 28px rgba(0,0,0,.24);
+    }
+    .brand-lockup img{width:min(182px,62vw)}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:9px;
+      padding:5px 8px;
+      border-radius:999px;
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      color:#fff2d3;
+      background:rgba(217,180,106,.14);
+      border:1px solid rgba(217,180,106,.34);
+    }
+    h1{
+      margin:8px 0 0;
+      font-size:24px;
+      line-height:.98;
+      text-transform:uppercase;
+      letter-spacing:-.02em;
+    }
+    .hero p{
+      margin:8px 0 0;
+      color:#f4ece1;
+      font-size:13px;
+      line-height:1.34;
+    }
+    .hero-isa{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns:40px minmax(0,1fr);
+      gap:8px;
+      align-items:center;
+      padding:8px 10px;
+      border-radius:14px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+      backdrop-filter:blur(8px);
+    }
+    .hero-isa img{
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      object-fit:cover;
+      object-position:50% 35%;
+      border:2px solid rgba(255,255,255,.82);
+    }
+    .hero-isa strong{
+      display:block;
+      font-size:13px;
+      text-transform:uppercase;
+      line-height:1;
+      margin-bottom:2px;
+      color:#fff;
+    }
+    .hero-isa span{
+      display:block;
+      color:#f4ece1;
+      font-size:11px;
+      line-height:1.24;
+    }
+    .hero-trust{
+      margin-top:9px;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:6px;
+    }
+    .hero-flags{
+      margin-top:9px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+    }
+    .flag-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      min-height:30px;
+      padding:0 9px;
+      border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+      color:#fff;
+      font-size:11px;
+      font-weight:800;
+    }
+    .flag-icon{
+      display:inline-block;
+      vertical-align:-3px;
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      object-fit:cover;
+      flex:0 0 auto;
+      box-shadow:0 0 0 1px rgba(0,0,0,.12);
+    }
+    .hero-cert{
+      margin-top:9px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 10px;
+      border-radius:12px;
+      background:rgba(217,180,106,.14);
+      border:1px solid rgba(217,180,106,.34);
+      color:#fff5df;
+    }
+    .hero-cert img{
+      width:72px;
+      height:44px;
+      border-radius:12px;
+      background:#231f20;
+      object-fit:contain;
+      padding:6px 8px;
+      flex:0 0 auto;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+    }
+    .hero-cert strong{
+      display:block;
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      line-height:1.2;
+    }
+    .hero-cert span{
+      display:block;
+      margin-top:2px;
+      font-size:11px;
+      line-height:1.25;
+      color:#f4ece1;
+    }
+    .trust-card{
+      padding:8px 9px;
+      border-radius:12px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .trust-card strong{
+      display:block;
+      color:#fff4d7;
+      font-size:14px;
+      line-height:1;
+      margin-bottom:3px;
+    }
+    .trust-card span{
+      display:block;
+      color:#f3eadf;
+      font-size:10px;
+      line-height:1.18;
+    }
+    .panel{
+      margin-top:12px;
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+    .panel h2{
+      margin:0 0 8px;
+      font-size:24px;
+      line-height:1;
+      text-transform:uppercase;
+    }
+    .panel-intro{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
+    }
+    .offers{
+      margin-top:12px;
+      display:grid;
+      gap:8px;
+    }
+    .offer-card{
+      padding:12px;
+      border-radius:16px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+    .offer-card strong{
+      display:block;
+      font-size:12px;
+      text-transform:uppercase;
+      margin-bottom:4px;
+      color:var(--brand-dark);
+    }
+    .offer-card span{
+      display:block;
+      color:#312a24;
+      font-size:13px;
+      line-height:1.35;
+    }
+    .offer-link{
+      margin-top:8px;
+      display:inline-flex;
+      align-items:center;
+      min-height:32px;
+      padding:0 10px;
+      border-radius:999px;
+      background:var(--gold-soft);
+      border:1px solid #e1c486;
+      color:var(--brand-dark);
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    .groupal-spot{
+      margin-top:12px;
+      padding:14px;
+      border-radius:18px;
+      background:linear-gradient(180deg,#fff8ef,#fff1df);
+      border:1px solid #e5c486;
+      box-shadow:var(--shadow);
+    }
+    .groupal-spot strong{
+      display:block;
+      color:var(--brand-dark);
+      font-size:12px;
+      text-transform:uppercase;
+      margin-bottom:5px;
+    }
+    .groupal-spot h3{
+      margin:0 0 6px;
+      font-size:22px;
+      line-height:1;
+      text-transform:uppercase;
+      color:#1e1818;
+    }
+    .groupal-spot p{
+      margin:0;
+      color:#453a32;
+      font-size:13px;
+      line-height:1.35;
+    }
+    .support-box{
+      margin-top:12px;
+      padding:12px;
+      border-radius:16px;
+      background:#fff7ef;
+      border:1px solid #ead9c3;
+    }
+    .support-box strong{
+      display:block;
+      font-size:12px;
+      color:var(--brand-dark);
+      text-transform:uppercase;
+      margin-bottom:4px;
+    }
+    .support-box span{
+      display:block;
+      color:#3b322c;
+      font-size:13px;
+      line-height:1.35;
+      margin-bottom:8px;
+    }
+    .bottom-products{
+      margin-top:14px;
+      display:grid;
+      gap:8px;
+    }
+    .field{
+      margin-bottom:10px;
+    }
+    .field:last-child{margin-bottom:0}
+    .field label{
+      display:block;
+      margin-bottom:5px;
+      font-size:11px;
+      font-weight:900;
+      color:var(--muted);
+      text-transform:uppercase;
+    }
+    .field select{
+      width:100%;
+      min-height:50px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:#fff;
+      color:var(--ink);
+      padding:11px 34px 11px 12px;
+      font:inherit;
+      font-size:16px;
+      appearance:none;
+      -webkit-appearance:none;
+      background-image:
+        linear-gradient(45deg, transparent 50%, #6b6359 50%),
+        linear-gradient(135deg, #6b6359 50%, transparent 50%);
+      background-position:
+        calc(100% - 18px) calc(50% - 3px),
+        calc(100% - 12px) calc(50% - 3px);
+      background-size:6px 6px,6px 6px;
+      background-repeat:no-repeat;
+    }
+    .field-help{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.4;
+    }
+    .country-flag{
+      margin-top:8px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-height:34px;
+      padding:0 10px;
+      border-radius:999px;
+      background:#fff6ec;
+      border:1px solid #ead9c3;
+      color:#2e2823;
+      font-size:13px;
+      font-weight:800;
+    }
+    .country-flag img{
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      object-fit:cover;
+      flex:0 0 auto;
+    }
+    .level-highlight{
+      margin-top:8px;
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding:10px 12px;
+      background:#fff5eb;
+      border:1px solid #eed6b3;
+      border-radius:14px;
+    }
+    .level-badge{
+      flex:0 0 auto;
+      min-width:38px;
+      min-height:38px;
+      display:grid;
+      place-items:center;
+      border-radius:12px;
+      background:var(--brand);
+      color:#fff;
+      font-size:18px;
+      font-weight:950;
+      line-height:1;
+    }
+    .level-copy strong{
+      display:block;
+      margin-bottom:3px;
+      font-size:11px;
+      color:#8a5511;
+      text-transform:uppercase;
+    }
+    .level-copy span{
+      display:block;
+      color:#2f2a25;
+      font-size:13px;
+      line-height:1.35;
+      font-weight:700;
+    }
+    .result{
+      margin-top:10px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      padding:0 10px;
+      border-radius:999px;
+      background:var(--gold-soft);
+      color:#8d5610;
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    .result h3{
+      margin:10px 0 6px;
+      font-size:25px;
+      line-height:.96;
+      text-transform:uppercase;
+    }
+    .result-summary{
+      color:#332c26;
+      font-size:14px;
+      line-height:1.38;
+      display:grid;
+      gap:6px;
+      white-space:normal;
+    }
+    .summary-block{
+      background:#fcf7ef;
+      border:1px solid #eadfcd;
+      border-radius:14px;
+      padding:8px 10px;
+    }
+    .summary-block strong{
+      display:block;
+      margin-bottom:3px;
+      font-size:11px;
+      color:var(--muted);
+      text-transform:uppercase;
+    }
+    .summary-block span{
+      display:block;
+      color:#2e2823;
+      font-size:13px;
+      line-height:1.32;
+    }
+    .price-boxes{
+      display:grid;
+      gap:8px;
+      margin-top:10px;
+    }
+    .price-box{
+      background:#fbf5ee;
+      border:1px solid #ead9c3;
+      border-radius:14px;
+      padding:11px 12px;
+    }
+    .price-box.primary{
+      background:linear-gradient(180deg,#fff8ef,#fff1dd);
+      border-color:#ddb76a;
+      box-shadow:0 12px 28px rgba(223,32,38,.10);
+    }
+    .price-box strong{
+      display:block;
+      color:var(--muted);
+      font-size:11px;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+    .price-box span{
+      display:block;
+      font-size:26px;
+      line-height:1;
+      font-weight:950;
+      color:#151515;
+    }
+    .price-box small{
+      display:block;
+      margin-top:5px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.32;
+    }
+    .price-accent{
+      display:inline-flex;
+      align-items:center;
+      min-height:24px;
+      padding:0 8px;
+      border-radius:999px;
+      background:var(--brand);
+      color:#fff;
+      font-size:10px;
+      font-weight:950;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+      margin-top:10px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      padding:0 9px;
+      border-radius:999px;
+      background:var(--chip);
+      border:1px solid #eadfce;
+      color:#322c26;
+      font-size:11px;
+      font-weight:850;
+    }
+    .micro{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.32;
+    }
+    .isa-strip{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns:52px minmax(0,1fr);
+      gap:10px;
+      align-items:center;
+      padding:10px 11px;
+      background:linear-gradient(180deg,#fff7ee,#fffdf9);
+      border:1px solid #e5d2b0;
+      border-radius:16px;
+    }
+    .isa-strip img{
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      object-fit:cover;
+      object-position:50% 35%;
+      border:2px solid var(--brand);
+    }
+    .isa-strip strong{
+      display:block;
+      font-size:14px;
+      text-transform:uppercase;
+      line-height:1;
+      margin-bottom:4px;
+    }
+    .isa-strip span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.35;
+    }
+    .schedule-head{
+      margin-top:12px;
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .schedule-head strong{
+      display:block;
+      font-size:14px;
+      text-transform:uppercase;
+      line-height:1;
+    }
+    .schedule-head span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.35;
+      text-align:right;
+    }
+    .schedule-cards{
+      display:grid;
+      gap:10px;
+      margin-top:10px;
+    }
+    .schedule-card{
+      width:100%;
+      text-align:left;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      cursor:pointer;
+      box-shadow:var(--shadow);
+      transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    }
+    .schedule-card.active{
+      border-color:var(--brand);
+      box-shadow:0 14px 28px rgba(223,32,38,.16);
+      background:linear-gradient(180deg,#fff9f9,#fff);
+    }
+    .schedule-card-top{
+      display:flex;
+      align-items:start;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .schedule-card strong{
+      display:block;
+      font-size:17px;
+      line-height:1;
+      text-transform:uppercase;
+      color:#1b1b1b;
+    }
+    .schedule-card .badge{
+      flex:0 0 auto;
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      padding:0 8px;
+      border-radius:999px;
+      background:#fff2df;
+      color:#8d5610;
+      font-size:10px;
+      font-weight:950;
+      text-transform:uppercase;
+    }
+    .schedule-card p{
+      margin:9px 0 0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+    .schedule-card-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+      margin-top:11px;
+    }
+    .schedule-card:hover{
+      border-color:#d9b46a;
+      transform:translateY(-1px);
+    }
+    .schedule-card-meta span{
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      padding:0 8px;
+      border-radius:999px;
+      background:#f8f0e6;
+      border:1px solid #e8dccb;
+      font-size:11px;
+      font-weight:800;
+      color:#302a24;
+    }
+    .sticky-cta{
+      position:fixed;
+      left:10px;
+      right:10px;
+      bottom:calc(10px + env(safe-area-inset-bottom,0px));
+      z-index:50;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:56px;
+      border-radius:14px;
+      background:var(--brand);
+      color:#fff;
+      font-weight:950;
+      text-align:center;
+      box-shadow:0 18px 40px rgba(165,16,25,.24);
+      padding:14px 16px;
+      letter-spacing:.01em;
+    }
+    @media(max-width:420px){
+      .hero-trust{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="brand-lockup">
+        <img src="ikaruga-logo-horizontal-white.png" alt="IKARUGA Idiomas">
+      </div>
+      <div class="eyebrow">IKARUGA Idiomas · Inscripciones online</div>
+      <h1>Elegí tu idioma, tu horario y reservá tu lugar.</h1>
+      <p><strong>IKARUGA Idiomas</strong> te permite elegir una comisión real, ver el valor visible de tu curso y avanzar por WhatsApp con ISA para completar tu inscripción de forma simple.</p>
+      <div class="hero-isa">
+        <img src="isa-asesora-web.jpg" alt="ISA">
+        <div>
+          <strong>ISA te acompaña</strong>
+          <span>Si una opción te interesa, ISA te acompaña por WhatsApp, te explica qué incluye el curso, respeta el valor mostrado y te ayuda a completar la inscripción.</span>
+        </div>
+      </div>
+      <div class="hero-flags">
+        <span class="flag-pill"><img class="flag-icon" src="https://flagcdn.com/w40/jp.png" alt="Japón">Japonés</span>
+        <span class="flag-pill"><img class="flag-icon" src="https://flagcdn.com/w40/kr.png" alt="Corea">Coreano</span>
+        <span class="flag-pill"><img class="flag-icon" src="https://flagcdn.com/w40/cn.png" alt="China">Chino</span>
+        <span class="flag-pill"><img class="flag-icon" src="https://flagcdn.com/w40/it.png" alt="Italia">Italiano</span>
+        <span class="flag-pill"><img class="flag-icon" src="https://flagcdn.com/w40/de.png" alt="Alemania">Alemán</span>
+        <span class="flag-pill"><img class="flag-icon" src="https://flagcdn.com/w40/gb.png" alt="Reino Unido">Inglés</span>
+      </div>
+      <div class="hero-cert">
+        <img src="uai-logo.png" alt="UAI">
+        <div>
+          <strong>Certificación universitaria en cursos seleccionados</strong>
+          <span>Respaldo académico visible en las opciones que corresponden.</span>
+        </div>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-card">
+          <strong>+10 años</strong>
+          <span>Enseñando idiomas online con grupos activos en distintos niveles.</span>
+        </div>
+        <div class="trust-card">
+          <strong>+10.000 alumnos</strong>
+          <span>Personas que ya pasaron por IKARUGA y eligieron estudiar con esta propuesta.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="selector">
+      <h2>Elegí tu opción</h2>
+      <p class="panel-intro">Elegí la opción que mejor se adapte a vos. Vas a ver el horario en tu país, el valor visible del curso y el acceso directo para reservar por WhatsApp.</p>
+      <div class="groupal-spot">
+        <strong>Principal hoy</strong>
+        <h3>Cursos grupales en vivo</h3>
+        <p>Acá ves las comisiones grupales activas de IKARUGA con día, horario en tu país, valor visible y cupos limitados para reservar por WhatsApp.</p>
+      </div>
+
+      <div class="field">
+        <label for="country">País</label>
+        <select id="country">
+          <option value="ARG">Argentina</option>
+          <option value="BOL">Bolivia</option>
+          <option value="BRA">Brasil</option>
+          <option value="CHL">Chile</option>
+          <option value="COL">Colombia</option>
+          <option value="CRI">Costa Rica</option>
+          <option value="DOM">República Dominicana</option>
+          <option value="ECU">Ecuador</option>
+          <option value="SLV">El Salvador</option>
+          <option value="ESP">España</option>
+          <option value="USA">Estados Unidos</option>
+          <option value="GTM">Guatemala</option>
+          <option value="HND">Honduras</option>
+          <option value="MEX">México</option>
+          <option value="NIC">Nicaragua</option>
+          <option value="PAN">Panamá</option>
+          <option value="PRY">Paraguay</option>
+          <option value="PER">Perú</option>
+          <option value="URY">Uruguay</option>
+          <option value="VEN">Venezuela</option>
+          <option value="OTHER">Otro país</option>
+        </select>
+        <div class="country-flag" id="countryFlag"><img src="https://flagcdn.com/w40/ar.png" alt="Argentina"><span>Horarios visibles para Argentina</span></div>
+      </div>
+      <div class="field">
+        <label for="language">Idioma</label>
+        <select id="language"></select>
+      </div>
+      <div class="field">
+        <label for="level">Nivel</label>
+        <select id="level"></select>
+        <div class="field-help" id="levelHelp">Nivel 1: ideal para empezar desde cero o con conocimientos mínimos.</div>
+        <div class="level-highlight">
+          <div class="level-badge" id="levelBadge">1</div>
+          <div class="level-copy">
+            <strong>Nivel seleccionado</strong>
+            <span id="levelHighlightText">Ideal para empezar desde cero o con conocimientos mínimos.</span>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="month">Mes de inicio</label>
+        <select id="month"></select>
+      </div>
+      <input id="schedule" type="hidden">
+
+      <div class="schedule-head">
+        <div>
+          <strong>Horarios disponibles</strong>
+        </div>
+        <span id="scheduleCountryNote">Se muestran en la hora del país elegido.</span>
+      </div>
+      <div class="schedule-cards" id="scheduleCards"></div>
+
+      <div class="result">
+        <span class="kicker" id="resultKicker">Comisión disponible</span>
+        <h3 id="resultTitle">Japonés 1 · Sábados</h3>
+        <div class="result-summary" id="resultSummary"></div>
+
+        <div class="price-boxes">
+          <div class="price-box primary">
+            <div class="price-accent">Mejor opción visible</div>
+            <strong>Valor promocional visible</strong>
+            <span id="promoPrice">ARS 540.000</span>
+            <small id="promoNote">Pago total del curso. La promo visible no incluye certificado cuando la tabla lo aclara.</small>
+          </div>
+          <div class="price-box">
+            <strong>Cuota mensual visible</strong>
+            <span id="monthlyPrice">ARS 160.000</span>
+            <small id="monthlyNote">Valor mensual según la tabla correspondiente al tipo de curso.</small>
+          </div>
+        </div>
+
+        <div class="chips" id="resultChips"></div>
+        <div class="micro" id="waTiny">ISA recibe idioma, comisión, horario y valor mostrado para seguir la inscripción.</div>
+        <div class="isa-strip">
+          <img src="isa-asesora-web.jpg" alt="ISA">
+          <div>
+            <strong>ISA</strong>
+            <span>Te comparte lo que incluye el curso, confirma el valor mostrado y te acompaña hasta reservar tu lugar.</span>
+          </div>
+        </div>
+        <div class="support-box">
+          <strong>¿Tenés alguna pregunta?</strong>
+          <span>No lo dejes al azar. Si no sabés qué nivel elegir, qué incluye el curso o cuál horario te conviene, ISA te orienta antes de inscribirte.</span>
+          <a class="offer-link" href="https://wa.me/5493413483263?text=Hola%20ISA%2C%20tengo%20unas%20preguntas%20antes%20de%20inscribirme%20en%20IKARUGA." target="_blank" rel="noopener">Hacer una consulta</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom-products">
+      <div class="offer-card">
+        <strong>Cursos pregrabados</strong>
+        <span>Si hoy preferís estudiar a tu ritmo, también podés consultar opciones pregrabadas de IKARUGA.</span>
+        <a class="offer-link" href="https://wa.me/5493413483263?text=Hola%20ISA%2C%20quiero%20consultar%20por%20los%20cursos%20pregrabados%20de%20IKARUGA." target="_blank" rel="noopener">Consultar pregrabados</a>
+      </div>
+      <div class="offer-card">
+        <strong>Diseño de videojuegos</strong>
+        <span>También podés consultar la propuesta de diseño y programación de videojuegos si buscás una formación técnica complementaria.</span>
+        <a class="offer-link" href="https://wa.me/5493413483263?text=Hola%20ISA%2C%20quiero%20consultar%20por%20el%20curso%20de%20dise%C3%B1o%20y%20programaci%C3%B3n%20de%20videojuegos%20de%20IKARUGA." target="_blank" rel="noopener">Consultar videojuegos</a>
+      </div>
+    </section>
+
+    <a class="sticky-cta" id="waStickyLink" href="#" target="_blank" rel="noopener">Reservar este horario por WhatsApp</a>
+  </main>
+
+  <script>
+    const WHATSAPP_NUMBER = "5493413483263";
+
+    const priceTables = {
+      threeH5: {
+        label: "5 módulos · clases de 3 hs",
+        monthly: { ARS: "160.000", USD: "82", MXN: "1.620" },
+        promo: { ARS: "628.000", USD: "305", MXN: "5.950" },
+        note: "Promo visible del 45% por pago total del curso. No aplica descuento sobre certificado.",
+        cert: "Certificado opcional según tabla."
+      },
+      threeH4: {
+        label: "4 módulos · clases de 3 hs",
+        monthly: { ARS: "160.000", USD: "82", MXN: "1.620" },
+        promo: { ARS: "540.000", USD: "260", MXN: "5.060" },
+        note: "Promo visible del 45% por pago total del curso. En esa promo no entra certificado.",
+        cert: "Certificado opcional según tabla."
+      },
+      english2: {
+        label: "4 módulos · inglés de 2 hs",
+        monthly: { ARS: "74.000", USD: "38", MXN: "750" },
+        promo: { ARS: "276.000", USD: "129", MXN: "2.540" },
+        note: "Promo visible del 30% por pago total del curso.",
+        cert: "Inglés: certificado institucional."
+      },
+      italian2: {
+        label: "4 módulos · italiano de 2 hs",
+        monthly: { ARS: "74.000", USD: "38", MXN: "750" },
+        promo: { ARS: "322.000", USD: "162", MXN: "3.140" },
+        note: "Promo visible del 30% por pago total del curso. No aplica descuento sobre certificado.",
+        cert: "Certificado con cargo visible en la tabla."
+      }
+    };
+
+    const groups = [
+      { language: "Japonés", course: "Japonés 1", commission: "W", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 18, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: "N", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 23, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "D", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 17, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "E", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 16, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "F", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 3", commission: "C", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 11, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 4", commission: "A", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 9, table: "threeH5", source: "Agosto 2026" },
+      { language: "Coreano", course: "Coreano 1", commission: "D", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: 21, table: "threeH5", source: "Agosto 2026" },
+      { language: "Coreano", course: "Coreano 1", commission: "E", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 13, table: "threeH5", source: "Agosto 2026" },
+      { language: "Coreano", course: "Coreano 2", commission: "D", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 25, table: "threeH5", source: "Agosto 2026" },
+      { language: "Tailandés", course: "Tailandés 2", commission: "B", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 13, table: "threeH5", source: "Agosto 2026" },
+      { language: "Inglés", course: "Inglés A1", commission: "C", day: "Jueves", start: "2026-08-20", end: "2026-12-11", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: 21, table: "english2", source: "Agosto 2026" },
+      { language: "Inglés", course: "Inglés A2", commission: "A", day: "Miércoles", start: "2026-08-19", end: "2026-11-11", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: 24, table: "english2", source: "Agosto 2026" },
+      { language: "Chino", course: "Chino 1", commission: "C", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026" },
+      { language: "Chino", course: "Chino 1", commission: "C", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 14, table: "threeH5", source: "Agosto 2026" },
+      { language: "Chino", course: "Chino 2", commission: "D", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 12, table: "threeH5", source: "Agosto 2026" },
+      { language: "Tailandés", course: "Tailandés 3", commission: "A", day: "Domingos", start: "2026-08-23", end: "2027-01-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 4, table: "threeH5", source: "Agosto 2026" },
+      { language: "Alemán", course: "Alemán A1", commission: "B", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 22, table: "threeH5", source: "Agosto 2026" },
+      { language: "Alemán", course: "Alemán A2", commission: "B", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 3, table: "threeH5", source: "Agosto 2026" },
+      { language: "Italiano", course: "Italiano A1", commission: "B", day: "Lunes", start: "2026-08-24", end: "2026-11-16", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: 10, table: "italian2", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: "X", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: "U", day: "Lunes", start: "2026-09-21", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 11, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "G", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 2, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "H", day: "Jueves", start: "2026-09-17", end: "2026-12-10", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 5, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Inglés", course: "Inglés A1", commission: "E", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "17:00", endTime: "19:00", duration: "4 módulos", students: null, table: "english2", source: "Octubre 2026" },
+      { language: "Coreano", course: "Coreano 1", commission: "F", day: "Domingos", start: "2026-10-18", end: "2027-01-10", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Octubre 2026" },
+      { language: "Tailandés", course: "Tailandés 1", commission: "D", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 6, table: "threeH4", source: "Octubre 2026" },
+      { language: "Chino", course: "Chino 1", commission: "D", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Octubre 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: "V", day: "Miércoles", start: "2026-10-21", end: "2027-01-13", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 1, table: "threeH4", source: "Octubre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "I", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Octubre 2026" },
+      { language: "Inglés", course: "Inglés A1", commission: "D", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "18:00", duration: "4 módulos", students: 8, table: "english2", source: "Septiembre 2026" },
+      { language: "Italiano", course: "Italiano A2", commission: "A", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "17:00", endTime: "19:00", duration: "4 módulos", students: 4, table: "italian2", source: "Septiembre 2026" },
+      { language: "Alemán", course: "Alemán A1", commission: "C", day: "Miércoles", start: "2026-09-23", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Ruso", course: "Ruso 1", commission: "A", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 8, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Tailandés", course: "Tailandés 3", commission: "A", day: "Domingos", start: "2026-09-20", end: "2027-01-10", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 4, table: "threeH5", source: "Septiembre 2026" },
+      { language: "Diseño y programación", course: "Diseño y programación", commission: "A", day: "Domingos", start: "2026-09-20", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Septiembre 2026" }
+    ];
+
+    const TODAY = "2026-08-21";
+
+    const currencyLabels = {
+      ARS: "ARS",
+      USD: "USD",
+      MXN: "MXN"
+    };
+
+    const visibleGroups = Object.values(
+      groups
+        .filter(group => group.start >= TODAY && (group.students === null || group.students === undefined || group.students <= 20))
+        .reduce((acc, group) => {
+          const key = [group.language, group.course, group.commission, group.day, group.start, group.startTime, group.endTime].join("|");
+          if (!acc[key]) {
+            acc[key] = group;
+            return acc;
+          }
+          const current = acc[key];
+          const currentStudents = current.students ?? 99;
+          const nextStudents = group.students ?? 99;
+          if (nextStudents < currentStudents) acc[key] = group;
+          return acc;
+        }, {})
+    );
+
+    const els = {
+      language: document.getElementById("language"),
+      country: document.getElementById("country"),
+      level: document.getElementById("level"),
+      month: document.getElementById("month"),
+      schedule: document.getElementById("schedule"),
+      scheduleCards: document.getElementById("scheduleCards"),
+      scheduleCountryNote: document.getElementById("scheduleCountryNote"),
+      countryFlag: document.getElementById("countryFlag"),
+      resultKicker: document.getElementById("resultKicker"),
+      resultTitle: document.getElementById("resultTitle"),
+      resultSummary: document.getElementById("resultSummary"),
+      resultChips: document.getElementById("resultChips"),
+      levelHelp: document.getElementById("levelHelp"),
+      levelBadge: document.getElementById("levelBadge"),
+      levelHighlightText: document.getElementById("levelHighlightText"),
+      promoPrice: document.getElementById("promoPrice"),
+      promoNote: document.getElementById("promoNote"),
+      monthlyPrice: document.getElementById("monthlyPrice"),
+      monthlyNote: document.getElementById("monthlyNote"),
+      waTiny: document.getElementById("waTiny"),
+      waStickyLink: document.getElementById("waStickyLink")
+    };
+
+    function fmtDate(iso) {
+      const [y, m, d] = iso.split("-");
+      return `${d}/${m}/${y}`;
+    }
+
+    function getLanguageList() {
+      return [...new Set(visibleGroups.map(group => group.language))];
+    }
+
+    function getLevel(courseName) {
+      const match = courseName.match(/(?:A\d+|\d+)/i);
+      return match ? match[0].toUpperCase() : "General";
+    }
+
+    function getLevelDescription(level) {
+      const descriptions = {
+        "1": "Nivel 1: ideal para empezar desde cero o con conocimientos mínimos.",
+        "2": "Nivel 2: pensado para quienes ya vieron una base inicial y quieren continuar.",
+        "3": "Nivel 3: continuación para quienes ya cursaron niveles previos o tienen base equivalente.",
+        "4": "Nivel 4: tramo más avanzado dentro de la secuencia visible en esta página.",
+        "A1": "A1: nivel inicial, pensado para empezar desde cero o con una base muy básica.",
+        "A2": "A2: continuación de A1 para quienes ya manejan lo más básico del idioma.",
+        "GENERAL": "Nivel general: conviene consultar por WhatsApp si necesitás orientación específica."
+      };
+      return descriptions[level] || "Si no sabés si este nivel es para vos, ISA puede orientarte por WhatsApp.";
+    }
+
+    function monthKey(iso) {
+      return iso.slice(0, 7);
+    }
+
+    function monthLabel(key) {
+      const labels = {
+        "2026-08": "Agosto 2026",
+        "2026-09": "Septiembre 2026",
+        "2026-10": "Octubre 2026",
+        "2026-11": "Noviembre 2026",
+        "2026-12": "Diciembre 2026",
+        "2027-01": "Enero 2027"
+      };
+      return labels[key] || key;
+    }
+
+    function groupsForLanguage(language) {
+      return visibleGroups.filter(group => group.language === language);
+    }
+
+    function getMonthList(language) {
+      return [...new Set(
+        groupsForLanguage(language)
+          .filter(group =>
+            (!els.level.value || getLevel(group.course) === els.level.value)
+          )
+          .map(group => monthKey(group.start))
+      )].sort();
+    }
+
+    function groupsByLanguage(language) {
+      return groupsForLanguage(language)
+        .filter(group =>
+          (!els.level.value || getLevel(group.course) === els.level.value) &&
+          (!els.month.value || monthKey(group.start) === els.month.value)
+        )
+        .sort((a, b) => a.start.localeCompare(b.start) || a.course.localeCompare(b.course));
+    }
+
+    function studentsText(value) {
+      if (value !== null && value !== undefined && value <= 4) return `Últimos ${value} cupos`;
+      return "Últimos 4 cupos";
+    }
+
+    function getLanguageFlag(language) {
+      const map = {
+        "Japonés": { label: "Japón", url: "https://flagcdn.com/w40/jp.png" },
+        "Coreano": { label: "Corea", url: "https://flagcdn.com/w40/kr.png" },
+        "Chino": { label: "China", url: "https://flagcdn.com/w40/cn.png" },
+        "Italiano": { label: "Italia", url: "https://flagcdn.com/w40/it.png" },
+        "Alemán": { label: "Alemania", url: "https://flagcdn.com/w40/de.png" },
+        "Inglés": { label: "Reino Unido", url: "https://flagcdn.com/w40/gb.png" },
+        "Ruso": { label: "Rusia", url: "https://flagcdn.com/w40/ru.png" },
+        "Tailandés": { label: "Tailandia", url: "https://flagcdn.com/w40/th.png" },
+        "Diseño y programación": { label: "Videojuegos", url: "" }
+      };
+      return map[language] || { label: "Mundo", url: "" };
+    }
+
+    function buildGroupLabel(group) {
+      return `${group.course} · ${group.day} ${group.startTime}`;
+    }
+
+    function populateLanguages() {
+      els.language.innerHTML = getLanguageList()
+        .map(language => `<option value="${language}">${language}</option>`)
+        .join("");
+    }
+
+    function populateLevels() {
+      const levels = [...new Set(
+        groupsForLanguage(els.language.value)
+          .map(group => getLevel(group.course))
+      )].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+      els.level.innerHTML = levels
+        .map(level => `<option value="${level}">${level}</option>`)
+        .join("");
+    }
+
+    function populateMonths() {
+      const months = getMonthList(els.language.value);
+      els.month.innerHTML = months
+        .map(month => `<option value="${month}">${monthLabel(month)}</option>`)
+        .join("");
+    }
+
+    function populateSchedules() {
+      const filtered = groupsByLanguage(els.language.value);
+      els.schedule.value = "0";
+      const countryBrand = getCountryBrand(els.country.value);
+      els.countryFlag.innerHTML = `<img src="${countryBrand.url}" alt="${countryBrand.label}"><span>Horarios visibles para ${countryBrand.label}</span>`;
+      els.scheduleCountryNote.textContent = `Los horarios se muestran en la hora de ${getCountryTiming(els.country.value, filtered[0]?.start || TODAY, filtered[0]?.startTime || "00:00", filtered[0]?.endTime || "00:00").countryLabel}.`;
+      els.scheduleCards.innerHTML = filtered
+        .map((group, index) => {
+          const timing = getCountryTiming(els.country.value, group.start, group.startTime, group.endTime);
+          const level = getLevel(group.course);
+          const cupo = studentsText(group.students);
+          const languageFlag = getLanguageFlag(group.language);
+          return `
+            <button class="schedule-card ${index === 0 ? "active" : ""}" type="button" data-index="${index}">
+              <div class="schedule-card-top">
+                <div>
+                  <strong>${countryBrand.url ? `<img class="flag-icon" src="${countryBrand.url}" alt="${countryBrand.label}">` : ""}${group.day} · ${timing.scheduleLabel}</strong>
+                  <p>${languageFlag.url ? `<img class="flag-icon" src="${languageFlag.url}" alt="${languageFlag.label}">` : "🎮"} ${group.language} ${level} · ${monthLabel(monthKey(group.start))}</p>
+                </div>
+                <span class="badge">Comisión ${group.commission}</span>
+              </div>
+              <div class="schedule-card-meta">
+                <span>Inicia ${fmtDate(group.start)}</span>
+                <span>Termina ${fmtDate(group.end)}</span>
+                <span>${timing.scheduleLabel}</span>
+                <span>${group.duration}</span>
+                <span>${cupo}</span>
+              </div>
+            </button>
+          `;
+        })
+        .join("");
+
+      els.scheduleCards.querySelectorAll(".schedule-card").forEach(card => {
+        card.addEventListener("click", () => {
+          els.schedule.value = card.getAttribute("data-index");
+          els.scheduleCards.querySelectorAll(".schedule-card").forEach(node => node.classList.remove("active"));
+          card.classList.add("active");
+          updateResult();
+        });
+      });
+    }
+
+    function currencyForCountry(country) {
+      const map = {
+        ARG: "ARS",
+        BOL: "USD",
+        BRA: "USD",
+        CHL: "USD",
+        COL: "USD",
+        CRI: "USD",
+        DOM: "USD",
+        ECU: "USD",
+        SLV: "USD",
+        ESP: "USD",
+        USA: "USD",
+        GTM: "USD",
+        HND: "USD",
+        MEX: "MXN",
+        NIC: "USD",
+        PAN: "USD",
+        PRY: "USD",
+        PER: "USD",
+        URY: "USD",
+        VEN: "USD",
+        OTHER: "USD"
+      };
+      return map[country] || "ARS";
+    }
+
+    function buildArgentinaDateTime(dateIso, timeText) {
+      const [year, month, day] = dateIso.split("-").map(Number);
+      const [hour, minute] = timeText.split(":").map(Number);
+      const utcHour = hour + 3;
+      return new Date(Date.UTC(year, month - 1, day, utcHour, minute, 0));
+    }
+
+    function formatInTimeZone(date, timeZone) {
+      return new Intl.DateTimeFormat("es-AR", {
+        timeZone,
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+      }).format(date);
+    }
+
+    function getCountryBrand(country) {
+      const map = {
+        ARG: { label: "Argentina", url: "https://flagcdn.com/w40/ar.png" },
+        BOL: { label: "Bolivia", url: "https://flagcdn.com/w40/bo.png" },
+        BRA: { label: "Brasil", url: "https://flagcdn.com/w40/br.png" },
+        CHL: { label: "Chile", url: "https://flagcdn.com/w40/cl.png" },
+        COL: { label: "Colombia", url: "https://flagcdn.com/w40/co.png" },
+        CRI: { label: "Costa Rica", url: "https://flagcdn.com/w40/cr.png" },
+        DOM: { label: "República Dominicana", url: "https://flagcdn.com/w40/do.png" },
+        ECU: { label: "Ecuador", url: "https://flagcdn.com/w40/ec.png" },
+        SLV: { label: "El Salvador", url: "https://flagcdn.com/w40/sv.png" },
+        ESP: { label: "España", url: "https://flagcdn.com/w40/es.png" },
+        USA: { label: "Estados Unidos", url: "https://flagcdn.com/w40/us.png" },
+        GTM: { label: "Guatemala", url: "https://flagcdn.com/w40/gt.png" },
+        HND: { label: "Honduras", url: "https://flagcdn.com/w40/hn.png" },
+        MEX: { label: "México", url: "https://flagcdn.com/w40/mx.png" },
+        NIC: { label: "Nicaragua", url: "https://flagcdn.com/w40/ni.png" },
+        PAN: { label: "Panamá", url: "https://flagcdn.com/w40/pa.png" },
+        PRY: { label: "Paraguay", url: "https://flagcdn.com/w40/py.png" },
+        PER: { label: "Perú", url: "https://flagcdn.com/w40/pe.png" },
+        URY: { label: "Uruguay", url: "https://flagcdn.com/w40/uy.png" },
+        VEN: { label: "Venezuela", url: "https://flagcdn.com/w40/ve.png" },
+        OTHER: { label: "Otro país", url: "https://flagcdn.com/w40/un.png" }
+      };
+      return map[country] || map.ARG;
+    }
+
+    function getCountryTiming(country, startDate, startTime, endTime) {
+      const config = {
+        ARG: { label: "Argentina", timeZone: "America/Argentina/Buenos_Aires", timezone: "hora Argentina" },
+        BOL: { label: "Bolivia", timeZone: "America/La_Paz", timezone: "hora Bolivia" },
+        BRA: { label: "Brasil", timeZone: "America/Sao_Paulo", timezone: "hora Brasil" },
+        CHL: { label: "Chile", timeZone: "America/Santiago", timezone: "hora Chile" },
+        COL: { label: "Colombia", timeZone: "America/Bogota", timezone: "hora Colombia" },
+        CRI: { label: "Costa Rica", timeZone: "America/Costa_Rica", timezone: "hora Costa Rica" },
+        DOM: { label: "República Dominicana", timeZone: "America/Santo_Domingo", timezone: "hora República Dominicana" },
+        ECU: { label: "Ecuador", timeZone: "America/Guayaquil", timezone: "hora Ecuador" },
+        SLV: { label: "El Salvador", timeZone: "America/El_Salvador", timezone: "hora El Salvador" },
+        ESP: { label: "España", timeZone: "Europe/Madrid", timezone: "hora España" },
+        USA: { label: "Estados Unidos", timeZone: "America/New_York", timezone: "hora referencia Estados Unidos" },
+        GTM: { label: "Guatemala", timeZone: "America/Guatemala", timezone: "hora Guatemala" },
+        HND: { label: "Honduras", timeZone: "America/Tegucigalpa", timezone: "hora Honduras" },
+        MEX: { label: "México", timeZone: "America/Mexico_City", timezone: "hora México" },
+        NIC: { label: "Nicaragua", timeZone: "America/Managua", timezone: "hora Nicaragua" },
+        PAN: { label: "Panamá", timeZone: "America/Panama", timezone: "hora Panamá" },
+        PRY: { label: "Paraguay", timeZone: "America/Asuncion", timezone: "hora Paraguay" },
+        PER: { label: "Perú", timeZone: "America/Lima", timezone: "hora Perú" },
+        URY: { label: "Uruguay", timeZone: "America/Montevideo", timezone: "hora Uruguay" },
+        VEN: { label: "Venezuela", timeZone: "America/Caracas", timezone: "hora Venezuela" },
+        OTHER: { label: "Otro país", timeZone: "America/New_York", timezone: "hora referencia USD" }
+      };
+      const picked = config[country] || config.ARG;
+      const startDateTime = buildArgentinaDateTime(startDate, startTime);
+      const endDateTime = buildArgentinaDateTime(startDate, endTime);
+      return {
+        countryLabel: picked.label,
+        scheduleLabel: `${formatInTimeZone(startDateTime, picked.timeZone)} a ${formatInTimeZone(endDateTime, picked.timeZone)}`,
+        timezoneLabel: picked.timezone
+      };
+    }
+
+    function buildMessage(group, table, currency) {
+      return [
+        "Hola ISA, quiero esta opción de IKARUGA:",
+        "",
+        `Idioma: ${group.language}`,
+        `Curso: ${group.course}`,
+        `Comisión: ${group.commission}`,
+        `Día: ${group.day}`,
+        `Horario: ${group.startTime} a ${group.endTime}`,
+        `Inicio: ${fmtDate(group.start)}`,
+        `Precio promo visible: ${currencyLabels[currency]} ${table.promo[currency]}`,
+        `Cuota mensual visible: ${currencyLabels[currency]} ${table.monthly[currency]}`,
+        "",
+        "Quiero que me envíes qué incluye el curso y cómo puedo inscribirme respetando ese valor."
+      ].join("\n");
+    }
+
+    function updateResult() {
+      const filtered = groupsByLanguage(els.language.value);
+      const selectedIndex = Number(els.schedule.value || 0);
+      const group = filtered[selectedIndex] || filtered[0];
+      const currency = currencyForCountry(els.country.value);
+      const table = priceTables[group.table];
+      const timing = getCountryTiming(els.country.value, group.start, group.startTime, group.endTime);
+      const level = getLevel(group.course);
+      const countryBrand = getCountryBrand(els.country.value);
+      const languageFlag = getLanguageFlag(group.language);
+
+      els.resultKicker.textContent = `${monthLabel(monthKey(group.start))} · ${table.label}`;
+      els.resultTitle.innerHTML = `${languageFlag.url ? `<img class="flag-icon" src="${languageFlag.url}" alt="${languageFlag.label}">` : "🎮"} ${group.language} ${level} · ${group.day}`;
+      els.resultSummary.innerHTML = [
+        `<div class="summary-block"><strong>Para quién es</strong><span>${getLevelDescription(level)}</span></div>`,
+        `<div class="summary-block"><strong>Tu selección</strong><span>${languageFlag.url ? `<img class="flag-icon" src="${languageFlag.url}" alt="${languageFlag.label}">` : "🎮"} ${group.language} ${level} · ${monthLabel(monthKey(group.start))} · ${countryBrand.url ? `<img class="flag-icon" src="${countryBrand.url}" alt="${countryBrand.label}">` : ""} ${timing.countryLabel}</span></div>`,
+        `<div class="summary-block"><strong>Inicio y finalización</strong><span>Inicia ${fmtDate(group.start)} · Termina ${fmtDate(group.end)} · ${monthLabel(monthKey(group.start))}</span></div>`,
+        `<div class="summary-block"><strong>Día y horario</strong><span>${countryBrand.url ? `<img class="flag-icon" src="${countryBrand.url}" alt="${countryBrand.label}">` : ""} ${group.day} · ${timing.scheduleLabel} para ${timing.countryLabel}</span></div>`,
+        `<div class="summary-block"><strong>Modalidad y certificación</strong><span>Clases en vivo con horario definido. ${table.cert}</span></div>`
+      ].join("");
+
+      els.promoPrice.textContent = `${currencyLabels[currency]} ${table.promo[currency]}`;
+      els.promoNote.textContent = table.note;
+      els.monthlyPrice.textContent = `${currencyLabels[currency]} ${table.monthly[currency]}`;
+      els.monthlyNote.textContent = `Tipo de curso: ${table.label}.`;
+
+      const chips = [
+        `Comisión ${group.commission}`,
+        `${group.source}`,
+        `Nivel ${level}`,
+        studentsText(group.students)
+      ];
+      els.resultChips.innerHTML = chips.map(chip => `<span class="chip">${chip}</span>`).join("");
+      els.levelHelp.textContent = getLevelDescription(level);
+      els.levelBadge.textContent = level;
+      els.levelHighlightText.textContent = getLevelDescription(level).replace(/^Nivel\s+[A-Z0-9]+:\s*/i, "");
+
+      const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildMessage(group, table, currency))}`;
+      els.waStickyLink.href = href;
+      els.waTiny.textContent = `ISA recibe ${group.course}, comisión ${group.commission}, mes ${monthLabel(monthKey(group.start))}, horario ${timing.scheduleLabel} para ${timing.countryLabel} y el valor mostrado para seguir la inscripción.`;
+    }
+
+    els.language.addEventListener("change", () => {
+      populateLevels();
+      populateMonths();
+      populateSchedules();
+      updateResult();
+    });
+    els.level.addEventListener("change", () => {
+      populateMonths();
+      populateSchedules();
+      updateResult();
+    });
+    els.month.addEventListener("change", () => {
+      populateSchedules();
+      updateResult();
+    });
+    els.country.addEventListener("change", () => {
+      populateSchedules();
+      updateResult();
+    });
+
+    populateLanguages();
+    populateLevels();
+    populateMonths();
+    populateSchedules();
+    updateResult();
+  </script>
+</body>
+</html>
