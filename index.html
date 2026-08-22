@@ -598,7 +598,7 @@
     .price-header{
       display:grid;
       grid-template-columns:1fr;
-      gap:6px;
+      gap:7px;
       margin-bottom:10px;
     }
     .price-pill{
@@ -621,6 +621,13 @@
       background:#fffdf9;
       color:#8d5610;
       border:1px solid #ddb76a;
+      justify-content:flex-start;
+      padding:8px 12px;
+      min-height:auto;
+      text-transform:none;
+      border-radius:16px;
+      font-size:var(--fs-body);
+      line-height:1.15;
     }
     .offer-title{
       display:block;
@@ -644,6 +651,27 @@
       color:var(--muted);
       font-size:var(--fs-meta);
       line-height:1.32;
+    }
+    .installment-line{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      align-items:flex-start;
+    }
+    .installment-line strong{
+      margin:0;
+      color:#8d5610;
+      font-size:var(--fs-label);
+      text-transform:uppercase;
+      letter-spacing:.01em;
+    }
+    .installment-line span{
+      display:block;
+      font-size:var(--fs-copy);
+      line-height:1.15;
+      font-family:"Montserrat","Poppins",sans-serif;
+      font-weight:var(--fw-heavy);
+      color:#7b4b12;
     }
     .price-accent{
       display:inline-flex;
@@ -996,18 +1024,18 @@
               <div class="price-accent">Mejor opción visible</div>
               <div class="price-header">
                 <span class="price-pill discount" id="discountBadge">35% de descuento</span>
-                <span class="price-pill installments" id="installmentBadge">5 cuotas sin interés</span>
+                <div class="price-pill installments" id="installmentBadge">
+                  <div class="installment-line">
+                    <strong>También en cuotas</strong>
+                    <span id="monthlyPrice">5 cuotas sin interés de ARS 146.800</span>
+                  </div>
+                </div>
               </div>
               <span class="offer-title">Inversión hoy</span>
               <span id="promoPrice">ARS 540.000</span>
               <small id="promoNote">Pago total del curso con descuento vigente.</small>
               <a class="offer-cta" id="waInlineLink" href="#" target="_blank" rel="noopener">Reservar este lugar con ISA</a>
               <div class="offer-cta-note">ISA respeta este valor y te ayuda a completar la inscripción.</div>
-            </div>
-            <div class="price-box">
-              <strong>También podés pagar así</strong>
-              <span id="monthlyPrice">ARS 160.000</span>
-              <small id="monthlyNote">Cuotas según el tipo de curso.</small>
             </div>
           </div>
         </div>
@@ -1241,7 +1269,6 @@
       promoPrice: document.getElementById("promoPrice"),
       promoNote: document.getElementById("promoNote"),
       monthlyPrice: document.getElementById("monthlyPrice"),
-      monthlyNote: document.getElementById("monthlyNote"),
       waInlineLink: document.getElementById("waInlineLink"),
       waStickyLink: document.getElementById("waStickyLink")
     };
@@ -1606,11 +1633,9 @@
       ].join("");
 
       els.discountBadge.textContent = `${visibleDiscount}% de descuento`;
-      els.installmentBadge.textContent = getInstallmentLabel(installmentCount);
       els.promoPrice.textContent = `${currencyLabels[currency]} ${promoValue}`;
       els.promoNote.textContent = `Inversión hoy: curso completo con ${visibleDiscount}% de descuento.`;
-      els.monthlyPrice.textContent = `${installmentCount} cuotas de ${installmentValue} ${currency}`;
-      els.monthlyNote.textContent = `Financiación del valor promocional.`;
+      els.monthlyPrice.textContent = `${installmentCount} cuotas sin interés de ${currencyLabels[currency]} ${installmentValue}`;
       els.levelHelp.textContent = getLevelDescription(level);
       els.levelBadge.textContent = level;
       els.levelHighlightText.textContent = getLevelDescription(level).replace(/^Nivel\s+[A-Z0-9]+:\s*/i, "");
