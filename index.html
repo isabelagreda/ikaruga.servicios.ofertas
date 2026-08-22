@@ -5,21 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>IKARUGA Idiomas | Elegí tu horario</title>
   <meta name="description" content="Elegí tu país, idioma, nivel y horario. Mirá el valor visible de tu curso y seguí por WhatsApp con ISA para reservar tu lugar en IKARUGA Idiomas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@700;800;900&family=Montserrat:wght@500;600;700;800;900&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#f5efe7;
-      --paper:#fffdfa;
-      --ink:#181314;
-      --muted:#65584d;
-      --line:#e7d7c6;
-      --brand:#df2026;
-      --brand-dark:#a51019;
-      --charcoal:#231f20;
-      --charcoal-soft:#322b2d;
-      --gold:#d9b46a;
-      --gold-soft:#fff2dc;
-      --chip:#f7efe5;
+      --bg:#f3f1ee;
+      --paper:#fcfcfc;
+      --ink:#010101;
+      --muted:#5f5a57;
+      --line:#e5dfda;
+      --line-strong:#d8c8c4;
+      --brand:#d11717;
+      --brand-dark:#9f1010;
+      --charcoal:#010101;
+      --charcoal-soft:#1a1a1a;
+      --gold:#d7c8b4;
+      --gold-soft:#f6efe8;
+      --chip:#f5f1ed;
       --shadow:0 18px 44px rgba(24,19,20,.10);
+      --shadow-soft:0 12px 28px rgba(24,19,20,.08);
+      --fs-hero:20px;
+      --fs-title:22px;
+      --fs-subtitle:17px;
+      --fs-body:13px;
+      --fs-meta:12px;
+      --fs-label:11px;
+      --fs-micro:10px;
+      --fw-strong:800;
+      --fw-heavy:900;
     }
     *{box-sizing:border-box}
     html{
@@ -29,12 +43,12 @@
     }
     body{
       margin:0;
-      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      font-family:"Montserrat",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       color:var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(223,32,38,.12), transparent 24%),
-        radial-gradient(circle at top right, rgba(217,180,106,.14), transparent 22%),
-        linear-gradient(180deg,#171314 0,#2a2022 180px,var(--bg) 180px,var(--bg) 100%);
+        radial-gradient(circle at top left, rgba(209,23,23,.10), transparent 24%),
+        radial-gradient(circle at top right, rgba(209,23,23,.08), transparent 18%),
+        linear-gradient(180deg,#010101 0,#191919 180px,var(--bg) 180px,var(--bg) 100%);
       overflow-x:hidden;
     }
     a{text-decoration:none;color:inherit}
@@ -53,27 +67,27 @@
         linear-gradient(135deg, rgba(24,19,20,.98), rgba(35,31,32,.96) 56%, rgba(223,32,38,.84)),
         linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0));
       color:#fff;
-      border-radius:24px;
+      border-radius:18px;
       border:1px solid rgba(255,255,255,.10);
       box-shadow:0 24px 72px rgba(0,0,0,.24);
-      padding:12px;
+      padding:7px;
     }
     .brand-lockup{
       display:inline-flex;
       background:#fff;
-      padding:4px 6px;
-      border-radius:10px;
+      padding:2px 3px;
+      border-radius:7px;
       box-shadow:0 14px 28px rgba(0,0,0,.24);
     }
-    .brand-lockup img{width:min(182px,62vw)}
+    .brand-lockup img{width:min(122px,44vw)}
     .eyebrow{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      margin-top:9px;
-      padding:5px 8px;
+      margin-top:5px;
+      padding:3px 6px;
       border-radius:999px;
-      font-size:10px;
+      font-size:8px;
       font-weight:900;
       letter-spacing:.05em;
       text-transform:uppercase;
@@ -82,33 +96,34 @@
       border:1px solid rgba(217,180,106,.34);
     }
     h1{
-      margin:8px 0 0;
-      font-size:24px;
-      line-height:.98;
+      margin:5px 0 0;
+      font-size:18px;
+      font-family:"Chivo","Montserrat",sans-serif;
+      line-height:1.02;
       text-transform:uppercase;
       letter-spacing:-.02em;
     }
     .hero p{
-      margin:8px 0 0;
+      margin:4px 0 0;
       color:#f4ece1;
-      font-size:13px;
-      line-height:1.34;
+      font-size:11px;
+      line-height:1.28;
     }
     .hero-isa{
-      margin-top:10px;
+      margin-top:6px;
       display:grid;
-      grid-template-columns:40px minmax(0,1fr);
-      gap:8px;
+      grid-template-columns:30px minmax(0,1fr);
+      gap:6px;
       align-items:center;
-      padding:8px 10px;
-      border-radius:14px;
+      padding:6px 7px;
+      border-radius:11px;
       background:rgba(255,255,255,.10);
       border:1px solid rgba(255,255,255,.14);
       backdrop-filter:blur(8px);
     }
     .hero-isa img{
-      width:40px;
-      height:40px;
+      width:30px;
+      height:30px;
       border-radius:50%;
       object-fit:cover;
       object-position:50% 35%;
@@ -116,7 +131,7 @@
     }
     .hero-isa strong{
       display:block;
-      font-size:13px;
+      font-size:11px;
       text-transform:uppercase;
       line-height:1;
       margin-bottom:2px;
@@ -125,116 +140,122 @@
     .hero-isa span{
       display:block;
       color:#f4ece1;
-      font-size:11px;
-      line-height:1.24;
-    }
-    .hero-trust{
-      margin-top:9px;
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:6px;
+      font-size:10px;
+      line-height:1.22;
     }
     .hero-flags{
-      margin-top:9px;
+      margin-top:6px;
       display:flex;
       flex-wrap:wrap;
-      gap:6px;
+      gap:5px;
     }
     .flag-pill{
       display:inline-flex;
       align-items:center;
       gap:6px;
-      min-height:30px;
-      padding:0 9px;
+      min-height:24px;
+      padding:0 6px;
       border-radius:999px;
       background:rgba(255,255,255,.10);
       border:1px solid rgba(255,255,255,.14);
       color:#fff;
-      font-size:11px;
-      font-weight:800;
+      font-size:var(--fs-micro);
+      font-weight:var(--fw-strong);
     }
     .flag-icon{
       display:inline-block;
       vertical-align:-3px;
-      width:18px;
-      height:18px;
+      width:15px;
+      height:15px;
       border-radius:50%;
       object-fit:cover;
       flex:0 0 auto;
       box-shadow:0 0 0 1px rgba(0,0,0,.12);
     }
+    .hero-proof{
+      margin-top:6px;
+      display:grid;
+      grid-template-columns:1.3fr 1fr;
+      align-items:center;
+      gap:6px;
+    }
     .hero-cert{
-      margin-top:9px;
       display:flex;
       align-items:center;
-      gap:10px;
-      padding:8px 10px;
-      border-radius:12px;
+      gap:8px;
+      padding:6px 7px;
+      border-radius:10px;
       background:rgba(217,180,106,.14);
       border:1px solid rgba(217,180,106,.34);
       color:#fff5df;
     }
     .hero-cert img{
-      width:72px;
-      height:44px;
-      border-radius:12px;
+      width:54px;
+      height:32px;
+      border-radius:10px;
       background:#231f20;
       object-fit:contain;
-      padding:6px 8px;
+      padding:5px 7px;
       flex:0 0 auto;
       box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
     }
     .hero-cert strong{
       display:block;
-      font-size:11px;
-      font-weight:900;
+      font-size:var(--fs-micro);
+      font-weight:var(--fw-heavy);
       text-transform:uppercase;
       line-height:1.2;
     }
     .hero-cert span{
       display:block;
-      margin-top:2px;
-      font-size:11px;
+      margin-top:1px;
+      font-size:var(--fs-micro);
       line-height:1.25;
       color:#f4ece1;
     }
     .trust-card{
-      padding:8px 9px;
-      border-radius:12px;
+      padding:6px 7px;
+      border-radius:10px;
       background:rgba(255,255,255,.08);
       border:1px solid rgba(255,255,255,.12);
+    }
+    .trust-inline{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:6px;
     }
     .trust-card strong{
       display:block;
       color:#fff4d7;
-      font-size:14px;
+      font-size:var(--fs-meta);
       line-height:1;
       margin-bottom:3px;
     }
     .trust-card span{
       display:block;
       color:#f3eadf;
-      font-size:10px;
-      line-height:1.18;
+      font-size:var(--fs-micro);
+      line-height:1.25;
     }
     .panel{
       margin-top:12px;
       background:var(--paper);
-      border:1px solid var(--line);
+      border:1px solid rgba(220,198,168,.72);
       border-radius:22px;
       padding:16px;
-      box-shadow:var(--shadow);
+      box-shadow:0 22px 50px rgba(24,19,20,.09);
     }
     .panel h2{
       margin:0 0 8px;
-      font-size:24px;
-      line-height:1;
+      font-size:var(--fs-title);
+      font-family:"Chivo","Montserrat",sans-serif;
+      line-height:1.02;
       text-transform:uppercase;
     }
     .panel-intro{
       margin:0 0 14px;
       color:var(--muted);
-      font-size:14px;
+      font-size:var(--fs-body);
       line-height:1.45;
     }
     .offers{
@@ -246,8 +267,8 @@
       padding:12px;
       border-radius:16px;
       background:#fff;
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
+      border:1px solid rgba(220,198,168,.7);
+      box-shadow:var(--shadow-soft);
     }
     .offer-card strong{
       display:block;
@@ -282,34 +303,36 @@
       border-radius:18px;
       background:linear-gradient(180deg,#fff8ef,#fff1df);
       border:1px solid #e5c486;
-      box-shadow:var(--shadow);
+      box-shadow:var(--shadow-soft);
     }
     .groupal-spot strong{
       display:block;
       color:var(--brand-dark);
-      font-size:12px;
+      font-size:var(--fs-meta);
       text-transform:uppercase;
       margin-bottom:5px;
     }
     .groupal-spot h3{
       margin:0 0 6px;
-      font-size:22px;
-      line-height:1;
+      font-size:var(--fs-title);
+      font-family:"Chivo","Montserrat",sans-serif;
+      line-height:1.02;
       text-transform:uppercase;
       color:#1e1818;
     }
     .groupal-spot p{
       margin:0;
       color:#453a32;
-      font-size:13px;
+      font-size:var(--fs-body);
       line-height:1.35;
     }
     .support-box{
       margin-top:12px;
-      padding:12px;
+      padding:10px 11px;
       border-radius:16px;
-      background:#fff7ef;
+      background:#fffaf4;
       border:1px solid #ead9c3;
+      box-shadow:var(--shadow-soft);
     }
     .support-box strong{
       display:block;
@@ -337,17 +360,17 @@
     .field label{
       display:block;
       margin-bottom:5px;
-      font-size:11px;
-      font-weight:900;
+      font-size:var(--fs-label);
+      font-weight:var(--fw-heavy);
       color:var(--muted);
       text-transform:uppercase;
     }
     .field select{
       width:100%;
       min-height:50px;
-      border:1px solid var(--line);
+      border:1px solid rgba(220,198,168,.92);
       border-radius:12px;
-      background:#fff;
+      background:linear-gradient(180deg,#fffdfa,#fff8f1);
       color:var(--ink);
       padding:11px 34px 11px 12px;
       font:inherit;
@@ -366,7 +389,7 @@
     .field-help{
       margin-top:6px;
       color:var(--muted);
-      font-size:12px;
+      font-size:var(--fs-meta);
       line-height:1.4;
     }
     .country-flag{
@@ -380,8 +403,8 @@
       background:#fff6ec;
       border:1px solid #ead9c3;
       color:#2e2823;
-      font-size:13px;
-      font-weight:800;
+      font-size:var(--fs-body);
+      font-weight:var(--fw-strong);
     }
     .country-flag img{
       width:20px;
@@ -397,8 +420,9 @@
       gap:10px;
       padding:10px 12px;
       background:#fff5eb;
-      border:1px solid #eed6b3;
+      border:1px solid #e8cca3;
       border-radius:14px;
+      box-shadow:var(--shadow-soft);
     }
     .level-badge{
       flex:0 0 auto;
@@ -416,23 +440,24 @@
     .level-copy strong{
       display:block;
       margin-bottom:3px;
-      font-size:11px;
+      font-size:var(--fs-label);
       color:#8a5511;
       text-transform:uppercase;
     }
     .level-copy span{
       display:block;
       color:#2f2a25;
-      font-size:13px;
+      font-size:var(--fs-body);
       line-height:1.35;
       font-weight:700;
     }
     .result{
       margin-top:10px;
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:18px;
+      background:linear-gradient(180deg,#fffdfa,#fff7ef);
+      border:1px solid rgba(220,198,168,.82);
+      border-radius:20px;
       padding:14px;
+      box-shadow:0 18px 40px rgba(24,19,20,.08);
     }
     .kicker{
       display:inline-flex;
@@ -442,78 +467,182 @@
       border-radius:999px;
       background:var(--gold-soft);
       color:#8d5610;
-      font-size:11px;
-      font-weight:900;
+      font-size:var(--fs-label);
+      font-weight:var(--fw-heavy);
       text-transform:uppercase;
     }
     .result h3{
       margin:10px 0 6px;
-      font-size:25px;
-      line-height:.96;
+      font-size:var(--fs-title);
+      font-family:"Chivo","Montserrat",sans-serif;
+      line-height:1.02;
       text-transform:uppercase;
     }
     .result-summary{
       color:#332c26;
-      font-size:14px;
+      font-size:var(--fs-body);
       line-height:1.38;
       display:grid;
-      gap:6px;
+      gap:8px;
       white-space:normal;
     }
     .summary-block{
-      background:#fcf7ef;
-      border:1px solid #eadfcd;
+      background:#fffaf4;
+      border:1px solid #eadbc8;
       border-radius:14px;
       padding:8px 10px;
+    }
+    .summary-block.compact{
+      padding:9px 10px;
+    }
+    .summary-block.primary{
+      background:linear-gradient(180deg,#fff8ef,#fff3e4);
+      border-color:#e3c38a;
     }
     .summary-block strong{
       display:block;
       margin-bottom:3px;
-      font-size:11px;
+      font-size:var(--fs-label);
       color:var(--muted);
       text-transform:uppercase;
     }
     .summary-block span{
       display:block;
       color:#2e2823;
-      font-size:13px;
+      font-size:var(--fs-body);
       line-height:1.32;
+    }
+    .summary-main{
+      display:grid;
+      gap:5px;
+    }
+    .summary-main-title{
+      display:block;
+      font-size:var(--fs-subtitle);
+      font-family:"Poppins","Montserrat",sans-serif;
+      line-height:1.12;
+      font-weight:var(--fw-heavy);
+      color:#161311;
+      text-transform:uppercase;
+    }
+    .summary-main-meta{
+      display:block;
+      color:#5f5146;
+      font-size:var(--fs-body);
+      line-height:1.35;
+      font-weight:700;
+    }
+    .summary-mini-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:8px;
+    }
+    .breakdown-box{
+      margin-top:10px;
+      background:linear-gradient(180deg,#fffdf9,#fff7ef);
+      border:1px solid #eadbc8;
+      border-radius:16px;
+      padding:12px 12px 10px;
+      box-shadow:var(--shadow-soft);
+    }
+    .breakdown-box strong{
+      display:block;
+      margin-bottom:7px;
+      color:#8d5610;
+      font-size:var(--fs-meta);
+      font-weight:var(--fw-heavy);
+      text-transform:uppercase;
+    }
+    .breakdown-list{
+      display:grid;
+      gap:5px;
+      color:#352c26;
+      font-size:var(--fs-body);
+      line-height:1.35;
+      font-weight:var(--fw-strong);
+    }
+    .breakdown-list span{
+      display:block;
     }
     .price-boxes{
       display:grid;
       gap:8px;
       margin-top:10px;
     }
+    .price-main{
+      display:grid;
+      gap:8px;
+    }
     .price-box{
-      background:#fbf5ee;
+      background:#fffaf4;
       border:1px solid #ead9c3;
       border-radius:14px;
       padding:11px 12px;
+      box-shadow:var(--shadow-soft);
     }
     .price-box.primary{
-      background:linear-gradient(180deg,#fff8ef,#fff1dd);
+      background:
+        radial-gradient(circle at top right, rgba(223,32,38,.08), transparent 34%),
+        linear-gradient(180deg,#fff8ef,#fff1dd);
       border-color:#ddb76a;
-      box-shadow:0 12px 28px rgba(223,32,38,.10);
+      box-shadow:0 16px 34px rgba(223,32,38,.10);
+      padding:14px 14px 13px;
     }
     .price-box strong{
       display:block;
       color:var(--muted);
-      font-size:11px;
+      font-size:var(--fs-label);
       text-transform:uppercase;
       margin-bottom:6px;
     }
+    .price-header{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:6px;
+      margin-bottom:10px;
+    }
+    .price-pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:24px;
+      padding:0 10px;
+      border-radius:999px;
+      font-size:var(--fs-micro);
+      font-weight:var(--fw-heavy);
+      text-transform:uppercase;
+      letter-spacing:.01em;
+    }
+    .price-pill.discount{
+      background:var(--brand);
+      color:#fff;
+    }
+    .price-pill.installments{
+      background:#fffdf9;
+      color:#8d5610;
+      border:1px solid #ddb76a;
+    }
+    .offer-title{
+      display:block;
+      margin-bottom:5px;
+      color:#7b4b12;
+      font-size:var(--fs-label);
+      font-weight:var(--fw-heavy);
+      text-transform:uppercase;
+    }
     .price-box span{
       display:block;
-      font-size:26px;
+      font-size:var(--fs-title);
+      font-family:"Chivo","Montserrat",sans-serif;
       line-height:1;
-      font-weight:950;
+      font-weight:var(--fw-heavy);
       color:#151515;
     }
     .price-box small{
       display:block;
       margin-top:5px;
       color:var(--muted);
-      font-size:12px;
+      font-size:var(--fs-meta);
       line-height:1.32;
     }
     .price-accent{
@@ -524,16 +653,45 @@
       border-radius:999px;
       background:var(--brand);
       color:#fff;
-      font-size:10px;
-      font-weight:950;
+      font-size:var(--fs-micro);
+      font-weight:var(--fw-heavy);
       text-transform:uppercase;
-      margin-bottom:6px;
+      margin-bottom:4px;
+    }
+    .offer-cta{
+      margin-top:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:52px;
+      border-radius:14px;
+      background:linear-gradient(180deg,#d11717,#aa1414);
+      color:#fff;
+      font-size:14px;
+      font-family:"Poppins","Montserrat",sans-serif;
+      font-weight:var(--fw-heavy);
+      text-align:center;
+      padding:12px 14px;
+      box-shadow:0 16px 32px rgba(165,16,25,.18);
+    }
+    .offer-cta-note{
+      margin-top:5px;
+      color:#7a6658;
+      font-size:var(--fs-micro);
+      line-height:1.25;
+      text-align:center;
+      font-weight:700;
+    }
+    @media(max-width:360px){
+      .summary-mini-grid{
+        grid-template-columns:1fr;
+      }
     }
     .chips{
       display:flex;
       flex-wrap:wrap;
       gap:7px;
-      margin-top:10px;
+      margin-top:6px;
     }
     .chip{
       display:inline-flex;
@@ -541,32 +699,33 @@
       min-height:28px;
       padding:0 9px;
       border-radius:999px;
-      background:var(--chip);
-      border:1px solid #eadfce;
-      color:#322c26;
-      font-size:11px;
-      font-weight:850;
+      background:#f8f1e8;
+      border:1px solid #eadbc7;
+      color:#6d5b4c;
+      font-size:var(--fs-micro);
+      font-weight:var(--fw-strong);
     }
     .micro{
-      margin-top:8px;
+      margin-top:4px;
       color:var(--muted);
-      font-size:12px;
-      line-height:1.32;
+      font-size:var(--fs-label);
+      line-height:1.28;
     }
     .isa-strip{
-      margin-top:10px;
+      margin-top:8px;
       display:grid;
-      grid-template-columns:52px minmax(0,1fr);
-      gap:10px;
+      grid-template-columns:44px minmax(0,1fr);
+      gap:9px;
       align-items:center;
-      padding:10px 11px;
+      padding:9px 10px;
       background:linear-gradient(180deg,#fff7ee,#fffdf9);
-      border:1px solid #e5d2b0;
+      border:1px solid #e7cfac;
       border-radius:16px;
+      box-shadow:var(--shadow-soft);
     }
     .isa-strip img{
-      width:52px;
-      height:52px;
+      width:44px;
+      height:44px;
       border-radius:50%;
       object-fit:cover;
       object-position:50% 35%;
@@ -574,7 +733,7 @@
     }
     .isa-strip strong{
       display:block;
-      font-size:14px;
+      font-size:var(--fs-body);
       text-transform:uppercase;
       line-height:1;
       margin-bottom:4px;
@@ -582,7 +741,7 @@
     .isa-strip span{
       display:block;
       color:var(--muted);
-      font-size:12px;
+      font-size:var(--fs-meta);
       line-height:1.35;
     }
     .schedule-head{
@@ -594,14 +753,14 @@
     }
     .schedule-head strong{
       display:block;
-      font-size:14px;
+      font-size:var(--fs-body);
       text-transform:uppercase;
       line-height:1;
     }
     .schedule-head span{
       display:block;
       color:var(--muted);
-      font-size:12px;
+      font-size:var(--fs-meta);
       line-height:1.35;
       text-align:right;
     }
@@ -614,17 +773,17 @@
       width:100%;
       text-align:left;
       background:#fff;
-      border:1px solid var(--line);
+      border:1px solid rgba(220,198,168,.82);
       border-radius:16px;
       padding:14px;
       cursor:pointer;
-      box-shadow:var(--shadow);
+      box-shadow:var(--shadow-soft);
       transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease;
     }
     .schedule-card.active{
       border-color:var(--brand);
-      box-shadow:0 14px 28px rgba(223,32,38,.16);
-      background:linear-gradient(180deg,#fff9f9,#fff);
+      box-shadow:0 16px 34px rgba(223,32,38,.14);
+      background:linear-gradient(180deg,#fffdf9,#fff4e8);
     }
     .schedule-card-top{
       display:flex;
@@ -634,8 +793,9 @@
     }
     .schedule-card strong{
       display:block;
-      font-size:17px;
-      line-height:1;
+      font-size:16px;
+      font-family:"Poppins","Montserrat",sans-serif;
+      line-height:1.08;
       text-transform:uppercase;
       color:#1b1b1b;
     }
@@ -648,14 +808,14 @@
       border-radius:999px;
       background:#fff2df;
       color:#8d5610;
-      font-size:10px;
-      font-weight:950;
+      font-size:var(--fs-micro);
+      font-weight:var(--fw-heavy);
       text-transform:uppercase;
     }
     .schedule-card p{
       margin:9px 0 0;
       color:var(--muted);
-      font-size:13px;
+      font-size:var(--fs-body);
       line-height:1.45;
     }
     .schedule-card-meta{
@@ -676,8 +836,8 @@
       border-radius:999px;
       background:#f8f0e6;
       border:1px solid #e8dccb;
-      font-size:11px;
-      font-weight:800;
+      font-size:var(--fs-label);
+      font-weight:var(--fw-strong);
       color:#302a24;
     }
     .sticky-cta{
@@ -691,8 +851,9 @@
       justify-content:center;
       min-height:56px;
       border-radius:14px;
-      background:var(--brand);
+      background:linear-gradient(180deg,#d11717,#aa1414);
       color:#fff;
+      font-family:"Poppins","Montserrat",sans-serif;
       font-weight:950;
       text-align:center;
       box-shadow:0 18px 40px rgba(165,16,25,.24);
@@ -700,8 +861,14 @@
       letter-spacing:.01em;
     }
     @media(max-width:420px){
-      .hero-trust{
+      .hero{
+        padding:6px;
+      }
+      .hero-proof{
         grid-template-columns:1fr;
+      }
+      .trust-inline{
+        grid-template-columns:1fr 1fr;
       }
     }
   </style>
@@ -714,12 +881,12 @@
       </div>
       <div class="eyebrow">IKARUGA Idiomas · Inscripciones online</div>
       <h1>Elegí tu idioma, tu horario y reservá tu lugar.</h1>
-      <p><strong>IKARUGA Idiomas</strong> te permite elegir una comisión real, ver el valor visible de tu curso y avanzar por WhatsApp con ISA para completar tu inscripción de forma simple.</p>
+      <p><strong>Elegís tu horario, ves el valor y reservás por WhatsApp.</strong></p>
       <div class="hero-isa">
         <img src="isa-asesora-web.jpg" alt="ISA">
         <div>
           <strong>ISA te acompaña</strong>
-          <span>Si una opción te interesa, ISA te acompaña por WhatsApp, te explica qué incluye el curso, respeta el valor mostrado y te ayuda a completar la inscripción.</span>
+          <span>Te explica qué incluye, respeta este valor y te ayuda a inscribirte.</span>
         </div>
       </div>
       <div class="hero-flags">
@@ -730,32 +897,34 @@
         <span class="flag-pill"><img class="flag-icon" src="https://flagcdn.com/w40/de.png" alt="Alemania">Alemán</span>
         <span class="flag-pill"><img class="flag-icon" src="https://flagcdn.com/w40/gb.png" alt="Reino Unido">Inglés</span>
       </div>
-      <div class="hero-cert">
-        <img src="uai-logo.png" alt="UAI">
-        <div>
-          <strong>Certificación universitaria en cursos seleccionados</strong>
-          <span>Respaldo académico visible en las opciones que corresponden.</span>
+      <div class="hero-proof">
+        <div class="hero-cert">
+          <img src="uai-logo.png" alt="UAI">
+          <div>
+            <strong>Certificación universitaria en cursos seleccionados</strong>
+            <span>Respaldo académico visible en las opciones que corresponden.</span>
+          </div>
         </div>
-      </div>
-      <div class="hero-trust">
-        <div class="trust-card">
-          <strong>+10 años</strong>
-          <span>Enseñando idiomas online con grupos activos en distintos niveles.</span>
-        </div>
-        <div class="trust-card">
-          <strong>+10.000 alumnos</strong>
-          <span>Personas que ya pasaron por IKARUGA y eligieron estudiar con esta propuesta.</span>
+        <div class="trust-inline">
+          <div class="trust-card">
+            <strong>+10 años</strong>
+            <span>Experiencia online.</span>
+          </div>
+          <div class="trust-card">
+            <strong>+10.000 alumnos</strong>
+            <span>Ya eligieron IKARUGA.</span>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="panel" id="selector">
-      <h2>Elegí tu opción</h2>
-      <p class="panel-intro">Elegí la opción que mejor se adapte a vos. Vas a ver el horario en tu país, el valor visible del curso y el acceso directo para reservar por WhatsApp.</p>
+      <h2>Elegí y reservá</h2>
+      <p class="panel-intro">Elegí país, idioma, nivel y horario. Vas a ver el precio y seguís por WhatsApp.</p>
       <div class="groupal-spot">
-        <strong>Principal hoy</strong>
+        <strong>Lo más pedido hoy</strong>
         <h3>Cursos grupales en vivo</h3>
-        <p>Acá ves las comisiones grupales activas de IKARUGA con día, horario en tu país, valor visible y cupos limitados para reservar por WhatsApp.</p>
+        <p>Estas son las comisiones activas que hoy podés reservar: horario en tu país, precio visible y pocos cupos.</p>
       </div>
 
       <div class="field">
@@ -809,44 +978,51 @@
 
       <div class="schedule-head">
         <div>
-          <strong>Horarios disponibles</strong>
+          <strong>Paso 1 · Elegí un horario</strong>
         </div>
         <span id="scheduleCountryNote">Se muestran en la hora del país elegido.</span>
       </div>
       <div class="schedule-cards" id="scheduleCards"></div>
 
       <div class="result">
-        <span class="kicker" id="resultKicker">Comisión disponible</span>
+        <span class="kicker" id="resultKicker">Paso 2 · Mirá esta opción</span>
         <h3 id="resultTitle">Japonés 1 · Sábados</h3>
         <div class="result-summary" id="resultSummary"></div>
+        <div class="breakdown-box" id="regularBreakdown"></div>
 
         <div class="price-boxes">
-          <div class="price-box primary">
-            <div class="price-accent">Mejor opción visible</div>
-            <strong>Valor promocional visible</strong>
-            <span id="promoPrice">ARS 540.000</span>
-            <small id="promoNote">Pago total del curso. La promo visible no incluye certificado cuando la tabla lo aclara.</small>
-          </div>
-          <div class="price-box">
-            <strong>Cuota mensual visible</strong>
-            <span id="monthlyPrice">ARS 160.000</span>
-            <small id="monthlyNote">Valor mensual según la tabla correspondiente al tipo de curso.</small>
+          <div class="price-main">
+            <div class="price-box primary">
+              <div class="price-accent">Mejor opción visible</div>
+              <div class="price-header">
+                <span class="price-pill discount" id="discountBadge">35% de descuento</span>
+                <span class="price-pill installments" id="installmentBadge">5 cuotas sin interés</span>
+              </div>
+              <span class="offer-title">Inversión hoy</span>
+              <span id="promoPrice">ARS 540.000</span>
+              <small id="promoNote">Pago total del curso con descuento vigente.</small>
+              <a class="offer-cta" id="waInlineLink" href="#" target="_blank" rel="noopener">Reservar este lugar con ISA</a>
+              <div class="offer-cta-note">ISA respeta este valor y te ayuda a completar la inscripción.</div>
+            </div>
+            <div class="price-box">
+              <strong>También podés pagar así</strong>
+              <span id="monthlyPrice">ARS 160.000</span>
+              <small id="monthlyNote">Cuotas según el tipo de curso.</small>
+            </div>
           </div>
         </div>
 
-        <div class="chips" id="resultChips"></div>
-        <div class="micro" id="waTiny">ISA recibe idioma, comisión, horario y valor mostrado para seguir la inscripción.</div>
         <div class="isa-strip">
           <img src="isa-asesora-web.jpg" alt="ISA">
           <div>
             <strong>ISA</strong>
-            <span>Te comparte lo que incluye el curso, confirma el valor mostrado y te acompaña hasta reservar tu lugar.</span>
+            <span>Confirma este valor y te ayuda a reservar.</span>
           </div>
         </div>
         <div class="support-box">
-          <strong>¿Tenés alguna pregunta?</strong>
-          <span>No lo dejes al azar. Si no sabés qué nivel elegir, qué incluye el curso o cuál horario te conviene, ISA te orienta antes de inscribirte.</span>
-          <a class="offer-link" href="https://wa.me/5493413483263?text=Hola%20ISA%2C%20tengo%20unas%20preguntas%20antes%20de%20inscribirme%20en%20IKARUGA." target="_blank" rel="noopener">Hacer una consulta</a>
+          <strong>¿Tenés dudas?</strong>
+          <span>ISA te orienta antes de inscribirte.</span>
+          <a class="offer-link" href="https://wa.me/5493413483263?text=Hola%20ISA%2C%20tengo%20unas%20preguntas%20antes%20de%20inscribirme%20en%20IKARUGA." target="_blank" rel="noopener">Preguntarle a ISA</a>
         </div>
       </div>
     </section>
@@ -854,7 +1030,7 @@
     <section class="bottom-products">
       <div class="offer-card">
         <strong>Cursos pregrabados</strong>
-        <span>Si hoy preferís estudiar a tu ritmo, también podés consultar opciones pregrabadas de IKARUGA.</span>
+        <span>Si hoy preferís estudiar a tu ritmo, también podés consultar opciones pregrabadas de IKARUGA. Desde ARS 119.000 por transferencia, USD 80 o MXN 1.400.</span>
         <a class="offer-link" href="https://wa.me/5493413483263?text=Hola%20ISA%2C%20quiero%20consultar%20por%20los%20cursos%20pregrabados%20de%20IKARUGA." target="_blank" rel="noopener">Consultar pregrabados</a>
       </div>
       <div class="offer-card">
@@ -864,7 +1040,7 @@
       </div>
     </section>
 
-    <a class="sticky-cta" id="waStickyLink" href="#" target="_blank" rel="noopener">Reservar este horario por WhatsApp</a>
+    <a class="sticky-cta" id="waStickyLink" href="#" target="_blank" rel="noopener">Quiero reservar por WhatsApp</a>
   </main>
 
   <script>
@@ -873,74 +1049,153 @@
     const priceTables = {
       threeH5: {
         label: "5 módulos · clases de 3 hs",
+        installmentsByMonth: { "2026-08": 3, "2026-09": 4, "2026-10": 4, "2026-12": 5 },
+        visibleDiscountByMonth: { "2026-08": 40, "2026-09": 40, "2026-10": 40, "2026-12": 35 },
         monthly: { ARS: "160.000", USD: "82", MXN: "1.620" },
-        promo: { ARS: "628.000", USD: "305", MXN: "5.950" },
-        note: "Promo visible del 45% por pago total del curso. No aplica descuento sobre certificado.",
-        cert: "Certificado opcional según tabla."
+        enrollment: { ARS: "259.000", USD: "85", MXN: "1.670" },
+        certificate: { ARS: "46.000", USD: "32", MXN: "570" },
+        regular: { ARS: "1.105.000", USD: "527", MXN: "10.340" },
+        promoByDiscount: {
+          40: { ARS: "681.000", USD: "330", MXN: "6.440" },
+          35: { ARS: "734.000", USD: "355", MXN: "6.920" },
+          30: { ARS: "787.000", USD: "380", MXN: "7.410" },
+          25: { ARS: "840.000", USD: "405", MXN: "7.900" },
+          20: { ARS: "893.000", USD: "429", MXN: "8.390" },
+          15: { ARS: "946.000", USD: "454", MXN: "8.880" }
+        },
+        cert: "Certificación UAI según curso."
       },
       threeH4: {
         label: "4 módulos · clases de 3 hs",
+        installmentsByMonth: { "2026-08": 2, "2026-09": 4, "2026-10": 4, "2026-12": 4 },
+        visibleDiscountByMonth: { "2026-08": 30, "2026-09": 35, "2026-10": 35, "2026-12": 35 },
         monthly: { ARS: "160.000", USD: "82", MXN: "1.620" },
-        promo: { ARS: "540.000", USD: "260", MXN: "5.060" },
-        note: "Promo visible del 45% por pago total del curso. En esa promo no entra certificado.",
-        cert: "Certificado opcional según tabla."
+        enrollment: { ARS: "259.000", USD: "85", MXN: "1.670" },
+        certificate: { ARS: "46.000", USD: "32", MXN: "570" },
+        regular: { ARS: "945.000", USD: "445", MXN: "8.720" },
+        promoByDiscount: {
+          40: { ARS: "585.000", USD: "281", MXN: "5.460" },
+          35: { ARS: "630.000", USD: "302", MXN: "5.870" },
+          30: { ARS: "675.000", USD: "322", MXN: "6.280" },
+          25: { ARS: "720.000", USD: "343", MXN: "6.690" },
+          20: { ARS: "765.000", USD: "364", MXN: "7.090" },
+          15: { ARS: "810.000", USD: "384", MXN: "7.500" }
+        },
+        cert: "Certificación UAI según curso."
       },
       english2: {
         label: "4 módulos · inglés de 2 hs",
+        installmentsByMonth: { "2026-08": 3, "2026-09": 3, "2026-10": 3, "2026-12": 3 },
+        visibleDiscountByMonth: { "2026-08": 30, "2026-09": 30, "2026-10": 30, "2026-12": 30 },
         monthly: { ARS: "74.000", USD: "38", MXN: "750" },
-        promo: { ARS: "276.000", USD: "129", MXN: "2.540" },
-        note: "Promo visible del 30% por pago total del curso.",
-        cert: "Inglés: certificado institucional."
+        enrollment: { ARS: "100.000", USD: "33", MXN: "650" },
+        certificate: null,
+        regular: { ARS: "396.000", USD: "185", MXN: "3.650" },
+        promoByDiscount: {
+          30: { ARS: "276.000", USD: "129", MXN: "2.540" },
+          25: { ARS: "296.000", USD: "138", MXN: "2.720" },
+          20: { ARS: "316.000", USD: "147", MXN: "2.900" },
+          15: { ARS: "336.000", USD: "157", MXN: "3.090" }
+        },
+        cert: "Sin certificación UAI."
       },
       italian2: {
         label: "4 módulos · italiano de 2 hs",
+        installmentsByMonth: { "2026-08": 3, "2026-09": 3, "2026-10": 3, "2026-12": 3 },
+        visibleDiscountByMonth: { "2026-08": 30, "2026-09": 30, "2026-10": 30, "2026-12": 30 },
         monthly: { ARS: "74.000", USD: "38", MXN: "750" },
-        promo: { ARS: "322.000", USD: "162", MXN: "3.140" },
-        note: "Promo visible del 30% por pago total del curso. No aplica descuento sobre certificado.",
-        cert: "Certificado con cargo visible en la tabla."
+        enrollment: { ARS: "100.000", USD: "33", MXN: "650" },
+        certificate: { ARS: "46.000", USD: "32", MXN: "600" },
+        regular: { ARS: "442.000", USD: "217", MXN: "4.250" },
+        promoByDiscount: {
+          30: { ARS: "322.000", USD: "162", MXN: "3.140" },
+          25: { ARS: "342.000", USD: "171", MXN: "3.320" },
+          20: { ARS: "362.000", USD: "180", MXN: "3.500" },
+          15: { ARS: "381.000", USD: "189", MXN: "3.690" }
+        },
+        cert: "Certificación UAI según curso."
+      },
+      gameDev4: {
+        label: "4 módulos · programación",
+        installmentsByMonth: { "2026-09": 4, "2026-10": 4, "2026-12": 4 },
+        visibleDiscountByMonth: { "2026-09": 45, "2026-10": 45, "2026-12": 45 },
+        monthly: { ARS: "160.000", USD: "82", MXN: "1.620" },
+        enrollment: { ARS: "150.000", USD: "79", MXN: "1.550" },
+        certificate: null,
+        regular: { ARS: "790.000", USD: "407", MXN: "8.030" },
+        promoByDiscount: {
+          45: { ARS: "434.000", USD: "223", MXN: "4.410" },
+          40: { ARS: "474.000", USD: "243", MXN: "4.810" },
+          35: { ARS: "510.000", USD: "264", MXN: "5.210" },
+          30: { ARS: "553.000", USD: "280", MXN: "5.620" },
+          25: { ARS: "590.000", USD: "298", MXN: "5.980" },
+          20: { ARS: "632.000", USD: "320", MXN: "6.420" },
+          15: { ARS: "669.000", USD: "340", MXN: "6.800" }
+        },
+        cert: "Certificación a confirmar con ISA."
       }
     };
 
+    const prerecordedPrices = {
+      ARS: { regular: "187.000", card: "153.000", transfer: "119.000" },
+      USD: { regular: "80", card: "80", transfer: "80" },
+      MXN: { regular: "1.650", card: "1.650", transfer: "1.400" }
+    };
+
     const groups = [
-      { language: "Japonés", course: "Japonés 1", commission: "W", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 18, table: "threeH5", source: "Agosto 2026" },
-      { language: "Japonés", course: "Japonés 1", commission: "N", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 23, table: "threeH5", source: "Agosto 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "D", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 17, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "D", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026" },
       { language: "Japonés", course: "Japonés 2", commission: "E", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 16, table: "threeH5", source: "Agosto 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "F", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 3", commission: "D", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 12, table: "threeH5", source: "Agosto 2026" },
       { language: "Japonés", course: "Japonés 3", commission: "C", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 11, table: "threeH5", source: "Agosto 2026" },
       { language: "Japonés", course: "Japonés 4", commission: "A", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 9, table: "threeH5", source: "Agosto 2026" },
-      { language: "Coreano", course: "Coreano 1", commission: "D", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: 21, table: "threeH5", source: "Agosto 2026" },
-      { language: "Coreano", course: "Coreano 1", commission: "E", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 13, table: "threeH5", source: "Agosto 2026" },
-      { language: "Coreano", course: "Coreano 2", commission: "D", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 25, table: "threeH5", source: "Agosto 2026" },
+      { language: "Coreano", course: "Coreano 1", commission: "D", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026" },
+      { language: "Coreano", course: "Coreano 1", commission: "E", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 14, table: "threeH5", source: "Agosto 2026" },
       { language: "Tailandés", course: "Tailandés 2", commission: "B", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 13, table: "threeH5", source: "Agosto 2026" },
-      { language: "Inglés", course: "Inglés A1", commission: "C", day: "Jueves", start: "2026-08-20", end: "2026-12-11", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: 21, table: "english2", source: "Agosto 2026" },
-      { language: "Inglés", course: "Inglés A2", commission: "A", day: "Miércoles", start: "2026-08-19", end: "2026-11-11", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: 24, table: "english2", source: "Agosto 2026" },
-      { language: "Chino", course: "Chino 1", commission: "C", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026" },
-      { language: "Chino", course: "Chino 1", commission: "C", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 14, table: "threeH5", source: "Agosto 2026" },
       { language: "Chino", course: "Chino 2", commission: "D", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 12, table: "threeH5", source: "Agosto 2026" },
-      { language: "Tailandés", course: "Tailandés 3", commission: "A", day: "Domingos", start: "2026-08-23", end: "2027-01-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 4, table: "threeH5", source: "Agosto 2026" },
-      { language: "Alemán", course: "Alemán A1", commission: "B", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 22, table: "threeH5", source: "Agosto 2026" },
+      { language: "Tailandés", course: "Tailandés 3", commission: "A", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 4, table: "threeH5", source: "Agosto 2026" },
       { language: "Alemán", course: "Alemán A2", commission: "B", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 3, table: "threeH5", source: "Agosto 2026" },
+      { language: "Italiano", course: "Italiano A2", commission: "A", day: "Sábados", start: "2026-08-22", end: "2026-11-14", startTime: "17:00", endTime: "19:00", duration: "4 módulos", students: 3, table: "italian2", source: "Agosto 2026" },
       { language: "Italiano", course: "Italiano A1", commission: "B", day: "Lunes", start: "2026-08-24", end: "2026-11-16", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: 10, table: "italian2", source: "Agosto 2026" },
-      { language: "Japonés", course: "Japonés 1", commission: "X", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Septiembre 2026" },
-      { language: "Japonés", course: "Japonés 1", commission: "U", day: "Lunes", start: "2026-09-21", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 11, table: "threeH4", source: "Septiembre 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "G", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 2, table: "threeH4", source: "Septiembre 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "H", day: "Jueves", start: "2026-09-17", end: "2026-12-10", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 5, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: "X", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 6, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: "U", day: "Lunes", start: "2026-09-21", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 12, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "G", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "H", day: "Jueves", start: "2026-09-17", end: "2026-12-10", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 6, table: "threeH4", source: "Septiembre 2026" },
       { language: "Inglés", course: "Inglés A1", commission: "E", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "17:00", endTime: "19:00", duration: "4 módulos", students: null, table: "english2", source: "Octubre 2026" },
       { language: "Coreano", course: "Coreano 1", commission: "F", day: "Domingos", start: "2026-10-18", end: "2027-01-10", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Octubre 2026" },
       { language: "Tailandés", course: "Tailandés 1", commission: "D", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 6, table: "threeH4", source: "Octubre 2026" },
       { language: "Chino", course: "Chino 1", commission: "D", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Octubre 2026" },
-      { language: "Japonés", course: "Japonés 1", commission: "V", day: "Miércoles", start: "2026-10-21", end: "2027-01-13", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 1, table: "threeH4", source: "Octubre 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: "V", day: "Miércoles", start: "2026-10-21", end: "2027-01-13", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 2, table: "threeH4", source: "Octubre 2026" },
       { language: "Japonés", course: "Japonés 2", commission: "I", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Octubre 2026" },
       { language: "Inglés", course: "Inglés A1", commission: "D", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "18:00", duration: "4 módulos", students: 8, table: "english2", source: "Septiembre 2026" },
       { language: "Italiano", course: "Italiano A2", commission: "A", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "17:00", endTime: "19:00", duration: "4 módulos", students: 4, table: "italian2", source: "Septiembre 2026" },
       { language: "Alemán", course: "Alemán A1", commission: "C", day: "Miércoles", start: "2026-09-23", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Septiembre 2026" },
       { language: "Ruso", course: "Ruso 1", commission: "A", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 8, table: "threeH4", source: "Septiembre 2026" },
       { language: "Tailandés", course: "Tailandés 3", commission: "A", day: "Domingos", start: "2026-09-20", end: "2027-01-10", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 4, table: "threeH5", source: "Septiembre 2026" },
-      { language: "Diseño y programación", course: "Diseño y programación", commission: "A", day: "Domingos", start: "2026-09-20", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Septiembre 2026" }
+      { language: "Alemán", course: "Alemán A2", commission: "B", day: "Domingos", start: "2026-09-20", end: "2027-01-10", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 3, table: "threeH5", source: "Septiembre 2026" },
+      { language: "Diseño y programación", course: "Diseño y programación", commission: "A", day: "Domingos", start: "2026-09-20", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 4, table: "gameDev4", source: "Septiembre 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: "Y", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: "Z", day: "Domingos", start: "2026-12-20", end: "2027-04-11", startTime: "14:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "J", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "K", day: "Domingos", start: "2026-12-20", end: "2027-04-10", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 3", commission: "E", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 3", commission: "F", day: "Domingos", start: "2026-12-20", end: "2027-04-10", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 4", commission: "B", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Coreano", course: "Coreano 1", commission: "G", day: "Domingos", start: "2026-12-20", end: "2027-04-11", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 1, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Coreano", course: "Coreano 1", commission: "H", day: "Miércoles", start: "2026-12-23", end: "2027-04-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Coreano", course: "Coreano 2", commission: "E", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Coreano", course: "Coreano 2", commission: "F", day: "Lunes", start: "2026-12-21", end: "2027-04-12", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Chino", course: "Chino 1", commission: "E", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Chino", course: "Chino 1", commission: "F", day: "Lunes", start: "2026-12-21", end: "2027-04-12", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Chino", course: "Chino 2", commission: "E", day: "Miércoles", start: "2026-12-23", end: "2027-04-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Chino", course: "Chino 3", commission: "A", day: "Miércoles", start: "2026-12-23", end: "2027-04-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Tailandés", course: "Tailandés 1", commission: "E", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Tailandés", course: "Tailandés 2", commission: "C", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Tailandés", course: "Tailandés 3", commission: "B", day: "Lunes", start: "2026-12-21", end: "2027-04-12", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Alemán", course: "Alemán A1", commission: "D", day: "Domingos", start: "2026-12-20", end: "2027-04-11", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Alemán", course: "Alemán A2", commission: "C", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" }
     ];
 
-    const TODAY = "2026-08-21";
+    const TODAY = "2026-08-22";
 
     const currencyLabels = {
       ARS: "ARS",
@@ -977,15 +1232,17 @@
       resultKicker: document.getElementById("resultKicker"),
       resultTitle: document.getElementById("resultTitle"),
       resultSummary: document.getElementById("resultSummary"),
-      resultChips: document.getElementById("resultChips"),
+      regularBreakdown: document.getElementById("regularBreakdown"),
       levelHelp: document.getElementById("levelHelp"),
       levelBadge: document.getElementById("levelBadge"),
       levelHighlightText: document.getElementById("levelHighlightText"),
+      discountBadge: document.getElementById("discountBadge"),
+      installmentBadge: document.getElementById("installmentBadge"),
       promoPrice: document.getElementById("promoPrice"),
       promoNote: document.getElementById("promoNote"),
       monthlyPrice: document.getElementById("monthlyPrice"),
       monthlyNote: document.getElementById("monthlyNote"),
-      waTiny: document.getElementById("waTiny"),
+      waInlineLink: document.getElementById("waInlineLink"),
       waStickyLink: document.getElementById("waStickyLink")
     };
 
@@ -1030,6 +1287,43 @@
         "2027-01": "Enero 2027"
       };
       return labels[key] || key;
+    }
+
+    function getInstallmentCount(group, table) {
+      return table.installmentsByMonth?.[monthKey(group.start)] || 4;
+    }
+
+    function getVisibleDiscount(group, table) {
+      return table.visibleDiscountByMonth?.[monthKey(group.start)] || 30;
+    }
+
+    function getPromoValue(group, table, currency) {
+      const visibleDiscount = getVisibleDiscount(group, table);
+      return table.promoByDiscount?.[visibleDiscount]?.[currency]
+        || table.regular?.[currency]
+        || "";
+    }
+
+    function parseMoney(valueText) {
+      return Number(String(valueText).replace(/\./g, "").replace(/,/g, "."));
+    }
+
+    function formatMoney(value, currency) {
+      const rounded = Math.round(value);
+      if (currency === "ARS" || currency === "MXN") {
+        return rounded.toLocaleString("es-AR").replace(/,/g, ".");
+      }
+      return String(rounded);
+    }
+
+    function getInstallmentValue(group, table, currency) {
+      const installmentCount = getInstallmentCount(group, table);
+      const promoValue = parseMoney(getPromoValue(group, table, currency));
+      return formatMoney(promoValue / installmentCount, currency);
+    }
+
+    function getInstallmentLabel(count) {
+      return `${count} cuota${count === 1 ? "" : "s"} sin interés`;
     }
 
     function groupsForLanguage(language) {
@@ -1251,6 +1545,13 @@
     }
 
     function buildMessage(group, table, currency) {
+      const installmentCount = getInstallmentCount(group, table);
+      const visibleDiscount = getVisibleDiscount(group, table);
+      const promoValue = getPromoValue(group, table, currency);
+      const installmentValue = getInstallmentValue(group, table, currency);
+      const certificateLine = table.certificate
+        ? `${currencyLabels[currency]} ${table.certificate[currency]}`
+        : "Sin certificación UAI";
       return [
         "Hola ISA, quiero esta opción de IKARUGA:",
         "",
@@ -1260,8 +1561,11 @@
         `Día: ${group.day}`,
         `Horario: ${group.startTime} a ${group.endTime}`,
         `Inicio: ${fmtDate(group.start)}`,
-        `Precio promo visible: ${currencyLabels[currency]} ${table.promo[currency]}`,
-        `Cuota mensual visible: ${currencyLabels[currency]} ${table.monthly[currency]}`,
+        `Precio promo visible: ${currencyLabels[currency]} ${promoValue}`,
+        `Descuento visible: ${visibleDiscount}% por pago total del curso`,
+        `Cuotas: ${installmentCount} de ${currencyLabels[currency]} ${installmentValue}`,
+        `Matrícula y materiales: ${currencyLabels[currency]} ${table.enrollment[currency]}`,
+        `Certificación: ${certificateLine}`,
         "",
         "Quiero que me envíes qué incluye el curso y cómo puedo inscribirme respetando ese valor."
       ].join("\n");
@@ -1277,36 +1581,43 @@
       const level = getLevel(group.course);
       const countryBrand = getCountryBrand(els.country.value);
       const languageFlag = getLanguageFlag(group.language);
+      const installmentCount = getInstallmentCount(group, table);
+      const visibleDiscount = getVisibleDiscount(group, table);
+      const promoValue = getPromoValue(group, table, currency);
+      const installmentValue = getInstallmentValue(group, table, currency);
+      const certificateText = table.certificate
+        ? `${currencyLabels[currency]} ${table.certificate[currency]}`
+        : "Sin costo de certificación UAI";
 
       els.resultKicker.textContent = `${monthLabel(monthKey(group.start))} · ${table.label}`;
       els.resultTitle.innerHTML = `${languageFlag.url ? `<img class="flag-icon" src="${languageFlag.url}" alt="${languageFlag.label}">` : "🎮"} ${group.language} ${level} · ${group.day}`;
       els.resultSummary.innerHTML = [
-        `<div class="summary-block"><strong>Para quién es</strong><span>${getLevelDescription(level)}</span></div>`,
-        `<div class="summary-block"><strong>Tu selección</strong><span>${languageFlag.url ? `<img class="flag-icon" src="${languageFlag.url}" alt="${languageFlag.label}">` : "🎮"} ${group.language} ${level} · ${monthLabel(monthKey(group.start))} · ${countryBrand.url ? `<img class="flag-icon" src="${countryBrand.url}" alt="${countryBrand.label}">` : ""} ${timing.countryLabel}</span></div>`,
-        `<div class="summary-block"><strong>Inicio y finalización</strong><span>Inicia ${fmtDate(group.start)} · Termina ${fmtDate(group.end)} · ${monthLabel(monthKey(group.start))}</span></div>`,
-        `<div class="summary-block"><strong>Día y horario</strong><span>${countryBrand.url ? `<img class="flag-icon" src="${countryBrand.url}" alt="${countryBrand.label}">` : ""} ${group.day} · ${timing.scheduleLabel} para ${timing.countryLabel}</span></div>`,
-        `<div class="summary-block"><strong>Modalidad y certificación</strong><span>Clases en vivo con horario definido. ${table.cert}</span></div>`
+        `<div class="summary-block primary"><strong>Horario con cupo</strong><div class="summary-main"><span class="summary-main-title">${group.course} · ${group.day} · ${timing.scheduleLabel}</span><span class="summary-main-meta">Inicia ${fmtDate(group.start)} · Finaliza ${fmtDate(group.end)} · ${monthLabel(monthKey(group.start))} · ${group.duration}</span></div></div>`,
+        `<div class="summary-mini-grid"><div class="summary-block compact"><strong>País</strong><span>${countryBrand.label}</span></div><div class="summary-block compact"><strong>Nivel</strong><span>${getLevelDescription(level)}</span></div></div>`
+      ].join("");
+      els.regularBreakdown.innerHTML = [
+        `<strong>Valor regular desglosado</strong>`,
+        `<div class="breakdown-list">`,
+        `<span>Cuota mensual: ${currencyLabels[currency]} ${table.monthly[currency]}</span>`,
+        `<span>Matrícula y materiales: ${currencyLabels[currency]} ${table.enrollment[currency]}</span>`,
+        `<span>Certificado: ${certificateText}</span>`,
+        `<span>Total regular: ${currencyLabels[currency]} ${table.regular[currency]}</span>`,
+        `</div>`
       ].join("");
 
-      els.promoPrice.textContent = `${currencyLabels[currency]} ${table.promo[currency]}`;
-      els.promoNote.textContent = table.note;
-      els.monthlyPrice.textContent = `${currencyLabels[currency]} ${table.monthly[currency]}`;
-      els.monthlyNote.textContent = `Tipo de curso: ${table.label}.`;
-
-      const chips = [
-        `Comisión ${group.commission}`,
-        `${group.source}`,
-        `Nivel ${level}`,
-        studentsText(group.students)
-      ];
-      els.resultChips.innerHTML = chips.map(chip => `<span class="chip">${chip}</span>`).join("");
+      els.discountBadge.textContent = `${visibleDiscount}% de descuento`;
+      els.installmentBadge.textContent = getInstallmentLabel(installmentCount);
+      els.promoPrice.textContent = `${currencyLabels[currency]} ${promoValue}`;
+      els.promoNote.textContent = `Inversión hoy: curso completo con ${visibleDiscount}% de descuento.`;
+      els.monthlyPrice.textContent = `${installmentCount} cuotas de ${installmentValue} ${currency}`;
+      els.monthlyNote.textContent = `Financiación del valor promocional.`;
       els.levelHelp.textContent = getLevelDescription(level);
       els.levelBadge.textContent = level;
       els.levelHighlightText.textContent = getLevelDescription(level).replace(/^Nivel\s+[A-Z0-9]+:\s*/i, "");
 
       const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildMessage(group, table, currency))}`;
+      els.waInlineLink.href = href;
       els.waStickyLink.href = href;
-      els.waTiny.textContent = `ISA recibe ${group.course}, comisión ${group.commission}, mes ${monthLabel(monthKey(group.start))}, horario ${timing.scheduleLabel} para ${timing.countryLabel} y el valor mostrado para seguir la inscripción.`;
     }
 
     els.language.addEventListener("change", () => {
