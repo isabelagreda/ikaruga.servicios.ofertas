@@ -1096,7 +1096,7 @@
       },
       threeH4: {
         label: "4 módulos · clases de 3 hs",
-        installmentsByMonth: { "2026-08": 2, "2026-09": 4, "2026-10": 4, "2026-12": 4 },
+        installmentsByMonth: { "2026-08": 2, "2026-09": 3, "2026-10": 4, "2026-12": 4 },
         visibleDiscountByMonth: { "2026-08": 30, "2026-09": 35, "2026-10": 35, "2026-12": 35 },
         monthly: { ARS: "168.000", USD: "86", MXN: "1.670" },
         enrollment: { ARS: "272.000", USD: "89", MXN: "1.720" },
@@ -1115,7 +1115,7 @@
       },
       english2: {
         label: "4 módulos · inglés de 2 hs",
-        installmentsByMonth: { "2026-08": 3, "2026-09": 3, "2026-10": 3, "2026-12": 3 },
+        installmentsByMonth: { "2026-08": 2, "2026-09": 3, "2026-10": 3, "2026-12": 3 },
         visibleDiscountByMonth: { "2026-08": 30, "2026-09": 30, "2026-10": 30, "2026-12": 30 },
         monthly: { ARS: "77.000", USD: "40", MXN: "770" },
         enrollment: { ARS: "105.000", USD: "34", MXN: "670" },
@@ -1131,7 +1131,7 @@
       },
       italian2: {
         label: "4 módulos · italiano de 2 hs",
-        installmentsByMonth: { "2026-08": 3, "2026-09": 3, "2026-10": 3, "2026-12": 3 },
+        installmentsByMonth: { "2026-08": 2, "2026-09": 3, "2026-10": 3, "2026-12": 3 },
         visibleDiscountByMonth: { "2026-08": 30, "2026-09": 30, "2026-10": 30, "2026-12": 30 },
         monthly: { ARS: "77.000", USD: "40", MXN: "770" },
         enrollment: { ARS: "105.000", USD: "34", MXN: "670" },
@@ -1147,7 +1147,7 @@
       },
       gameDev4: {
         label: "4 módulos · programación",
-        installmentsByMonth: { "2026-09": 4, "2026-10": 4, "2026-12": 4 },
+        installmentsByMonth: { "2026-09": 3, "2026-10": 4, "2026-12": 4 },
         visibleDiscountByMonth: { "2026-09": 45, "2026-10": 45, "2026-12": 45 },
         monthly: { ARS: "160.000", USD: "82", MXN: "1.620" },
         enrollment: { ARS: "150.000", USD: "79", MXN: "1.550" },
@@ -1173,59 +1173,78 @@
     };
 
     const groups = [
-      { language: "Japonés", course: "Japonés 2", commission: "D", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "E", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 16, table: "threeH5", source: "Agosto 2026" },
+      // Agosto: se mantienen visibles las comisiones con cupo hasta el cierre del mes.
       { language: "Japonés", course: "Japonés 3", commission: "D", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 12, table: "threeH5", source: "Agosto 2026" },
-      { language: "Japonés", course: "Japonés 3", commission: "C", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 11, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "D", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "E", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 17, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "F", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026", closed: true },
+      { language: "Japonés", course: "Japonés 3", commission: "C", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 13, table: "threeH5", source: "Agosto 2026" },
       { language: "Japonés", course: "Japonés 4", commission: "A", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 9, table: "threeH5", source: "Agosto 2026" },
-      { language: "Coreano", course: "Coreano 1", commission: "D", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: "O", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 24, table: "threeH5", source: "Agosto 2026", closed: true },
+      { language: "Japonés", course: "Japonés 1", commission: "L", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 24, table: "threeH5", source: "Agosto 2026", closed: true },
+      { language: "Japonés", course: "Japonés 1", commission: "N", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 23, table: "threeH5", source: "Agosto 2026", closed: true },
+      { language: "Japonés", course: "Japonés 1", commission: "W", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 19, table: "threeH5", source: "Agosto 2026" },
+      { language: "Coreano", course: "Coreano 1", commission: "D", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: 21, table: "threeH5", source: "Agosto 2026", closed: true },
+      { language: "Coreano", course: "Coreano 1", commission: "D", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026", closed: true },
       { language: "Coreano", course: "Coreano 1", commission: "E", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 14, table: "threeH5", source: "Agosto 2026" },
+      { language: "Coreano", course: "Coreano 2", commission: "D", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 27, table: "threeH5", source: "Agosto 2026", closed: true },
       { language: "Tailandés", course: "Tailandés 2", commission: "B", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 13, table: "threeH5", source: "Agosto 2026" },
+      { language: "Inglés", course: "Inglés A1", commission: "C", day: "Jueves", start: "2026-08-20", end: "2026-11-12", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: 22, table: "english2", source: "Agosto 2026", closed: true },
+      { language: "Inglés", course: "Inglés A1", commission: "C", day: "Jueves", start: "2026-08-20", end: "2026-11-12", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: 15, table: "english2", source: "Agosto 2026" },
+      { language: "Inglés", course: "Inglés A2", commission: "A", day: "Miércoles", start: "2026-08-19", end: "2026-11-11", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: 24, table: "english2", source: "Agosto 2026", closed: true },
+      { language: "Chino", course: "Chino 1", commission: "C", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026" },
+      { language: "Chino", course: "Chino 1", commission: "C", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 14, table: "threeH5", source: "Agosto 2026" },
       { language: "Chino", course: "Chino 2", commission: "D", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 12, table: "threeH5", source: "Agosto 2026" },
-      { language: "Tailandés", course: "Tailandés 3", commission: "A", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 4, table: "threeH5", source: "Agosto 2026" },
-      { language: "Alemán", course: "Alemán A2", commission: "B", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 3, table: "threeH5", source: "Agosto 2026" },
-      { language: "Italiano", course: "Italiano A2", commission: "A", day: "Sábados", start: "2026-08-22", end: "2026-11-14", startTime: "17:00", endTime: "19:00", duration: "4 módulos", students: 3, table: "italian2", source: "Agosto 2026" },
+      { language: "Alemán", course: "Alemán A1", commission: "B", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 23, table: "threeH5", source: "Agosto 2026", closed: true },
       { language: "Italiano", course: "Italiano A1", commission: "B", day: "Lunes", start: "2026-08-24", end: "2026-11-16", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: 10, table: "italian2", source: "Agosto 2026" },
-      { language: "Japonés", course: "Japonés 1", commission: "X", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 6, table: "threeH4", source: "Septiembre 2026" },
-      { language: "Japonés", course: "Japonés 1", commission: "U", day: "Lunes", start: "2026-09-21", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 12, table: "threeH4", source: "Septiembre 2026" },
+
+      // Septiembre
+      { language: "Inglés", course: "Inglés A1", commission: "D", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "18:00", duration: "4 módulos", students: 12, table: "english2", source: "Septiembre 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: "X", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 11, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: "T", day: "Domingos", start: "2026-09-20", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 22, table: "threeH4", source: "Septiembre 2026", closed: true },
+      { language: "Japonés", course: "Japonés 1", commission: "U", day: "Lunes", start: "2026-09-21", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 13, table: "threeH4", source: "Septiembre 2026" },
       { language: "Japonés", course: "Japonés 2", commission: "G", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Septiembre 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "H", day: "Jueves", start: "2026-09-17", end: "2026-12-10", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 6, table: "threeH4", source: "Septiembre 2026" },
-      { language: "Inglés", course: "Inglés A1", commission: "E", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "17:00", endTime: "19:00", duration: "4 módulos", students: null, table: "english2", source: "Octubre 2026" },
-      { language: "Coreano", course: "Coreano 1", commission: "F", day: "Domingos", start: "2026-10-18", end: "2027-01-10", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Octubre 2026" },
-      { language: "Tailandés", course: "Tailandés 1", commission: "D", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 6, table: "threeH4", source: "Octubre 2026" },
-      { language: "Chino", course: "Chino 1", commission: "D", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Octubre 2026" },
-      { language: "Japonés", course: "Japonés 1", commission: "V", day: "Miércoles", start: "2026-10-21", end: "2027-01-13", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 2, table: "threeH4", source: "Octubre 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "I", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Octubre 2026" },
-      { language: "Inglés", course: "Inglés A1", commission: "D", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "18:00", duration: "4 módulos", students: 8, table: "english2", source: "Septiembre 2026" },
-      { language: "Italiano", course: "Italiano A2", commission: "A", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "17:00", endTime: "19:00", duration: "4 módulos", students: 4, table: "italian2", source: "Septiembre 2026" },
-      { language: "Alemán", course: "Alemán A1", commission: "C", day: "Miércoles", start: "2026-09-23", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Septiembre 2026" },
-      { language: "Ruso", course: "Ruso 1", commission: "A", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 8, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "H", day: "Jueves", start: "2026-09-17", end: "2026-12-10", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 7, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Alemán", course: "Alemán A1", commission: "C", day: "Miércoles", start: "2026-09-23", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 5, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Ruso", course: "Ruso 1", commission: "A", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 9, table: "threeH4", source: "Septiembre 2026" },
       { language: "Tailandés", course: "Tailandés 3", commission: "A", day: "Domingos", start: "2026-09-20", end: "2027-01-10", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 4, table: "threeH5", source: "Septiembre 2026" },
       { language: "Alemán", course: "Alemán A2", commission: "B", day: "Domingos", start: "2026-09-20", end: "2027-01-10", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 3, table: "threeH5", source: "Septiembre 2026" },
-      { language: "Diseño y programación", course: "Diseño y programación", commission: "A", day: "Domingos", start: "2026-09-20", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 4, table: "gameDev4", source: "Septiembre 2026" },
-      { language: "Japonés", course: "Japonés 1", commission: "Y", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Italiano", course: "Italiano A2", commission: "A", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "17:00", endTime: "19:00", duration: "4 módulos", students: 4, table: "italian2", source: "Septiembre 2026" },
+      { language: "Diseño y programación", course: "Diseño y programación", commission: "A", day: "Domingos", start: "2026-09-20", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 5, table: "gameDev4", source: "Septiembre 2026" },
+
+      // Octubre
+      { language: "Inglés", course: "Inglés A1", commission: "E", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "17:00", endTime: "19:00", duration: "4 módulos", students: null, table: "english2", source: "Octubre 2026" },
+      { language: "Coreano", course: "Coreano 1", commission: "F", day: "Domingos", start: "2026-10-18", end: "2027-01-10", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 6, table: "threeH4", source: "Octubre 2026" },
+      { language: "Tailandés", course: "Tailandés 1", commission: "D", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 7, table: "threeH4", source: "Octubre 2026" },
+      { language: "Chino", course: "Chino 1", commission: "D", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 7, table: "threeH4", source: "Octubre 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: "V", day: "Miércoles", start: "2026-10-21", end: "2027-01-13", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Octubre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "I", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Octubre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "L", day: "Lunes", start: "2026-10-19", end: "2027-01-11", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 1, table: "threeH4", source: "Octubre 2026" },
+
+      // Diciembre: todas las fechas se publican para ventas de fin de año.
+      { language: "Japonés", course: "Japonés 1", commission: "Y", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
       { language: "Japonés", course: "Japonés 1", commission: "Z", day: "Domingos", start: "2026-12-20", end: "2027-04-11", startTime: "14:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "J", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "J", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
       { language: "Japonés", course: "Japonés 2", commission: "K", day: "Domingos", start: "2026-12-20", end: "2027-04-10", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Japonés", course: "Japonés 3", commission: "E", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 3", commission: "E", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
       { language: "Japonés", course: "Japonés 3", commission: "F", day: "Domingos", start: "2026-12-20", end: "2027-04-10", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Japonés", course: "Japonés 4", commission: "B", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 4", commission: "B", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
       { language: "Coreano", course: "Coreano 1", commission: "G", day: "Domingos", start: "2026-12-20", end: "2027-04-11", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 1, table: "threeH5", source: "Diciembre 2026" },
       { language: "Coreano", course: "Coreano 1", commission: "H", day: "Miércoles", start: "2026-12-23", end: "2027-04-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Coreano", course: "Coreano 2", commission: "E", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Coreano", course: "Coreano 2", commission: "E", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
       { language: "Coreano", course: "Coreano 2", commission: "F", day: "Lunes", start: "2026-12-21", end: "2027-04-12", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Chino", course: "Chino 1", commission: "E", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Chino", course: "Chino 1", commission: "E", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
       { language: "Chino", course: "Chino 1", commission: "F", day: "Lunes", start: "2026-12-21", end: "2027-04-12", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
       { language: "Chino", course: "Chino 2", commission: "E", day: "Miércoles", start: "2026-12-23", end: "2027-04-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
       { language: "Chino", course: "Chino 3", commission: "A", day: "Miércoles", start: "2026-12-23", end: "2027-04-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Tailandés", course: "Tailandés 1", commission: "E", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Tailandés", course: "Tailandés 2", commission: "C", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
+      { language: "Tailandés", course: "Tailandés 1", commission: "E", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Tailandés", course: "Tailandés 2", commission: "C", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
       { language: "Tailandés", course: "Tailandés 3", commission: "B", day: "Lunes", start: "2026-12-21", end: "2027-04-12", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
       { language: "Alemán", course: "Alemán A1", commission: "D", day: "Domingos", start: "2026-12-20", end: "2027-04-11", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Alemán", course: "Alemán A2", commission: "C", day: "Sábados", start: "2026-12-18", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" }
+      { language: "Alemán", course: "Alemán A2", commission: "C", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" }
     ];
 
-    const TODAY = "2026-08-22";
+    const TODAY = "2026-09-01";
 
     const currencyLabels = {
       ARS: "ARS",
@@ -1235,7 +1254,7 @@
 
     const visibleGroups = Object.values(
       groups
-        .filter(group => group.start >= TODAY && (group.students === null || group.students === undefined || group.students <= 20))
+        .filter(group => !group.closed && (group.students === null || group.students === undefined || group.students <= 20))
         .reduce((acc, group) => {
           const key = [group.language, group.course, group.commission, group.day, group.start, group.startTime, group.endTime].join("|");
           if (!acc[key]) {
@@ -1573,11 +1592,12 @@
       };
     }
 
-    function buildMessage(group, table, currency) {
+    function buildMessage(group, table, currency, country) {
       const installmentCount = getInstallmentCount(group, table);
       const visibleDiscount = getVisibleDiscount(group, table);
       const promoValue = getPromoValue(group, table, currency);
       const installmentValue = getInstallmentValue(group, table, currency);
+      const countryTiming = getCountryTiming(country, group.start, group.startTime, group.endTime);
       const certificateLine = table.certificate
         ? `${currencyLabels[currency]} ${table.certificate[currency]}`
         : "Sin certificación UAI";
@@ -1587,8 +1607,9 @@
         `Idioma: ${group.language}`,
         `Curso: ${group.course}`,
         `Comisión: ${group.commission}`,
+        `País: ${countryTiming.countryLabel}`,
         `Día: ${group.day}`,
-        `Horario: ${group.startTime} a ${group.endTime}`,
+        `Horario en ${countryTiming.countryLabel}: ${countryTiming.scheduleLabel}`,
         `Inicio: ${fmtDate(group.start)}`,
         `Precio promo visible: ${currencyLabels[currency]} ${promoValue}`,
         `Descuento visible: ${visibleDiscount}% por pago total del curso`,
@@ -1642,7 +1663,7 @@
       els.levelBadge.textContent = level;
       els.levelHighlightText.textContent = getLevelDescription(level).replace(/^Nivel\s+[A-Z0-9]+:\s*/i, "");
 
-      const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildMessage(group, table, currency))}`;
+      const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildMessage(group, table, currency, els.country.value))}`;
       els.waInlineLink.href = href;
       els.waStickyLink.href = href;
     }
