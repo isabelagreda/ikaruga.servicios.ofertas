@@ -10,21 +10,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@700;800;900&family=Montserrat:wght@500;600;700;800;900&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#f3f1ee;
-      --paper:#fcfcfc;
-      --ink:#010101;
-      --muted:#5f5a57;
-      --line:#e5dfda;
-      --line-strong:#d8c8c4;
-      --brand:#d11717;
-      --brand-dark:#9f1010;
-      --charcoal:#010101;
-      --charcoal-soft:#1a1a1a;
-      --gold:#d7c8b4;
-      --gold-soft:#f6efe8;
-      --chip:#f5f1ed;
-      --shadow:0 18px 44px rgba(24,19,20,.10);
-      --shadow-soft:0 12px 28px rgba(24,19,20,.08);
+      --bg:#f5f0e8;
+      --paper:#fffdf9;
+      --ink:#201c1a;
+      --muted:#655d56;
+      --line:#e6ddd2;
+      --line-strong:#d4c2ad;
+      --brand:#8e1b20;
+      --brand-dark:#681217;
+      --charcoal:#1b1918;
+      --charcoal-soft:#302a28;
+      --gold:#b69562;
+      --gold-soft:#f5ede2;
+      --chip:#f7f1e9;
+      --shadow:0 16px 36px rgba(42,32,25,.08);
+      --shadow-soft:0 8px 20px rgba(42,32,25,.06);
       --fs-hero:20px;
       --fs-title:22px;
       --fs-subtitle:17px;
@@ -45,10 +45,7 @@
       margin:0;
       font-family:"Montserrat",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       color:var(--ink);
-      background:
-        radial-gradient(circle at top left, rgba(209,23,23,.10), transparent 24%),
-        radial-gradient(circle at top right, rgba(209,23,23,.08), transparent 18%),
-        linear-gradient(180deg,#010101 0,#191919 180px,var(--bg) 180px,var(--bg) 100%);
+      background:linear-gradient(180deg,#1b1918 0,#282322 180px,var(--bg) 180px,var(--bg) 100%);
       overflow-x:hidden;
     }
     a{text-decoration:none;color:inherit}
@@ -581,11 +578,9 @@
       box-shadow:var(--shadow-soft);
     }
     .price-box.primary{
-      background:
-        radial-gradient(circle at top right, rgba(223,32,38,.08), transparent 34%),
-        linear-gradient(180deg,#fff8ef,#fff1dd);
-      border-color:#ddb76a;
-      box-shadow:0 16px 34px rgba(223,32,38,.10);
+      background:#fffaf3;
+      border-color:#cbb17d;
+      box-shadow:0 10px 24px rgba(77,54,33,.08);
       padding:14px 14px 13px;
     }
     .price-box strong{
@@ -618,9 +613,9 @@
       color:#fff;
     }
     .price-pill.installments{
-      background:#fffdf9;
-      color:#8d5610;
-      border:1px solid #ddb76a;
+      background:#fff;
+      color:#72542a;
+      border:1px solid #cbb17d;
       justify-content:flex-start;
       padding:8px 12px;
       min-height:auto;
@@ -629,10 +624,22 @@
       font-size:var(--fs-body);
       line-height:1.15;
     }
+    .december-financing[hidden]{
+      display:none;
+    }
+    .december-financing{
+      background:#f6fbf7;
+      border-color:#7ca488;
+      color:#285b36;
+    }
+    .december-financing .installment-line strong,
+    .december-financing .installment-line span{
+      color:#285b36;
+    }
     .offer-title{
       display:block;
       margin-bottom:5px;
-      color:#7b4b12;
+      color:#72542a;
       font-size:var(--fs-label);
       font-weight:var(--fw-heavy);
       text-transform:uppercase;
@@ -660,7 +667,7 @@
     }
     .installment-line strong{
       margin:0;
-      color:#8d5610;
+      color:#72542a;
       font-size:var(--fs-label);
       text-transform:uppercase;
       letter-spacing:.01em;
@@ -671,7 +678,7 @@
       line-height:1.15;
       font-family:"Montserrat","Poppins",sans-serif;
       font-weight:var(--fw-heavy);
-      color:#7b4b12;
+      color:#5e431f;
     }
     .price-accent{
       display:inline-flex;
@@ -693,14 +700,14 @@
       justify-content:center;
       min-height:52px;
       border-radius:14px;
-      background:linear-gradient(180deg,#d11717,#aa1414);
+      background:var(--brand);
       color:#fff;
       font-size:14px;
       font-family:"Poppins","Montserrat",sans-serif;
       font-weight:var(--fw-heavy);
       text-align:center;
       padding:12px 14px;
-      box-shadow:0 16px 32px rgba(165,16,25,.18);
+      box-shadow:0 12px 24px rgba(104,18,23,.16);
     }
     .offer-cta-note{
       margin-top:5px;
@@ -879,18 +886,235 @@
       justify-content:center;
       min-height:56px;
       border-radius:14px;
-      background:linear-gradient(180deg,#d11717,#aa1414);
+      background:var(--brand);
       color:#fff;
       font-family:"Poppins","Montserrat",sans-serif;
       font-weight:950;
       text-align:center;
-      box-shadow:0 18px 40px rgba(165,16,25,.24);
+      box-shadow:0 14px 30px rgba(104,18,23,.20);
       padding:14px 16px;
       letter-spacing:.01em;
     }
+    /* Conversión móvil: una decisión por vez y precios comparables en cada horario. */
+    .hero{
+      padding:18px;
+      border-radius:20px;
+      background:#1f1b1a;
+    }
+    .brand-lockup{padding:4px 6px;border-radius:9px}
+    .brand-lockup img{width:138px}
+    .eyebrow{margin-top:12px;padding:5px 8px;font-size:9px}
+    h1{margin-top:10px;font-size:25px;line-height:1.02;max-width:330px}
+    .hero p{margin-top:8px;font-size:13px;line-height:1.4;max-width:330px}
+    .hero-trustline{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+      margin-top:14px;
+    }
+    .hero-trustline span{
+      padding:6px 8px;
+      border-radius:999px;
+      color:#f8eee5;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      font-size:10px;
+      font-weight:800;
+    }
+    .panel{margin-top:14px;padding:18px;border-radius:20px}
+    .panel h2{font-size:24px;margin-bottom:6px}
+    .panel-intro{margin-bottom:16px;font-size:13px}
+    .quick-filters{
+      display:grid;
+      gap:14px;
+      margin:14px 0 16px;
+      padding:14px;
+      border:1px solid #e6d9c7;
+      border-radius:16px;
+      background:#faf6f0;
+    }
+    .quick-filter-group > strong{
+      display:block;
+      margin-bottom:8px;
+      color:#332923;
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.02em;
+    }
+    .filter-chips{display:flex;flex-wrap:wrap;gap:7px}
+    .filter-chip{
+      min-height:38px;
+      padding:8px 11px;
+      border:1px solid #ddcfbf;
+      border-radius:999px;
+      background:#fff;
+      color:#3a3029;
+      font:800 12px/1 "Montserrat",sans-serif;
+      cursor:pointer;
+    }
+    .filter-chip.active{
+      background:#1b1918;
+      border-color:#1b1918;
+      color:#fff;
+      box-shadow:0 7px 16px rgba(0,0,0,.12);
+    }
+    .filter-chip img{
+      width:16px;
+      height:16px;
+      margin-right:5px;
+      border-radius:50%;
+      object-fit:cover;
+      vertical-align:-3px;
+      box-shadow:0 0 0 1px rgba(0,0,0,.1);
+    }
+    .language-chips .filter-chip{font-size:11px;min-height:34px;padding:7px 9px}
+    .optional-filters{
+      margin:0 0 16px;
+      border-top:1px solid #e5ddd4;
+      border-bottom:1px solid #e5ddd4;
+    }
+    .optional-filters summary{
+      padding:12px 2px;
+      color:#67584d;
+      cursor:pointer;
+      font-size:12px;
+      font-weight:800;
+    }
+    .optional-filters[open]{padding-bottom:10px}
+    .hidden-control{display:none}
+    .schedule-head{margin-top:0;align-items:center}
+    .schedule-head strong{font-size:13px}
+    .schedule-head span{font-size:11px;max-width:150px}
+    .schedule-cards{gap:9px}
+    .schedule-card{padding:14px;border-radius:15px;box-shadow:none}
+    .schedule-card.active{border-width:2px;box-shadow:0 12px 24px rgba(183,28,28,.12)}
+    .schedule-card strong{font-size:17px;text-transform:none}
+    .schedule-card p{margin:5px 0 0;font-size:12px}
+    .schedule-card-meta{margin-top:9px;gap:6px}
+    .schedule-card-meta span{min-height:25px;font-size:10px}
+    .schedule-price{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:10px;
+      margin-top:12px;
+      padding-top:11px;
+      border-top:1px solid #eee2d2;
+    }
+    .schedule-price > span{
+      color:#806d5e;
+      font-size:10px;
+      font-weight:800;
+      text-transform:uppercase;
+    }
+    .schedule-price strong{margin-top:2px;font-size:15px;line-height:1.1;color:#171313}
+    .schedule-price em{
+      flex:0 0 auto;
+      padding:5px 7px;
+      border-radius:999px;
+      color:#b41319;
+      background:#fff0ed;
+      font-size:10px;
+      font-style:normal;
+      font-weight:900;
+    }
+    .result{margin-top:16px;padding-top:16px;border-top:2px solid #e9ddd0}
+    .level-summary{margin-top:8px}
+    .level-summary span{line-height:1.38}
+    .price-details{margin:12px 0;border:1px solid #e7dccf;border-radius:12px;background:#fffaf5}
+    .price-details summary{padding:11px 12px;cursor:pointer;color:#67584d;font-size:11px;font-weight:900;text-transform:uppercase}
+    .price-details .breakdown-box{margin:0 12px 12px}
+    .sticky-cta{left:12px;right:12px;min-height:54px;border-radius:14px}
+    /* Dirección visual IKARUGA: editorial, sobria y sin exceso de componentes. */
+    body{background:linear-gradient(180deg,#201c1b 0,#201c1b 156px,var(--bg) 156px,var(--bg) 100%)}
+    main{width:min(100% - 24px,460px);padding-top:12px}
+    .hero{
+      padding:24px 20px 20px;
+      border:0;
+      border-radius:16px;
+      background:#201c1b;
+      box-shadow:none;
+    }
+    .brand-lockup{padding:4px 6px;border-radius:4px;box-shadow:none}
+    .brand-lockup img{width:144px}
+    .eyebrow{
+      margin-top:20px;
+      padding:0;
+      border:0;
+      border-radius:0;
+      background:transparent;
+      color:#c9a875;
+      font-size:10px;
+      letter-spacing:.11em;
+    }
+    h1{
+      margin-top:9px;
+      max-width:360px;
+      font-size:29px;
+      line-height:1.04;
+      text-transform:none;
+      letter-spacing:-.04em;
+    }
+    .hero p{max-width:330px;margin-top:10px;color:#e5dcd3;font-size:13px;line-height:1.45}
+    .hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px 12px;
+      margin-top:18px;
+      padding-top:12px;
+      border-top:1px solid rgba(201,168,117,.36);
+      color:#c9a875;
+      font-size:10px;
+      font-weight:800;
+    }
+    .hero-meta span:not(:last-child)::after{content:"·";margin-left:12px;color:#7d6952}
+    .panel{margin-top:18px;padding:22px 18px;border:0;border-radius:14px;background:var(--paper);box-shadow:0 12px 30px rgba(42,32,25,.06)}
+    .section-index{display:block;margin-bottom:7px;color:var(--brand);font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+    .panel h2{font-size:26px;line-height:1.08;text-transform:none;letter-spacing:-.04em}
+    .panel-intro{margin-bottom:18px;color:#756b63}
+    .field label{color:#403833;font-size:10px;letter-spacing:.08em}
+    .field select{min-height:48px;border-color:#cfc0af;border-radius:6px;background-color:#fff;font-size:15px;box-shadow:none}
+    .country-flag{margin-top:7px;min-height:auto;padding:0;background:transparent;border:0;color:#756b63;font-size:11px}
+    .quick-filters{gap:18px;margin:20px 0 15px;padding:0;border:0;border-radius:0;background:transparent}
+    .quick-filter-group{padding-top:16px;border-top:1px solid #e7ded3}
+    .quick-filter-group > .section-index{margin-bottom:5px;font-size:9px}
+    .quick-filter-group > strong{margin-bottom:9px;color:#2a2420;font-size:13px;letter-spacing:0;text-transform:none}
+    .filter-chips{gap:7px}
+    .filter-chip{min-height:34px;padding:7px 10px;border-color:#d8cbbb;border-radius:5px;background:#fff;color:#403833;font-size:11px;box-shadow:none}
+    .filter-chip.active{background:var(--charcoal);border-color:var(--charcoal);box-shadow:none}
+    .language-chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+    .language-chips .filter-chip{flex:0 0 auto;min-height:34px;border-radius:5px}
+    .level-filter{margin:0 0 20px;padding:16px 0;border-top:1px solid #e7ded3;border-bottom:1px solid #e7ded3}
+    .level-filter > strong{display:block;margin-bottom:9px;color:#2a2420;font-size:13px}
+    .level-filter .section-index{margin-bottom:5px;font-size:9px}
+    .level-filter .field-help{margin-top:9px}
+    .level-filter .level-highlight{margin-top:10px}
+    .optional-filters{margin-bottom:20px;border-color:#e7ded3}
+    .optional-filters summary{padding:13px 0;color:#756b63;font-size:11px}
+    .schedule-head{padding-top:2px}
+    .schedule-head strong{font-size:14px;letter-spacing:.02em}
+    .schedule-card{padding:15px 14px;border-color:#ddd1c2;border-radius:7px;background:#fff;box-shadow:none}
+    .schedule-card.active{border-color:var(--charcoal);border-left:4px solid var(--brand);background:#fffdf9;box-shadow:none}
+    .schedule-card strong{font-size:17px;font-family:"Chivo","Montserrat",sans-serif}
+    .schedule-card .badge{min-height:23px;padding:4px 6px;border-radius:3px;background:#f3e8dc;color:#72542a;font-size:9px}
+    .schedule-card-meta span{border:0;border-radius:0;background:transparent;padding:0;min-height:auto;color:#756b63;font-size:10px}
+    .schedule-price{margin-top:13px;padding-top:12px;border-top-color:#e7ded3}
+    .schedule-price strong{font-size:16px}
+    .schedule-price em{border-radius:3px;background:#f8e8e5;color:var(--brand);font-size:9px}
+    .result{border-top-color:#c9a875}
+    .price-box.primary{border-color:#c9a875;border-radius:8px;background:#fffaf3;box-shadow:none}
+    .price-pill{border-radius:3px}
+    .price-pill.installments{border-radius:6px}
+    .offer-cta{border-radius:6px;box-shadow:none}
+    .price-details{border:0;border-top:1px solid #e7ded3;border-bottom:1px solid #e7ded3;border-radius:0;background:transparent}
+    .price-details summary{padding:13px 0;color:#756b63}
+    .price-details .breakdown-box{margin:0 0 12px}
+    .isa-strip,.support-box{border-radius:8px;box-shadow:none}
+    .sticky-cta{left:12px;right:12px;border-radius:6px;box-shadow:0 10px 20px rgba(104,18,23,.18)}
     @media(max-width:420px){
       .hero{
-        padding:6px;
+        padding:20px 18px 18px;
       }
       .hero-proof{
         grid-template-columns:1fr;
@@ -898,6 +1122,73 @@
       .trust-inline{
         grid-template-columns:1fr 1fr;
       }
+    }
+    @media(max-width:480px){
+      body{background:linear-gradient(180deg,#201c1b 0,#201c1b 136px,var(--bg) 136px,var(--bg) 100%)}
+      main{width:100%;padding:0 0 calc(92px + env(safe-area-inset-bottom,0px))}
+      .hero{border-radius:0 0 16px 16px;padding:18px 16px 16px}
+      .brand-lockup img{width:132px}
+      .eyebrow{margin-top:16px;font-size:9px}
+      h1{font-size:27px;max-width:340px}
+      .hero p{font-size:12px;max-width:310px}
+      .hero-meta{gap:5px 9px;margin-top:14px;padding-top:10px;font-size:9px}
+      .hero-meta span:not(:last-child)::after{margin-left:9px}
+      .panel{margin:0;padding:18px 16px 16px;border-radius:0;background:#fffdf9;box-shadow:none}
+      .panel h2{font-size:24px}
+      .panel-intro{margin-bottom:14px;font-size:12px}
+      .field{margin-bottom:12px}
+      .field select{min-height:52px;font-size:16px}
+      .country-flag{font-size:10px}
+      .quick-filters{gap:14px;margin:16px 0 14px}
+      .quick-filter-group{padding-top:13px}
+      .filter-chips{gap:6px}
+      .filter-chip{min-height:40px;padding:9px 11px;font-size:11px}
+      .language-chips{margin-right:-16px;padding-right:16px;scroll-snap-type:x proximity}
+      .language-chips .filter-chip{min-height:40px;padding:9px 11px;scroll-snap-align:start}
+      .level-filter{margin-bottom:16px;padding:13px 0}
+      .schedule-head{margin-top:2px}
+      .schedule-head span{max-width:135px;font-size:10px}
+      .schedule-cards{gap:8px;margin-top:8px}
+      .schedule-card{padding:14px 12px;min-height:142px}
+      .schedule-card-top{gap:8px}
+      .schedule-card strong{font-size:16px}
+      .schedule-card p{font-size:11px;line-height:1.35}
+      .schedule-card .badge{max-width:96px;text-align:center;line-height:1.15}
+      .schedule-card-meta{gap:5px;margin-top:8px}
+      .schedule-price{align-items:center;margin-top:10px;padding-top:10px}
+      .schedule-price strong{font-size:15px}
+      .schedule-price em{white-space:nowrap}
+      .result{margin-top:14px;padding-top:14px}
+      .result h3{font-size:20px}
+      .summary-block{padding:10px}
+      .price-box.primary{padding:14px 12px 13px}
+      .price-box span{font-size:25px}
+      .offer-cta{min-height:54px;font-size:13px}
+      .sticky-cta{left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));min-height:54px;padding:12px;font-size:13px}
+    }
+    @media(max-width:600px){
+      .language-chips{
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        margin-right:-18px;
+        padding:0 18px 5px 0;
+        -webkit-overflow-scrolling:touch;
+        scroll-snap-type:x proximity;
+      }
+      .language-chips .filter-chip{
+        flex:0 0 auto;
+        min-height:40px;
+        padding:9px 11px;
+        scroll-snap-align:start;
+      }
+      .schedule-head strong{text-transform:none}
+    }
+    @media(max-width:360px){
+      h1{font-size:24px}
+      .hero-meta{font-size:8px}
+      .schedule-card{min-height:0}
+      .schedule-price strong{font-size:14px}
+      .schedule-price em{font-size:8px}
     }
   </style>
 </head>
@@ -910,53 +1201,20 @@
       <div class="eyebrow">IKARUGA Idiomas · Inscripciones online</div>
       <h1>Elegí tu idioma, tu horario y reservá tu lugar.</h1>
       <p><strong>Elegís tu horario, ves el valor y reservás por WhatsApp.</strong></p>
-      <div class="hero-isa">
-        <img src="isa-asesora-web.jpg" alt="ISA">
-        <div>
-          <strong>ISA te acompaña</strong>
-          <span>Te explica qué incluye, respeta este valor y te ayuda a inscribirte.</span>
-        </div>
-      </div>
-      <div class="hero-flags">
-        <span class="flag-pill"><img class="flag-icon" src="https://flagcdn.com/w40/jp.png" alt="Japón">Japonés</span>
-        <span class="flag-pill"><img class="flag-icon" src="https://flagcdn.com/w40/kr.png" alt="Corea">Coreano</span>
-        <span class="flag-pill"><img class="flag-icon" src="https://flagcdn.com/w40/cn.png" alt="China">Chino</span>
-        <span class="flag-pill"><img class="flag-icon" src="https://flagcdn.com/w40/it.png" alt="Italia">Italiano</span>
-        <span class="flag-pill"><img class="flag-icon" src="https://flagcdn.com/w40/de.png" alt="Alemania">Alemán</span>
-        <span class="flag-pill"><img class="flag-icon" src="https://flagcdn.com/w40/gb.png" alt="Reino Unido">Inglés</span>
-      </div>
-      <div class="hero-proof">
-        <div class="hero-cert">
-          <img src="uai-logo.png" alt="UAI">
-          <div>
-            <strong>Certificación universitaria en cursos seleccionados</strong>
-            <span>Respaldo académico visible en las opciones que corresponden.</span>
-          </div>
-        </div>
-        <div class="trust-inline">
-          <div class="trust-card">
-            <strong>+10 años</strong>
-            <span>Experiencia online.</span>
-          </div>
-          <div class="trust-card">
-            <strong>+10.000 alumnos</strong>
-            <span>Ya eligieron IKARUGA.</span>
-          </div>
-        </div>
+      <div class="hero-meta">
+        <span>Clases en vivo</span>
+        <span>+10 años de trayectoria</span>
+        <span>Certificación UAI en cursos seleccionados</span>
       </div>
     </section>
 
     <section class="panel" id="selector">
-      <h2>Elegí y reservá</h2>
-      <p class="panel-intro">Elegí país, idioma, nivel y horario. Vas a ver el precio y seguís por WhatsApp.</p>
-      <div class="groupal-spot">
-        <strong>Lo más pedido hoy</strong>
-        <h3>Cursos grupales en vivo</h3>
-        <p>Estas son las comisiones activas que hoy podés reservar: horario en tu país, precio visible y pocos cupos.</p>
-      </div>
+      <span class="section-index">01 · Elegí tu país</span>
+      <h2>¿En qué país vas a cursar?</h2>
+      <p class="panel-intro">Elegí tu país. Te mostramos los horarios ya convertidos a tu hora.</p>
 
       <div class="field">
-        <label for="country">País</label>
+        <label for="country">Tu país</label>
         <select id="country">
           <option value="ARG">Argentina</option>
           <option value="BOL">Bolivia</option>
@@ -980,43 +1238,55 @@
           <option value="VEN">Venezuela</option>
           <option value="OTHER">Otro país</option>
         </select>
-        <div class="country-flag" id="countryFlag"><img src="https://flagcdn.com/w40/ar.png" alt="Argentina"><span>Horarios visibles para Argentina</span></div>
+        <div class="country-flag" id="countryFlag"><img src="https://flagcdn.com/w40/ar.png" alt="Argentina"><span>Vas a ver cada horario en tu hora local.</span></div>
       </div>
-      <div class="field">
-        <label for="language">Idioma</label>
-        <select id="language"></select>
-      </div>
-      <div class="field">
-        <label for="level">Nivel</label>
-        <select id="level"></select>
-        <div class="field-help" id="levelHelp">Nivel 1: ideal para empezar desde cero o con conocimientos mínimos.</div>
-        <div class="level-highlight">
-          <div class="level-badge" id="levelBadge">1</div>
-          <div class="level-copy">
-            <strong>Nivel seleccionado</strong>
-            <span id="levelHighlightText">Ideal para empezar desde cero o con conocimientos mínimos.</span>
-          </div>
+      <div class="quick-filters">
+        <div class="quick-filter-group">
+          <span class="section-index">02 · Elegí cuándo</span>
+          <strong>¿Cuándo querés empezar?</strong>
+          <div class="filter-chips" id="monthChips"></div>
+        </div>
+        <div class="quick-filter-group">
+          <strong>¿Qué idioma te interesa?</strong>
+          <div class="filter-chips language-chips" id="languageChips"></div>
         </div>
       </div>
-      <div class="field">
-        <label for="month">Mes de inicio</label>
-        <select id="month"></select>
+      <div class="hidden-control" aria-hidden="true">
+        <select id="month" tabindex="-1"></select>
+        <select id="language" tabindex="-1"></select>
+        <select id="level" tabindex="-1"></select>
+      </div>
+      <div class="level-filter" id="levelFilter" hidden>
+        <span class="section-index">04 · Elegí un nivel</span>
+        <strong>¿Qué nivel buscás?</strong>
+        <div class="filter-chips" id="levelChips"></div>
+        <div class="field-help" id="levelHelp">Elegí un nivel para ver la orientación.</div>
+        <div class="level-highlight">
+          <div class="level-badge" id="levelBadge">Todos</div>
+          <div class="level-copy">
+            <strong>Nivel seleccionado</strong>
+            <span id="levelHighlightText">Mostrando todos los niveles disponibles.</span>
+          </div>
+        </div>
       </div>
       <input id="schedule" type="hidden">
 
       <div class="schedule-head">
         <div>
-          <strong>Paso 1 · Elegí un horario</strong>
+          <strong>Horarios disponibles</strong>
         </div>
         <span id="scheduleCountryNote">Se muestran en la hora del país elegido.</span>
       </div>
       <div class="schedule-cards" id="scheduleCards"></div>
 
       <div class="result">
-        <span class="kicker" id="resultKicker">Paso 2 · Mirá esta opción</span>
+        <span class="kicker" id="resultKicker">Tu selección</span>
         <h3 id="resultTitle">Japonés 1 · Sábados</h3>
         <div class="result-summary" id="resultSummary"></div>
-        <div class="breakdown-box" id="regularBreakdown"></div>
+        <details class="price-details">
+          <summary>Ver qué incluye el curso y el precio regular</summary>
+          <div class="breakdown-box" id="regularBreakdown"></div>
+        </details>
 
         <div class="price-boxes">
           <div class="price-main">
@@ -1030,12 +1300,18 @@
                     <span id="monthlyPrice">5 cuotas sin interés de ARS 146.800</span>
                   </div>
                 </div>
+                <div class="price-pill installments december-financing" id="decemberFinancing" hidden>
+                  <div class="installment-line">
+                    <strong>Alternativa de diciembre</strong>
+                    <span id="decemberFinancingText"></span>
+                  </div>
+                </div>
               </div>
               <span class="offer-title">Inversión hoy</span>
               <span id="promoPrice">ARS 540.000</span>
               <small id="promoNote">Pago total del curso con descuento vigente.</small>
-              <a class="offer-cta" id="waInlineLink" href="#" target="_blank" rel="noopener">Reservar este lugar con ISA</a>
-              <div class="offer-cta-note">ISA respeta este valor y te ayuda a completar la inscripción.</div>
+              <a class="offer-cta" id="waInlineLink" href="#" target="_blank" rel="noopener">Quiero que ISA me ayude a reservar</a>
+              <div class="offer-cta-note">No pagás ahora. ISA confirma tu nivel y este valor antes de inscribirte.</div>
             </div>
           </div>
         </div>
@@ -1068,7 +1344,7 @@
       </div>
     </section>
 
-    <a class="sticky-cta" id="waStickyLink" href="#" target="_blank" rel="noopener">Quiero reservar por WhatsApp</a>
+    <a class="sticky-cta" id="waStickyLink" href="#" target="_blank" rel="noopener">Quiero que ISA me ayude a reservar</a>
   </main>
 
   <script>
@@ -1077,15 +1353,15 @@
     const priceTables = {
       threeH5: {
         label: "5 módulos · clases de 3 hs",
-        installmentsByMonth: { "2026-08": 3, "2026-09": 4, "2026-10": 4, "2026-12": 4 },
-        visibleDiscountByMonth: { "2026-08": 40, "2026-09": 40, "2026-10": 40, "2026-12": 40 },
+        installmentsByMonth: { "2026-09": 3, "2026-10": 4, "2026-11": 4, "2026-12": 5 },
+        visibleDiscountByMonth: { "2026-09": 40, "2026-10": 40, "2026-11": 40, "2026-12": 30 },
         monthly: { ARS: "168.000", USD: "86", MXN: "1.670" },
         enrollment: { ARS: "272.000", USD: "89", MXN: "1.720" },
         certificate: { ARS: "48.000", USD: "34", MXN: "590" },
         regular: { ARS: "1.160.000", USD: "553", MXN: "10.660" },
         promoByDiscount: {
           45: { ARS: "660.000", USD: "320", MXN: "6.130" },
-          40: { ARS: "710.000", USD: "346", MXN: "6.630" },
+          40: { ARS: "716.000", USD: "346", MXN: "6.630" },
           35: { ARS: "771.000", USD: "372", MXN: "7.130" },
           30: { ARS: "827.000", USD: "398", MXN: "7.640" },
           25: { ARS: "882.000", USD: "424", MXN: "8.140" },
@@ -1096,8 +1372,8 @@
       },
       threeH4: {
         label: "4 módulos · clases de 3 hs",
-        installmentsByMonth: { "2026-08": 2, "2026-09": 3, "2026-10": 4, "2026-12": 4 },
-        visibleDiscountByMonth: { "2026-08": 40, "2026-09": 40, "2026-10": 40, "2026-12": 40 },
+        installmentsByMonth: { "2026-09": 3, "2026-10": 4, "2026-11": 4, "2026-12": 5 },
+        visibleDiscountByMonth: { "2026-09": 40, "2026-10": 40, "2026-11": 40, "2026-12": 30 },
         monthly: { ARS: "168.000", USD: "86", MXN: "1.670" },
         enrollment: { ARS: "272.000", USD: "89", MXN: "1.720" },
         certificate: { ARS: "48.000", USD: "34", MXN: "590" },
@@ -1115,8 +1391,8 @@
       },
       english2: {
         label: "4 módulos · inglés de 2 hs",
-        installmentsByMonth: { "2026-08": 2, "2026-09": 3, "2026-10": 3, "2026-12": 3 },
-        visibleDiscountByMonth: { "2026-08": 30, "2026-09": 30, "2026-10": 30, "2026-12": 30 },
+        installmentsByMonth: { "2026-09": 2, "2026-10": 3, "2026-11": 3, "2026-12": 5 },
+        visibleDiscountByMonth: { "2026-09": 30, "2026-10": 30, "2026-11": 30, "2026-12": 30 },
         monthly: { ARS: "77.000", USD: "40", MXN: "770" },
         enrollment: { ARS: "105.000", USD: "34", MXN: "670" },
         certificate: null,
@@ -1131,8 +1407,8 @@
       },
       italian2: {
         label: "4 módulos · italiano de 2 hs",
-        installmentsByMonth: { "2026-08": 2, "2026-09": 3, "2026-10": 3, "2026-12": 3 },
-        visibleDiscountByMonth: { "2026-08": 30, "2026-09": 30, "2026-10": 30, "2026-12": 30 },
+        installmentsByMonth: { "2026-09": 2, "2026-10": 3, "2026-11": 3, "2026-12": 5 },
+        visibleDiscountByMonth: { "2026-09": 30, "2026-10": 30, "2026-11": 30, "2026-12": 30 },
         monthly: { ARS: "77.000", USD: "40", MXN: "770" },
         enrollment: { ARS: "105.000", USD: "34", MXN: "670" },
         certificate: { ARS: "48.000", USD: "34", MXN: "620" },
@@ -1173,78 +1449,74 @@
     };
 
     const groups = [
-      // Agosto: se mantienen visibles las comisiones con cupo hasta el cierre del mes.
-      { language: "Japonés", course: "Japonés 3", commission: "D", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 12, table: "threeH5", source: "Agosto 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "D", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "E", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 17, table: "threeH5", source: "Agosto 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "F", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026", closed: true },
-      { language: "Japonés", course: "Japonés 3", commission: "C", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 13, table: "threeH5", source: "Agosto 2026" },
-      { language: "Japonés", course: "Japonés 4", commission: "A", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 9, table: "threeH5", source: "Agosto 2026" },
-      { language: "Japonés", course: "Japonés 1", commission: "O", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 24, table: "threeH5", source: "Agosto 2026", closed: true },
-      { language: "Japonés", course: "Japonés 1", commission: "L", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 24, table: "threeH5", source: "Agosto 2026", closed: true },
-      { language: "Japonés", course: "Japonés 1", commission: "N", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 23, table: "threeH5", source: "Agosto 2026", closed: true },
-      { language: "Japonés", course: "Japonés 1", commission: "W", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 19, table: "threeH5", source: "Agosto 2026" },
-      { language: "Coreano", course: "Coreano 1", commission: "D", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: 21, table: "threeH5", source: "Agosto 2026", closed: true },
-      { language: "Coreano", course: "Coreano 1", commission: "D", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026", closed: true },
-      { language: "Coreano", course: "Coreano 1", commission: "E", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 14, table: "threeH5", source: "Agosto 2026" },
-      { language: "Coreano", course: "Coreano 2", commission: "D", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 27, table: "threeH5", source: "Agosto 2026", closed: true },
-      { language: "Tailandés", course: "Tailandés 2", commission: "B", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 13, table: "threeH5", source: "Agosto 2026" },
-      { language: "Inglés", course: "Inglés A1", commission: "C", day: "Jueves", start: "2026-08-20", end: "2026-11-12", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: 22, table: "english2", source: "Agosto 2026", closed: true },
-      { language: "Inglés", course: "Inglés A1", commission: "C", day: "Jueves", start: "2026-08-20", end: "2026-11-12", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: 15, table: "english2", source: "Agosto 2026" },
-      { language: "Inglés", course: "Inglés A2", commission: "A", day: "Miércoles", start: "2026-08-19", end: "2026-11-11", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: 24, table: "english2", source: "Agosto 2026", closed: true },
-      { language: "Chino", course: "Chino 1", commission: "C", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 20, table: "threeH5", source: "Agosto 2026" },
-      { language: "Chino", course: "Chino 1", commission: "C", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 14, table: "threeH5", source: "Agosto 2026" },
-      { language: "Chino", course: "Chino 2", commission: "D", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: 12, table: "threeH5", source: "Agosto 2026" },
-      { language: "Alemán", course: "Alemán A1", commission: "B", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: 23, table: "threeH5", source: "Agosto 2026", closed: true },
-      { language: "Italiano", course: "Italiano A1", commission: "B", day: "Lunes", start: "2026-08-24", end: "2026-11-16", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: 10, table: "italian2", source: "Agosto 2026" },
+      // Agosto · comisiones que siguen abiertas según el calendario vigente.
+      { language: "Japonés", course: "Japonés 1", commission: "W", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "D", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: null, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "E", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: null, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 3", commission: "C", day: "Sábados", start: "2026-08-22", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: null, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 3", commission: "D", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Agosto 2026" },
+      { language: "Japonés", course: "Japonés 4", commission: "A", day: "Domingos", start: "2026-08-23", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: null, table: "threeH5", source: "Agosto 2026" },
+      { language: "Coreano", course: "Coreano 1", commission: "E", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Agosto 2026" },
+      { language: "Chino", course: "Chino 1", commission: "C", day: "Miércoles", start: "2026-08-19", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Agosto 2026" },
+      { language: "Chino", course: "Chino 2", commission: "D", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Agosto 2026" },
+      { language: "Tailandés", course: "Tailandés 2", commission: "B", day: "Lunes", start: "2026-08-24", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Agosto 2026" },
+      { language: "Inglés", course: "Inglés A1", commission: "C", day: "Jueves", start: "2026-08-20", end: "2026-11-12", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: null, table: "english2", source: "Agosto 2026" },
+      { language: "Inglés", course: "Inglés A2", commission: "A", day: "Miércoles", start: "2026-08-19", end: "2026-11-11", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: null, table: "english2", source: "Agosto 2026" },
+      { language: "Italiano", course: "Italiano A1", commission: "B", day: "Lunes", start: "2026-08-24", end: "2026-11-16", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: null, table: "italian2", source: "Agosto 2026" },
 
       // Septiembre
-      { language: "Inglés", course: "Inglés A1", commission: "D", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "18:00", duration: "4 módulos", students: 12, table: "english2", source: "Septiembre 2026" },
-      { language: "Japonés", course: "Japonés 1", commission: "X", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 11, table: "threeH4", source: "Septiembre 2026" },
-      { language: "Japonés", course: "Japonés 1", commission: "T", day: "Domingos", start: "2026-09-20", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 22, table: "threeH4", source: "Septiembre 2026", closed: true },
-      { language: "Japonés", course: "Japonés 1", commission: "U", day: "Lunes", start: "2026-09-21", end: "2026-12-14", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 13, table: "threeH4", source: "Septiembre 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "G", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Septiembre 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "H", day: "Jueves", start: "2026-09-17", end: "2026-12-10", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 7, table: "threeH4", source: "Septiembre 2026" },
-      { language: "Alemán", course: "Alemán A1", commission: "C", day: "Miércoles", start: "2026-09-23", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 5, table: "threeH4", source: "Septiembre 2026" },
-      { language: "Ruso", course: "Ruso 1", commission: "A", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 9, table: "threeH4", source: "Septiembre 2026" },
-      { language: "Tailandés", course: "Tailandés 3", commission: "A", day: "Domingos", start: "2026-09-20", end: "2027-01-10", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 4, table: "threeH5", source: "Septiembre 2026" },
-      { language: "Alemán", course: "Alemán A2", commission: "B", day: "Domingos", start: "2026-09-20", end: "2027-01-10", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 3, table: "threeH5", source: "Septiembre 2026" },
-      { language: "Italiano", course: "Italiano A2", commission: "A", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "17:00", endTime: "19:00", duration: "4 módulos", students: 4, table: "italian2", source: "Septiembre 2026" },
-      { language: "Diseño y programación", course: "Diseño y programación", commission: "A", day: "Domingos", start: "2026-09-20", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 5, table: "gameDev4", source: "Septiembre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "G", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: null, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "H", day: "Jueves", start: "2026-09-17", end: "2026-12-10", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: null, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Tailandés", course: "Tailandés 3", commission: "A", day: "Domingos", start: "2026-09-20", end: "2026-12-13", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: null, table: "threeH5", source: "Septiembre 2026" },
+      { language: "Inglés", course: "Inglés A1", commission: "D", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "18:00", duration: "4 módulos", students: null, table: "english2", source: "Septiembre 2026" },
+      { language: "Alemán", course: "Alemán A1", commission: "C", day: "Miércoles", start: "2026-09-23", end: "2026-12-09", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: null, table: "threeH4", source: "Septiembre 2026" },
+      { language: "Alemán", course: "Alemán A2", commission: "B", day: "Domingos", start: "2026-09-20", end: "2027-01-10", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: null, table: "threeH5", source: "Septiembre 2026" },
+      { language: "Italiano", course: "Italiano A2", commission: "A", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "17:00", endTime: "19:00", duration: "4 módulos", students: null, table: "italian2", source: "Septiembre 2026" },
+      { language: "Ruso", course: "Ruso 1", commission: "A", day: "Sábados", start: "2026-09-19", end: "2026-12-12", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Septiembre 2026" },
 
       // Octubre
-      { language: "Inglés", course: "Inglés A1", commission: "E", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "17:00", endTime: "19:00", duration: "4 módulos", students: null, table: "english2", source: "Octubre 2026" },
-      { language: "Coreano", course: "Coreano 1", commission: "F", day: "Domingos", start: "2026-10-18", end: "2027-01-10", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: 6, table: "threeH4", source: "Octubre 2026" },
-      { language: "Tailandés", course: "Tailandés 1", commission: "D", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 7, table: "threeH4", source: "Octubre 2026" },
-      { language: "Chino", course: "Chino 1", commission: "D", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: 7, table: "threeH4", source: "Octubre 2026" },
-      { language: "Japonés", course: "Japonés 1", commission: "V", day: "Miércoles", start: "2026-10-21", end: "2027-01-13", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 4, table: "threeH4", source: "Octubre 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: "V", day: "Miércoles", start: "2026-10-21", end: "2027-01-13", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: null, table: "threeH4", source: "Octubre 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: null, day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Octubre 2026" },
       { language: "Japonés", course: "Japonés 2", commission: "I", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Octubre 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "L", day: "Lunes", start: "2026-10-19", end: "2027-01-11", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: 1, table: "threeH4", source: "Octubre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "L", day: "Lunes", start: "2026-10-19", end: "2027-01-11", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: null, table: "threeH4", source: "Octubre 2026" },
+      { language: "Coreano", course: "Coreano 1", commission: "F", day: "Domingos", start: "2026-10-18", end: "2027-01-10", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: null, table: "threeH4", source: "Octubre 2026" },
+      { language: "Chino", course: "Chino 1", commission: "D", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Octubre 2026" },
+      { language: "Tailandés", course: "Tailandés 1", commission: "D", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Octubre 2026" },
+      { language: "Inglés", course: "Inglés A1", commission: "E", day: "Sábados", start: "2026-10-24", end: "2027-01-09", startTime: "17:00", endTime: "19:00", duration: "4 módulos", students: null, table: "english2", source: "Octubre 2026" },
 
-      // Diciembre: todas las fechas se publican para ventas de fin de año.
-      { language: "Japonés", course: "Japonés 1", commission: "Y", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Japonés", course: "Japonés 1", commission: "Z", day: "Domingos", start: "2026-12-20", end: "2027-04-11", startTime: "14:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "J", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Japonés", course: "Japonés 2", commission: "K", day: "Domingos", start: "2026-12-20", end: "2027-04-10", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Japonés", course: "Japonés 3", commission: "E", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Japonés", course: "Japonés 3", commission: "F", day: "Domingos", start: "2026-12-20", end: "2027-04-10", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Japonés", course: "Japonés 4", commission: "B", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Coreano", course: "Coreano 1", commission: "G", day: "Domingos", start: "2026-12-20", end: "2027-04-11", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: 1, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Coreano", course: "Coreano 1", commission: "H", day: "Miércoles", start: "2026-12-23", end: "2027-04-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Coreano", course: "Coreano 2", commission: "E", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Coreano", course: "Coreano 2", commission: "F", day: "Lunes", start: "2026-12-21", end: "2027-04-12", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Chino", course: "Chino 1", commission: "E", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Chino", course: "Chino 1", commission: "F", day: "Lunes", start: "2026-12-21", end: "2027-04-12", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Chino", course: "Chino 2", commission: "E", day: "Miércoles", start: "2026-12-23", end: "2027-04-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Chino", course: "Chino 3", commission: "A", day: "Miércoles", start: "2026-12-23", end: "2027-04-14", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Tailandés", course: "Tailandés 1", commission: "E", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Tailandés", course: "Tailandés 2", commission: "C", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "19:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Tailandés", course: "Tailandés 3", commission: "B", day: "Lunes", start: "2026-12-21", end: "2027-04-12", startTime: "21:00", endTime: "00:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Alemán", course: "Alemán A1", commission: "D", day: "Domingos", start: "2026-12-20", end: "2027-04-11", startTime: "14:00", endTime: "17:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" },
-      { language: "Alemán", course: "Alemán A2", commission: "C", day: "Sábados", start: "2026-12-19", end: "2027-04-10", startTime: "16:00", endTime: "18:00", duration: "5 módulos", students: null, table: "threeH5", source: "Diciembre 2026" }
+      // Noviembre
+      { language: "Japonés", course: "Japonés 1", commission: null, day: "Domingos", start: "2026-11-22", end: "2027-02-14", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: null, table: "threeH4", source: "Noviembre 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: null, day: "Lunes", start: "2026-11-23", end: "2027-02-08", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: null, table: "threeH4", source: "Noviembre 2026" },
+      { language: "Inglés", course: "Inglés A2", commission: null, day: "Jueves", start: "2026-11-19", end: "2027-02-11", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: null, table: "english2", source: "Noviembre 2026" },
+
+      // Diciembre: todos los cursos visibles se cotizan como 4 módulos.
+      { language: "Japonés", course: "Japonés 1", commission: "Y", day: "Sábados", start: "2026-12-19", end: "2027-03-13", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 1", commission: "Z", day: "Domingos", start: "2026-12-20", end: "2027-03-14", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "J", day: "Sábados", start: "2026-12-19", end: "2027-03-13", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: "K", day: "Domingos", start: "2026-12-20", end: "2027-03-14", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 2", commission: null, day: "Lunes", start: "2026-12-21", end: "2027-03-08", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 3", commission: "E", day: "Sábados", start: "2026-12-19", end: "2027-03-13", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 3", commission: "F", day: "Domingos", start: "2026-12-20", end: "2027-03-14", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Japonés", course: "Japonés 4", commission: "B", day: "Sábados", start: "2026-12-19", end: "2027-03-13", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Coreano", course: "Coreano 1", commission: "G", day: "Domingos", start: "2026-12-20", end: "2027-03-14", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Coreano", course: "Coreano 1", commission: "H", day: "Miércoles", start: "2026-12-23", end: "2027-03-10", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Coreano", course: "Coreano 2", commission: "E", day: "Sábados", start: "2026-12-19", end: "2027-03-13", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Coreano", course: "Coreano 2", commission: "F", day: "Lunes", start: "2026-12-21", end: "2027-03-08", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Coreano", course: "Coreano 3", commission: null, day: "Miércoles", start: "2026-12-23", end: "2027-03-10", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Chino", course: "Chino 1", commission: "E", day: "Sábados", start: "2026-12-19", end: "2027-03-13", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Chino", course: "Chino 1", commission: "F", day: "Lunes", start: "2026-12-21", end: "2027-03-08", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Chino", course: "Chino 2", commission: "E", day: "Miércoles", start: "2026-12-23", end: "2027-03-10", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Chino", course: "Chino 3", commission: "A", day: "Miércoles", start: "2026-12-23", end: "2027-03-10", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Tailandés", course: "Tailandés 1", commission: "E", day: "Sábados", start: "2026-12-19", end: "2027-03-13", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Tailandés", course: "Tailandés 2", commission: "C", day: "Sábados", start: "2026-12-19", end: "2027-03-13", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Tailandés", course: "Tailandés 3", commission: "B", day: "Lunes", start: "2026-12-21", end: "2027-03-08", startTime: "21:00", endTime: "00:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Inglés", course: "Inglés B1", commission: null, day: "Miércoles", start: "2026-12-23", end: "2027-03-10", startTime: "20:00", endTime: "22:00", duration: "4 módulos", students: null, table: "english2", source: "Diciembre 2026" },
+      { language: "Alemán", course: "Alemán A1", commission: "D", day: "Domingos", start: "2026-12-20", end: "2027-03-14", startTime: "14:00", endTime: "17:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Alemán", course: "Alemán A2", commission: "C", day: "Sábados", start: "2026-12-19", end: "2027-03-13", startTime: "16:00", endTime: "19:00", duration: "4 módulos", students: null, table: "threeH4", source: "Diciembre 2026" },
+      { language: "Italiano", course: "Italiano A1", commission: null, day: "Sábados", start: "2026-12-19", end: "2027-03-13", startTime: "17:00", endTime: "19:00", duration: "4 módulos", students: null, table: "italian2", source: "Diciembre 2026" }
     ];
 
-    const TODAY = "2026-09-01";
+    const TODAY = "2026-09-24";
 
     const currencyLabels = {
       ARS: "ARS",
@@ -1254,6 +1526,7 @@
 
     const visibleGroups = Object.values(
       groups
+        .filter(group => monthKey(group.start) !== "2026-08")
         .filter(group => !group.closed && (group.students === null || group.students === undefined || group.students <= 20))
         .reduce((acc, group) => {
           const key = [group.language, group.course, group.commission, group.day, group.start, group.startTime, group.endTime].join("|");
@@ -1274,6 +1547,10 @@
       country: document.getElementById("country"),
       level: document.getElementById("level"),
       month: document.getElementById("month"),
+      monthChips: document.getElementById("monthChips"),
+      languageChips: document.getElementById("languageChips"),
+      levelFilter: document.getElementById("levelFilter"),
+      levelChips: document.getElementById("levelChips"),
       schedule: document.getElementById("schedule"),
       scheduleCards: document.getElementById("scheduleCards"),
       scheduleCountryNote: document.getElementById("scheduleCountryNote"),
@@ -1290,6 +1567,8 @@
       promoPrice: document.getElementById("promoPrice"),
       promoNote: document.getElementById("promoNote"),
       monthlyPrice: document.getElementById("monthlyPrice"),
+      decemberFinancing: document.getElementById("decemberFinancing"),
+      decemberFinancingText: document.getElementById("decemberFinancingText"),
       waInlineLink: document.getElementById("waInlineLink"),
       waStickyLink: document.getElementById("waStickyLink")
     };
@@ -1337,12 +1616,22 @@
       return labels[key] || key;
     }
 
-    function getInstallmentCount(group, table) {
-      return table.installmentsByMonth?.[monthKey(group.start)] || 4;
-    }
-
     function getVisibleDiscount(group, table) {
       return table.visibleDiscountByMonth?.[monthKey(group.start)] || 30;
+    }
+
+    function getDiscountNumber(discount) {
+      return Number(discount) || 0;
+    }
+
+    function getInstallmentCount(group, table) {
+      const baseInstallments = table.installmentsByMonth?.[monthKey(group.start)] || 4;
+      // Diciembre se comercializa únicamente con 30% OFF y 5 cuotas sin interés.
+      if (monthKey(group.start) === "2026-12") {
+        return 5;
+      }
+
+      return baseInstallments;
     }
 
     function getPromoValue(group, table, currency) {
@@ -1374,8 +1663,12 @@
       return `${count} cuota${count === 1 ? "" : "s"} sin interés`;
     }
 
+    function getDecemberFiveInstallmentOption(group, table, currency) {
+      return null;
+    }
+
     function groupsForLanguage(language) {
-      return visibleGroups.filter(group => group.language === language);
+      return visibleGroups.filter(group => !language || group.language === language);
     }
 
     function getMonthList(language) {
@@ -1395,11 +1688,6 @@
           (!els.month.value || monthKey(group.start) === els.month.value)
         )
         .sort((a, b) => a.start.localeCompare(b.start) || a.course.localeCompare(b.course));
-    }
-
-    function studentsText(value) {
-      if (value !== null && value !== undefined && value <= 4) return `Últimos ${value} cupos`;
-      return "Últimos 4 cupos";
     }
 
     function getLanguageFlag(language) {
@@ -1422,9 +1710,11 @@
     }
 
     function populateLanguages() {
-      els.language.innerHTML = getLanguageList()
+      const current = els.language.value;
+      els.language.innerHTML = [`<option value="">Todos los idiomas</option>`, ...getLanguageList()
         .map(language => `<option value="${language}">${language}</option>`)
-        .join("");
+      ].join("");
+      els.language.value = getLanguageList().includes(current) ? current : "";
     }
 
     function populateLevels() {
@@ -1433,46 +1723,120 @@
           .map(group => getLevel(group.course))
       )].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 
-      els.level.innerHTML = levels
+      const current = els.level.value;
+      els.level.innerHTML = [`<option value="">Todos los niveles</option>`, ...levels
         .map(level => `<option value="${level}">${level}</option>`)
-        .join("");
+      ].join("");
+      els.level.value = levels.includes(current) ? current : "";
     }
 
     function populateMonths() {
       const months = getMonthList(els.language.value);
-      els.month.innerHTML = months
+      const current = els.month.value;
+      els.month.innerHTML = [`<option value="">Todos los meses disponibles</option>`, ...months
         .map(month => `<option value="${month}">${monthLabel(month)}</option>`)
-        .join("");
+      ].join("");
+      const upcomingMonth = months.find(month => visibleGroups.some(group =>
+        monthKey(group.start) === month && group.start >= TODAY
+      ));
+      const preferredMonth = months.includes(current)
+        ? current
+        : (upcomingMonth || months[0] || "");
+      els.month.value = preferredMonth;
+    }
+
+    function renderQuickFilters() {
+      const months = getMonthList(els.language.value);
+      els.monthChips.innerHTML = months.map(month => `
+        <button class="filter-chip ${els.month.value === month ? "active" : ""}" type="button" data-month="${month}">${monthLabel(month).replace(" 2026", "")}</button>
+      `).join("");
+
+      const languages = [...new Set(
+        visibleGroups
+          .filter(group => !els.month.value || monthKey(group.start) === els.month.value)
+          .filter(group => !els.level.value || getLevel(group.course) === els.level.value)
+          .map(group => group.language)
+      )];
+      els.languageChips.innerHTML = [
+        `<button class="filter-chip ${!els.language.value ? "active" : ""}" type="button" data-language="">Todos</button>`,
+        ...languages.map(language => {
+          const flag = getLanguageFlag(language);
+          return `<button class="filter-chip ${els.language.value === language ? "active" : ""}" type="button" data-language="${language}">${flag.url ? `<img src="${flag.url}" alt="">` : ""}${language}</button>`;
+        })
+      ].join("");
+
+      els.monthChips.querySelectorAll("[data-month]").forEach(chip => {
+        chip.addEventListener("click", () => {
+          els.month.value = chip.dataset.month;
+          populateSchedules();
+          renderQuickFilters();
+          updateResult();
+        });
+      });
+      els.languageChips.querySelectorAll("[data-language]").forEach(chip => {
+        chip.addEventListener("click", () => {
+          els.language.value = chip.dataset.language;
+          populateLevels();
+          populateMonths();
+          populateSchedules();
+          renderQuickFilters();
+          updateResult();
+        });
+      });
+
+      const levels = [...new Set(
+        visibleGroups
+          .filter(group => group.language === els.language.value)
+          .filter(group => !els.month.value || monthKey(group.start) === els.month.value)
+          .map(group => getLevel(group.course))
+      )].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+      els.levelFilter.hidden = !els.language.value || levels.length < 2;
+      els.levelChips.innerHTML = [
+        `<button class="filter-chip ${!els.level.value ? "active" : ""}" type="button" data-level="">Todos los niveles</button>`,
+        ...levels.map(level => `<button class="filter-chip ${els.level.value === level ? "active" : ""}" type="button" data-level="${level}">${/^[0-9]+$/.test(level) ? `Nivel ${level}` : level}</button>`)
+      ].join("");
+      els.levelChips.querySelectorAll("[data-level]").forEach(chip => {
+        chip.addEventListener("click", () => {
+          els.level.value = chip.dataset.level;
+          populateMonths();
+          populateSchedules();
+          renderQuickFilters();
+          updateResult();
+        });
+      });
     }
 
     function populateSchedules() {
       const filtered = groupsByLanguage(els.language.value);
       els.schedule.value = "0";
       const countryBrand = getCountryBrand(els.country.value);
-      els.countryFlag.innerHTML = `<img src="${countryBrand.url}" alt="${countryBrand.label}"><span>Horarios visibles para ${countryBrand.label}</span>`;
+      els.countryFlag.innerHTML = `<img src="${countryBrand.url}" alt="${countryBrand.label}"><span>Horarios convertidos a la hora de ${countryBrand.label}.</span>`;
       els.scheduleCountryNote.textContent = `Los horarios se muestran en la hora de ${getCountryTiming(els.country.value, filtered[0]?.start || TODAY, filtered[0]?.startTime || "00:00", filtered[0]?.endTime || "00:00").countryLabel}.`;
       els.scheduleCards.innerHTML = filtered
         .map((group, index) => {
           const timing = getCountryTiming(els.country.value, group.start, group.startTime, group.endTime);
           const level = getLevel(group.course);
-          const cupo = studentsText(group.students);
           const languageFlag = getLanguageFlag(group.language);
+          const table = priceTables[group.table];
+          const currency = currencyForCountry(els.country.value);
+          const installmentCount = getInstallmentCount(group, table);
+          const installmentValue = getInstallmentValue(group, table, currency);
+          const discount = getVisibleDiscount(group, table);
           return `
             <button class="schedule-card ${index === 0 ? "active" : ""}" type="button" data-index="${index}">
               <div class="schedule-card-top">
                 <div>
-                  <strong>${countryBrand.url ? `<img class="flag-icon" src="${countryBrand.url}" alt="${countryBrand.label}">` : ""}${group.day} · ${timing.scheduleLabel}</strong>
-                  <p>${languageFlag.url ? `<img class="flag-icon" src="${languageFlag.url}" alt="${languageFlag.label}">` : "🎮"} ${group.language} ${level} · ${monthLabel(monthKey(group.start))}</p>
+                  <strong>${languageFlag.url ? `<img class="flag-icon" src="${languageFlag.url}" alt="${languageFlag.label}">` : "🎮"} ${group.language} ${level}</strong>
+                  <p>${group.day} · ${timing.scheduleLabel} · ${monthLabel(monthKey(group.start))}</p>
                 </div>
-                <span class="badge">Comisión ${group.commission}</span>
+                ${group.commission ? `<span class="badge">Grupo ${group.commission}</span>` : `<span class="badge badge-confirm">Confirmá con ISA</span>`}
               </div>
               <div class="schedule-card-meta">
                 <span>Inicia ${fmtDate(group.start)}</span>
                 <span>Termina ${fmtDate(group.end)}</span>
-                <span>${timing.scheduleLabel}</span>
                 <span>${group.duration}</span>
-                <span>${cupo}</span>
               </div>
+              <div class="schedule-price"><div><span>También podés pagar</span><strong>${installmentCount} cuotas de ${currencyLabels[currency]} ${installmentValue}</strong></div><em>${discount}% OFF</em></div>
             </button>
           `;
         })
@@ -1597,6 +1961,7 @@
       const visibleDiscount = getVisibleDiscount(group, table);
       const promoValue = getPromoValue(group, table, currency);
       const installmentValue = getInstallmentValue(group, table, currency);
+      const decemberFiveInstallment = getDecemberFiveInstallmentOption(group, table, currency);
       const countryTiming = getCountryTiming(country, group.start, group.startTime, group.endTime);
       const certificateLine = table.certificate
         ? `${currencyLabels[currency]} ${table.certificate[currency]} (incluido sin descuento)`
@@ -1606,7 +1971,7 @@
         "",
         `Idioma: ${group.language}`,
         `Curso: ${group.course}`,
-        `Comisión: ${group.commission}`,
+        `Comisión: ${group.commission || "a confirmar con ISA"}`,
         `País: ${countryTiming.countryLabel}`,
         `Día: ${group.day}`,
         `Horario en ${countryTiming.countryLabel}: ${countryTiming.scheduleLabel}`,
@@ -1614,6 +1979,9 @@
         `Precio promo visible: ${currencyLabels[currency]} ${promoValue}`,
         `Descuento visible: ${visibleDiscount}% por pago total del curso`,
         `Cuotas: ${installmentCount} de ${currencyLabels[currency]} ${installmentValue}`,
+        ...(decemberFiveInstallment ? [
+          `Alternativa diciembre: ${decemberFiveInstallment.discount}% de descuento en 5 cuotas de ${currencyLabels[currency]} ${decemberFiveInstallment.installment} (curso completo: ${currencyLabels[currency]} ${decemberFiveInstallment.total}).`
+        ] : []),
         "Condición de cuotas: el curso debe quedar cancelado un mes antes de finalizar.",
         `Matrícula y materiales: ${currencyLabels[currency]} ${table.enrollment[currency]}`,
         `Certificación: ${certificateLine}`,
@@ -1626,6 +1994,7 @@
       const filtered = groupsByLanguage(els.language.value);
       const selectedIndex = Number(els.schedule.value || 0);
       const group = filtered[selectedIndex] || filtered[0];
+      if (!group) return;
       const currency = currencyForCountry(els.country.value);
       const table = priceTables[group.table];
       const timing = getCountryTiming(els.country.value, group.start, group.startTime, group.endTime);
@@ -1636,6 +2005,7 @@
       const visibleDiscount = getVisibleDiscount(group, table);
       const promoValue = getPromoValue(group, table, currency);
       const installmentValue = getInstallmentValue(group, table, currency);
+      const decemberFiveInstallment = getDecemberFiveInstallmentOption(group, table, currency);
       const certificateText = table.certificate
         ? `${currencyLabels[currency]} ${table.certificate[currency]} (incluido sin descuento)`
         : (table.cert || "Consultar certificación");
@@ -1643,8 +2013,8 @@
       els.resultKicker.textContent = `${monthLabel(monthKey(group.start))} · ${table.label}`;
       els.resultTitle.innerHTML = `${languageFlag.url ? `<img class="flag-icon" src="${languageFlag.url}" alt="${languageFlag.label}">` : "🎮"} ${group.language} ${level} · ${group.day}`;
       els.resultSummary.innerHTML = [
-        `<div class="summary-block primary"><strong>Horario con cupo</strong><div class="summary-main"><span class="summary-main-title">${group.course} · ${group.day} · ${timing.scheduleLabel}</span><span class="summary-main-meta">Inicia ${fmtDate(group.start)} · Finaliza ${fmtDate(group.end)} · ${monthLabel(monthKey(group.start))} · ${group.duration}</span></div></div>`,
-        `<div class="summary-mini-grid"><div class="summary-block compact"><strong>País</strong><span>${countryBrand.label}</span></div><div class="summary-block compact"><strong>Nivel</strong><span>${getLevelDescription(level)}</span></div></div>`
+        `<div class="summary-block primary"><strong>Tu clase</strong><div class="summary-main"><span class="summary-main-title">${group.day} · ${timing.scheduleLabel}</span><span class="summary-main-meta">Empieza ${fmtDate(group.start)} · Termina ${fmtDate(group.end)} · Hora de ${countryBrand.label}</span></div></div>`,
+        `<div class="summary-block compact level-summary"><strong>¿Este nivel es para vos?</strong><span>${getLevelDescription(level)}</span></div>`
       ].join("");
       els.regularBreakdown.innerHTML = [
         `<strong>Valor regular desglosado</strong>`,
@@ -1660,6 +2030,10 @@
       els.promoPrice.textContent = `${currencyLabels[currency]} ${promoValue}`;
       els.promoNote.textContent = `Curso completo con ${visibleDiscount}% de descuento. En cuotas, se cancela un mes antes de finalizar.`;
       els.monthlyPrice.textContent = `${installmentCount} cuotas sin interés de ${currencyLabels[currency]} ${installmentValue}`;
+      els.decemberFinancing.hidden = !decemberFiveInstallment;
+      if (decemberFiveInstallment) {
+        els.decemberFinancingText.textContent = `30% OFF: 5 cuotas sin interés de ${currencyLabels[currency]} ${decemberFiveInstallment.installment}`;
+      }
       els.levelHelp.textContent = getLevelDescription(level);
       els.levelBadge.textContent = level;
       els.levelHighlightText.textContent = getLevelDescription(level).replace(/^Nivel\s+[A-Z0-9]+:\s*/i, "");
@@ -1667,21 +2041,26 @@
       const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildMessage(group, table, currency, els.country.value))}`;
       els.waInlineLink.href = href;
       els.waStickyLink.href = href;
+      els.waInlineLink.textContent = "Quiero que ISA me ayude a reservar";
+      els.waStickyLink.textContent = "Quiero que ISA me ayude a reservar";
     }
 
     els.language.addEventListener("change", () => {
       populateLevels();
       populateMonths();
       populateSchedules();
+      renderQuickFilters();
       updateResult();
     });
     els.level.addEventListener("change", () => {
       populateMonths();
       populateSchedules();
+      renderQuickFilters();
       updateResult();
     });
     els.month.addEventListener("change", () => {
       populateSchedules();
+      renderQuickFilters();
       updateResult();
     });
     els.country.addEventListener("change", () => {
@@ -1693,6 +2072,7 @@
     populateLevels();
     populateMonths();
     populateSchedules();
+    renderQuickFilters();
     updateResult();
   </script>
 </body>
