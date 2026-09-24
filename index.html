@@ -1131,7 +1131,7 @@
       .eyebrow{margin-top:16px;font-size:9px}
       h1{font-size:27px;max-width:340px}
       .hero p{font-size:12px;max-width:310px}
-      .hero-meta{gap:5px 9px;margin-top:14px;padding-top:10px;font-size:9px}
+      .hero-meta{gap:7px 10px;margin-top:16px;padding-top:12px;font-size:12px;line-height:1.35}
       .hero-meta span:not(:last-child)::after{margin-left:9px}
       .panel{margin:0;padding:18px 16px 16px;border-radius:0;background:#fffdf9;box-shadow:none}
       .panel h2{font-size:24px}
@@ -1147,14 +1147,15 @@
       .language-chips .filter-chip{min-height:40px;padding:9px 11px;scroll-snap-align:start}
       .level-filter{margin-bottom:16px;padding:13px 0}
       .schedule-head{margin-top:2px}
-      .schedule-head span{max-width:135px;font-size:10px}
+      .schedule-head span{max-width:150px;font-size:11px;line-height:1.3}
       .schedule-cards{gap:8px;margin-top:8px}
       .schedule-card{padding:14px 12px;min-height:142px}
       .schedule-card-top{gap:8px}
       .schedule-card strong{font-size:16px}
-      .schedule-card p{font-size:11px;line-height:1.35}
+      .schedule-card p{font-size:13px;line-height:1.4}
       .schedule-card .badge{max-width:96px;text-align:center;line-height:1.15}
-      .schedule-card-meta{gap:5px;margin-top:8px}
+      .schedule-card-meta{gap:7px;margin-top:10px}
+      .schedule-card-meta span{font-size:12px;line-height:1.35}
       .schedule-price{align-items:center;margin-top:10px;padding-top:10px}
       .schedule-price strong{font-size:15px}
       .schedule-price em{white-space:nowrap}
@@ -1186,7 +1187,7 @@
     }
     @media(max-width:360px){
       h1{font-size:24px}
-      .hero-meta{font-size:8px}
+      .hero-meta{font-size:11px}
       .schedule-card{min-height:0}
       .schedule-price strong{font-size:14px}
       .schedule-price em{font-size:8px}
@@ -1208,6 +1209,11 @@
       white-space:nowrap;
       text-align:center;
     }
+    /* Datos decisivos: tamaño legible aun cuando el navegador tenga paneles laterales. */
+    .hero-meta{font-size:12px;line-height:1.35}
+    .schedule-card p{font-size:13px;line-height:1.4}
+    .schedule-card-meta{gap:7px;margin-top:10px}
+    .schedule-card-meta span{font-size:12px;line-height:1.35}
     @media(max-width:420px){
       .language-chips{grid-template-columns:repeat(3,minmax(0,1fr));}
       .language-chips .filter-chip{width:100%;}
