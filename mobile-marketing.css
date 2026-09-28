@@ -1,0 +1,712 @@
+:root{
+  --gold:#f4b942;
+  --teal:#0f8a8a;
+  --coral:#ef5d60;
+  --pink:#fff0f5;
+  --mint:#e9fbf7;
+}
+
+body{
+  background:linear-gradient(180deg,#fff 0%,#fff8fb 34%,#f5fbfa 100%);
+}
+
+header{
+  background:#151116;
+  border-bottom:3px solid var(--gold);
+}
+
+.hero{
+  position:relative;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:32px 38px auto auto;
+  width:120px;
+  height:120px;
+  background:linear-gradient(135deg,var(--gold),var(--coral));
+  clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);
+  opacity:.16;
+  z-index:-1;
+}
+
+h1 em{
+  color:#b30f4d;
+}
+
+.button{
+  background:linear-gradient(135deg,#a20f45,#ef5d60);
+  box-shadow:0 12px 24px #8a123a2b;
+}
+
+.hero-note,
+.decision-card,
+.community{
+  background:linear-gradient(145deg,#23141f,#8a123a 58%,#0f8a8a);
+}
+
+.value-band{
+  background:#fff8e8;
+}
+
+.value-band .wrap span{
+  border-left:4px solid var(--gold);
+  padding-left:14px;
+}
+
+.course-picker button{
+  box-shadow:0 8px 20px #211d2308;
+}
+
+.course-picker button[aria-pressed=true]{
+  background:#fff0f5;
+  box-shadow:inset 4px 0 #ef5d60,0 10px 22px #8a123a17;
+}
+
+.intent-picker button[aria-pressed=true],
+.level-row button[aria-pressed=true]{
+  background:linear-gradient(135deg,#8a123a,#0f8a8a);
+  border-color:#0f8a8a;
+}
+
+.quick-summary div:nth-child(1){
+  background:#fff8e8;
+  border-color:#f1d08b;
+}
+
+.quick-summary div:nth-child(2){
+  background:#e9fbf7;
+  border-color:#a8dcd5;
+}
+
+.quick-summary div:nth-child(3){
+  background:#fff0f5;
+  border-color:#e7b7c8;
+}
+
+.quick-summary strong{
+  color:#8a123a;
+}
+
+.program-details summary,
+.benefit-drop summary{
+  background:#fbfafc;
+}
+
+.benefits{
+  background:#fff8fb;
+  border:1px solid #ead4df;
+}
+
+.main-benefit{
+  background:#fff;
+  border-color:#f4b942;
+  box-shadow:0 10px 24px #f4b9421f;
+}
+
+.certificate-section{
+  background:linear-gradient(145deg,#151116,#2c1f2a 50%,#0b5d61);
+}
+
+.mobile-choice{
+  background:#fff8e8;
+  border-color:#f0d79b;
+}
+
+.payment{
+  background:#fff;
+}
+
+.promo{
+  background:#fff0f5;
+}
+
+.card-option{
+  background:#f8fffd;
+}
+
+.promo:has(input:checked),
+.card-option:has(input:checked){
+  box-shadow:0 10px 22px #8a123a18;
+}
+
+.schedule dl{
+  border-left:4px solid var(--teal);
+}
+
+footer{
+  background:#151116;
+  color:#fff;
+}
+
+footer a{
+  color:#ffccdf;
+}
+
+@media(max-width:620px){
+  body{
+    font-size:.96rem;
+    line-height:1.52;
+  }
+
+  .wrap{
+    padding-left:18px;
+    padding-right:18px;
+  }
+
+  header{
+    gap:8px;
+    padding:12px 18px;
+    min-height:72px;
+  }
+
+  header img{
+    width:128px;
+  }
+
+  nav{
+    font-size:.78rem;
+    gap:8px;
+  }
+
+  .hero{
+    min-height:auto;
+    padding-top:30px;
+    padding-bottom:30px;
+    gap:18px;
+  }
+
+  .hero:before{
+    width:86px;
+    height:86px;
+    inset:20px 18px auto auto;
+  }
+
+  h1{
+    font-size:2.18rem;
+    line-height:1.06;
+    margin-bottom:16px;
+  }
+
+  h2{
+    font-size:1.62rem;
+    line-height:1.12;
+  }
+
+  .intro{
+    font-size:.98rem;
+    line-height:1.55;
+  }
+
+  .subtle,
+  .small{
+    font-size:.82rem;
+    line-height:1.45;
+  }
+
+  .hero-note{
+    padding:18px;
+  }
+
+  .hero-note h2{
+    font-size:1.42rem;
+    line-height:1.16;
+  }
+
+  .value-band .wrap{
+    gap:9px;
+  }
+
+  .value-band span{
+    padding:11px 12px;
+    font-size:.82rem;
+  }
+
+  .course-section,
+  .enrollment{
+    padding-top:34px;
+    padding-bottom:36px;
+  }
+
+  .section-top>p{
+    font-size:.9rem;
+    line-height:1.45;
+  }
+
+  .course-picker button{
+    flex-basis:42%;
+    min-height:70px;
+    padding:11px 12px;
+    font-size:.9rem;
+  }
+
+  .course-picker button .script{
+    font-size:.78rem;
+  }
+
+  .level-row{
+    margin:18px 0;
+  }
+
+  .level-row button,
+  .intent-picker button{
+    min-height:38px;
+    padding:7px 12px;
+    font-size:.86rem;
+  }
+
+  .intent-picker{
+    margin-bottom:18px;
+  }
+
+  .course-picker,
+  .intent-picker{
+    margin-left:0;
+    margin-right:0;
+    padding-left:0;
+    padding-right:0;
+  }
+
+  .course-picker{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    overflow:visible;
+    gap:8px;
+  }
+
+  .course-picker button{
+    width:100%;
+    min-width:0;
+    flex-basis:auto;
+  }
+
+  .level-row>div,
+  .intent-picker{
+    display:flex;
+    flex-wrap:wrap;
+    overflow:visible;
+    padding-bottom:0;
+  }
+
+  .intent-picker button{
+    flex:1 1 calc(50% - 8px);
+    white-space:normal;
+  }
+
+  .course-heading{
+    font-size:1.46rem;
+    margin-bottom:10px;
+  }
+
+  .decision-card{
+    padding:15px;
+  }
+
+  .decision-card strong{
+    font-size:1.15rem;
+  }
+
+  .decision-card p{
+    font-size:.9rem;
+    line-height:1.45;
+  }
+
+  .quick-summary{
+    margin:14px 0;
+  }
+
+  .quick-summary div{
+    padding:10px 12px;
+  }
+
+  .quick-summary strong{
+    font-size:1.05rem;
+  }
+
+  .quick-summary span{
+    font-size:.78rem;
+  }
+
+  .program-details summary,
+  .benefit-drop summary{
+    padding:11px 13px;
+    font-size:.9rem;
+  }
+
+  .goals li{
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:.88rem;
+    line-height:1.45;
+  }
+
+  .benefits{
+    padding:14px;
+  }
+
+  .benefit{
+    font-size:.9rem;
+    line-height:1.45;
+  }
+
+  .community{
+    padding:16px;
+  }
+
+  .certificate-section{
+    padding:32px 0;
+  }
+
+  .certificate-section h2,
+  .enrollment h2{
+    font-size:1.58rem;
+  }
+
+  .mobile-choice{
+    padding:13px;
+  }
+
+  .mobile-choice label:before{
+    width:19px;
+    height:19px;
+    font-size:.7rem;
+  }
+
+  .schedule .when{
+    font-size:1.22rem;
+  }
+
+  .schedule dl{
+    padding:13px;
+  }
+
+  .schedule dt{
+    font-size:.78rem;
+  }
+
+  .schedule dd{
+    font-size:.9rem;
+  }
+
+  .payment{
+    padding:15px;
+  }
+
+  .regular h3,
+  .payment-choice h3{
+    font-size:.95rem;
+  }
+
+  .price-line{
+    font-size:.86rem;
+  }
+
+  .promo,
+  .card-option{
+    padding:14px;
+  }
+
+  .promo-tag{
+    font-size:.74rem;
+  }
+
+  .price-label{
+    font-size:.84rem;
+  }
+
+  .amount{
+    font-size:1.55rem;
+    margin-bottom:12px;
+  }
+
+  .promo-total{
+    font-size:.9rem;
+  }
+
+  .full{
+    font-size:.9rem;
+    min-height:50px;
+  }
+}
+
+
+/* Brand refinement from IKARUGA manual */
+:root{
+  --brand-red:#d11717;
+  --brand-black:#1d1d1b;
+  --brand-white:#fcfcfc;
+  --brand-soft:#f6f3f1;
+  --brand-line:#ded8d4;
+  --brand-gold:#fbc500;
+  --brand-jp:#e62d37;
+  --brand-kr:#ed7024;
+  --brand-zh:#e9493a;
+  --brand-th:#72b739;
+  --brand-en:#304193;
+  --brand-de:#fbc500;
+  --brand-it:#71c7d5;
+  --brand-ru:#476ab1;
+}
+
+body{
+  color:var(--brand-black);
+  background:var(--brand-white);
+  font-family:Montserrat,Chivo,"Segoe UI",Arial,sans-serif;
+}
+
+header{
+  background:#080708;
+  border-bottom:4px solid var(--brand-red);
+  box-shadow:0 8px 26px #0000001f;
+}
+
+nav a{
+  border:1px solid rgba(252,252,252,.22);
+  border-radius:999px;
+  padding:8px 12px;
+  line-height:1;
+  background:rgba(252,252,252,.04);
+}
+
+nav a:hover{background:#d11717;color:#fff;}
+
+.eyebrow{
+  color:var(--brand-red);
+  letter-spacing:.16em;
+  font-weight:800;
+}
+
+h1,h2,h3,.course-name{font-family:Saira,Montserrat,"Segoe UI",Arial,sans-serif;}
+
+h1 em{
+  color:var(--brand-red);
+  font-family:Saira,Montserrat,"Segoe UI",Arial,sans-serif;
+  font-style:normal;
+  font-weight:800;
+}
+
+.button{
+  background:var(--brand-red);
+  border:2px solid var(--brand-red);
+  border-radius:0;
+  box-shadow:6px 6px 0 var(--brand-black);
+  text-transform:none;
+}
+
+.button:hover{background:#a90000;}
+
+.hero:before{
+  background:var(--brand-red);
+  opacity:.10;
+}
+
+.hero-note,.decision-card,.community{
+  background:#1d1d1b;
+  border:2px solid #1d1d1b;
+  border-radius:0;
+  box-shadow:10px 10px 0 #d11717;
+}
+
+.hero-note h2{font-family:Saira,Montserrat,"Segoe UI",Arial,sans-serif;font-weight:800;}
+
+.value-band{
+  background:#1d1d1b;
+  color:#fff;
+  border:0;
+}
+
+.value-band .wrap span{
+  border-left:4px solid var(--brand-red);
+  background:transparent;
+  color:#e9e4e0;
+}
+
+.value-band strong{color:#fff;}
+
+.course-section{position:relative;}
+
+.course-picker button,
+.level-row button,
+.intent-picker button{
+  position:relative;
+  border:2px solid var(--brand-black);
+  border-radius:0;
+  background:#fff;
+  box-shadow:5px 5px 0 #ded8d4;
+  transition:transform .15s ease,box-shadow .15s ease,background .15s ease,color .15s ease;
+}
+
+.course-picker button:hover,
+.level-row button:hover,
+.intent-picker button:hover{
+  transform:translate(-2px,-2px);
+  box-shadow:7px 7px 0 #ded8d4;
+}
+
+.course-picker button[aria-pressed=true],
+.level-row button[aria-pressed=true],
+.intent-picker button[aria-pressed=true]{
+  color:#fff;
+  background:var(--brand-red);
+  border-color:var(--brand-red);
+  box-shadow:5px 5px 0 var(--brand-black);
+}
+
+.course-picker button[aria-pressed=true] .script{color:#fff;}
+
+.course-picker button:after,
+.level-row button:after,
+.intent-picker button:after{
+  content:"Tocar";
+  position:absolute;
+  right:8px;
+  bottom:6px;
+  color:#777;
+  font-size:.66rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.course-picker button[aria-pressed=true]:after,
+.level-row button[aria-pressed=true]:after,
+.intent-picker button[aria-pressed=true]:after{
+  content:"Elegido";
+  color:#fff;
+}
+
+.button-state{
+  display:inline-block;
+  align-self:flex-start;
+  margin-bottom:8px;
+  padding:3px 7px;
+  border:1px solid currentColor;
+  font-size:.66rem;
+  line-height:1;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-weight:900;
+}
+
+.course-name{font-weight:900;line-height:1.1;}
+
+.course-picker button:nth-child(1){border-color:var(--brand-jp);}
+.course-picker button:nth-child(2){border-color:var(--brand-kr);}
+.course-picker button:nth-child(3){border-color:var(--brand-zh);}
+.course-picker button:nth-child(4){border-color:var(--brand-th);}
+.course-picker button:nth-child(5){border-color:var(--brand-en);}
+.course-picker button:nth-child(6){border-color:var(--brand-de);}
+.course-picker button:nth-child(7){border-color:var(--brand-it);}
+.course-picker button:nth-child(8){border-color:var(--brand-ru);}
+.course-picker button:nth-child(9){border-color:var(--brand-red);}
+
+.quick-summary div{
+  border:2px solid var(--brand-black) !important;
+  border-radius:0;
+  background:#fff !important;
+  box-shadow:4px 4px 0 #ded8d4;
+}
+
+.quick-summary strong{color:var(--brand-red);font-family:Saira,Montserrat,"Segoe UI",Arial,sans-serif;}
+
+.program-details,.benefit-drop,.benefits,.payment,.mobile-choice,select,.promo,.card-option{
+  border-radius:0;
+}
+
+.program-details,.benefit-drop{border:2px solid var(--brand-black);}
+
+.program-details summary,.benefit-drop summary{
+  background:#f6f3f1;
+}
+
+.benefits{
+  background:#f6f3f1;
+  border:2px solid var(--brand-black);
+  box-shadow:6px 6px 0 #ded8d4;
+}
+
+.main-benefit{
+  border:2px solid var(--brand-red);
+  box-shadow:none;
+}
+
+.certificate-section{
+  background:#1d1d1b;
+}
+
+figure img{border-radius:0;border:2px solid #fff;box-shadow:8px 8px 0 #d11717;}
+
+.mobile-choice{
+  background:#f6f3f1;
+  border:2px solid var(--brand-black);
+}
+
+.payment{
+  border:2px solid var(--brand-black);
+  box-shadow:7px 7px 0 #ded8d4;
+}
+
+.promo,.card-option{
+  border:2px solid var(--brand-black);
+  background:#fff;
+  box-shadow:4px 4px 0 #ded8d4;
+}
+
+.promo:has(input:checked),.card-option:has(input:checked){
+  border-color:var(--brand-red);
+  box-shadow:5px 5px 0 var(--brand-red);
+  outline:0;
+}
+
+.promo-tag{color:var(--brand-red);}
+
+footer{background:#080708;border-top:4px solid var(--brand-red);}
+
+@media(max-width:620px){
+  header{align-items:stretch;}
+  nav{display:grid;grid-template-columns:repeat(3,1fr);width:100%;}
+  nav a{display:flex;align-items:center;justify-content:center;text-align:center;min-height:36px;padding:7px 6px;font-size:.74rem;}
+  h1{font-size:1.92rem;letter-spacing:-.025em;}
+  .hero{padding-top:24px;padding-bottom:24px;}
+  .hero-note{box-shadow:6px 6px 0 #d11717;}
+  .value-band .wrap span{padding:12px 0 12px 12px;border-left-width:3px;}
+  .course-picker{grid-template-columns:1fr 1fr;gap:11px;}
+  .course-picker button{min-height:92px;padding:10px 10px 22px;font-size:.91rem;}
+  .button-state{font-size:.58rem;padding:3px 5px;margin-bottom:6px;}
+  .course-picker button:after{font-size:.57rem;right:7px;bottom:5px;}
+  .level-row>div,.intent-picker{gap:10px;}
+  .level-row button,.intent-picker button{min-height:46px;padding:8px 28px 15px 12px;font-weight:800;}
+  .level-row button:after,.intent-picker button:after{font-size:.56rem;right:7px;bottom:4px;}
+  .quick-summary{grid-template-columns:1fr;}
+  .quick-summary div{display:grid;grid-template-columns:1fr;gap:2px;align-items:start;}
+  .quick-summary span{text-align:left;}
+  .decision-card,.community{box-shadow:6px 6px 0 #d11717;}
+  .benefits,.payment{box-shadow:5px 5px 0 #ded8d4;}
+  .full{box-shadow:5px 5px 0 #1d1d1b;}
+}
+
+figure{background:#fff;}
+.certificate-section figure{padding:6px;background:#fff;}
+
+
+/* Compact mobile course controls */
+.intent-picker{display:none !important;}
+.decision-card{display:none !important;}
+.course-picker{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;}
+.course-picker button{min-height:58px;padding:10px 8px 8px;align-items:center;justify-content:center;text-align:center;}
+.course-picker button .script{display:none !important;}
+.course-picker button:after,.level-row button:after,.intent-picker button:after{content:"" !important;display:none !important;}
+.course-name{font-size:.95rem;line-height:1.12;}
+.level-row button{min-height:38px;padding:8px 12px;box-shadow:3px 3px 0 #ded8d4;}
+.level-row button[aria-pressed=true]{box-shadow:3px 3px 0 var(--brand-black);}
+@media(max-width:620px){
+  .course-picker{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+  .course-picker button{min-height:54px;padding:8px 6px;font-size:.82rem;box-shadow:3px 3px 0 #ded8d4;}
+  .course-picker button[aria-pressed=true]{box-shadow:3px 3px 0 var(--brand-black);}
+  .course-name{font-size:.82rem;line-height:1.12;}
+  .level-row{margin:16px 0 14px;}
+  .level-row>div{gap:8px;}
+  .level-row button{min-height:36px;padding:7px 10px;font-size:.8rem;}
+  .course-detail-grid{border-top:1px solid var(--brand-line);}
+}
