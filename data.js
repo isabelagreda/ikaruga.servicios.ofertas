@@ -735,16 +735,6 @@ const SCHEDULES = [
     "month": "diciembre"
   },
   {
-    "course": "Chino 3",
-    "group": "A",
-    "modules": 4,
-    "day": "Miércoles",
-    "time": "21:00 – 00:00",
-    "start": "23/12",
-    "end": "10/03",
-    "month": "diciembre"
-  },
-  {
     "course": "Tailandés 1",
     "group": "E",
     "modules": 4,

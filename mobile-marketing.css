@@ -710,3 +710,44 @@ figure{background:#fff;}
   .level-row button{min-height:36px;padding:7px 10px;font-size:.8rem;}
   .course-detail-grid{border-top:1px solid var(--brand-line);}
 }
+
+/* Clear installment breakdown */
+.quota-box{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0;padding:10px;background:#fff;border:1px solid #ded8d4;}
+.quota-box div{padding:8px;border-left:3px solid var(--brand-red,#d11717);background:#f8f6f4;}
+.quota-box span{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:#625b58;font-weight:800;margin-bottom:3px;}
+.quota-box strong{display:block;font-size:.95rem;line-height:1.2;color:#1d1d1b;}
+.quota-note{font-size:.82rem;line-height:1.35;margin:8px 0 0;color:#625b58;font-weight:700;}
+@media(max-width:620px){.quota-box{grid-template-columns:1fr;gap:6px}.quota-box div{padding:7px}.quota-box strong{font-size:.9rem}.quota-note{font-size:.78rem}}
+
+/* Production sales polish */
+.amount{display:flex;flex-direction:column;gap:2px;color:var(--brand-red,#d11717);}
+.amount span{font-family:Saira,Montserrat,"Segoe UI",Arial,sans-serif;font-size:.8rem;line-height:1;text-transform:uppercase;letter-spacing:.08em;color:#625b58;font-weight:900;}
+.payment-helper{font-size:.88rem;line-height:1.45;color:#625b58;margin:-4px 0 12px;}
+.payment-choice h3{margin-bottom:6px;}
+.promo,.card-option{transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;}
+.promo:active,.card-option:active,.course-picker button:active,.level-row button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #1d1d1b;}
+.promo input,.card-option input{float:none;position:absolute;right:14px;top:14px;}
+.promo-tag{display:inline-block;max-width:calc(100% - 34px);line-height:1.25;}
+.hero-note h2{font-size:1.65rem;}
+.value-band .wrap span:nth-child(2){border-left-color:var(--brand-red,#d11717);}
+@media(max-width:620px){
+  .hero{min-height:auto;}
+  .hero .intro{font-size:.98rem;line-height:1.55;}
+  .hero-note{padding:18px;}
+  .hero-note h2{font-size:1.34rem;line-height:1.2;margin:12px 0;}
+  .hero-note p{font-size:.9rem;line-height:1.45;}
+  .value-band .wrap span{font-size:.86rem;line-height:1.35;}
+  .value-band strong{font-size:.92rem;}
+  .program-details summary,.benefit-drop summary{padding:12px 13px;}
+  .goals li{font-size:.92rem;line-height:1.45;padding-top:10px;padding-bottom:10px;}
+  .benefit{font-size:.92rem;line-height:1.45;}
+  .community p{font-size:.9rem;line-height:1.42;}
+  .regular{margin-top:14px;}
+  .regular h3,.payment-choice h3{font-size:1rem;}
+  .price-line{font-size:.92rem;line-height:1.35;padding:7px 0;}
+  .promo,.card-option{padding:16px 14px;}
+  .amount{font-size:1.72rem;margin:7px 0 12px;}
+  .amount span{font-size:.68rem;}
+  .promo-tag{font-size:.76rem;}
+  .payment-helper{font-size:.82rem;}
+}
