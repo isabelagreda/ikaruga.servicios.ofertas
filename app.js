@@ -26,7 +26,7 @@ function renderCountryOptions(){
 function promoRule(hours,month){
  const installments={octubre:3,noviembre:4,diciembre:4}[month];
  if(!installments)return null;
- return{percent:hours===3?(month==='diciembre'?30:40):30,installments,label:'TRANSFERENCIA O PAYPAL',headline:`Promo ${month}`};
+ return{percent:hours===3?40:30,installments,label:'TRANSFERENCIA O PAYPAL',headline:`Promo ${month}`};
 }
 function hasPublicPromo(s,hours){return !!(s&&promoRule(hours,s.month));}
 function cardRule(){return null;}
