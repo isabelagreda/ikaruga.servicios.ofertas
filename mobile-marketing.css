@@ -712,12 +712,12 @@ figure{background:#fff;}
 }
 
 /* Clear installment breakdown */
-.quota-box{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0;padding:10px;background:#fff;border:1px solid #ded8d4;}
-.quota-box div{padding:8px;border-left:3px solid var(--brand-red,#d11717);background:#f8f6f4;}
-.quota-box span{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:#625b58;font-weight:800;margin-bottom:3px;}
-.quota-box strong{display:block;font-size:.95rem;line-height:1.2;color:#1d1d1b;}
+.quota-box{display:flex;flex-direction:column;gap:4px;margin:12px 0;padding:12px;border-left:3px solid var(--brand-red,#d11717);background:#f8f6f4;}
+.quota-box span{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:#625b58;font-weight:800;}
+.quota-box strong{display:block;font-size:1.08rem;line-height:1.2;color:#1d1d1b;}
+.quota-box small{font-size:.8rem;color:#625b58;font-weight:700;}
 .quota-note{font-size:.82rem;line-height:1.35;margin:8px 0 0;color:#625b58;font-weight:700;}
-@media(max-width:620px){.quota-box{grid-template-columns:1fr;gap:6px}.quota-box div{padding:7px}.quota-box strong{font-size:.9rem}.quota-note{font-size:.78rem}}
+@media(max-width:620px){.quota-box{gap:5px;padding:11px}.quota-box strong{font-size:1rem}.quota-note{font-size:.78rem}}
 
 /* Production sales polish */
 .amount{display:flex;flex-direction:column;gap:2px;color:var(--brand-red,#d11717);}
@@ -750,4 +750,9 @@ figure{background:#fff;}
   .amount span{font-size:.68rem;}
   .promo-tag{font-size:.76rem;}
   .payment-helper{font-size:.82rem;}
+}
+
+@media(max-width:620px){
+  .course-picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible;margin:0;padding:0;gap:10px;}
+  .course-picker button{flex:initial;min-height:68px;white-space:normal;}
 }
