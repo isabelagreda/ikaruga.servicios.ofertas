@@ -10,20 +10,12 @@ const INTENTS=[
 ];
 const COUNTRIES={AR:{name:'Argentina',tz:'America/Argentina/Buenos_Aires'},CL:{name:'Chile',tz:'America/Santiago'},US_ET:{name:'Estados Unidos este',tz:'America/New_York'},US_PT:{name:'Estados Unidos pacífico',tz:'America/Los_Angeles'},ES:{name:'España',tz:'Europe/Madrid'},CO:{name:'Colombia',tz:'America/Bogota'},PY:{name:'Paraguay',tz:'America/Asuncion'},UY:{name:'Uruguay',tz:'America/Montevideo'},VE:{name:'Venezuela',tz:'America/Caracas'},BO:{name:'Bolivia',tz:'America/La_Paz'},PE:{name:'Perú',tz:'America/Lima'},EC:{name:'Ecuador',tz:'America/Guayaquil'},MX:{name:'México',tz:'America/Mexico_City'}};
 function promoRule(hours,month){
- if(hours===3&&(month==='octubre'||month==='noviembre'))return{percent:40,installments:4,label:'TRANSFERENCIA O PAYPAL',headline:'Promo octubre/noviembre'};
- if(hours===3&&month==='diciembre')return{percent:30,installments:5,label:'TRANSFERENCIA O PAYPAL',headline:'Promo diciembre'};
- if(hours===2&&(month==='octubre'||month==='noviembre'))return{percent:30,installments:3,label:'TRANSFERENCIA O PAYPAL',headline:'Promo octubre/noviembre'};
- if(hours===2&&month==='diciembre')return{percent:20,installments:5,label:'TRANSFERENCIA O PAYPAL',headline:'Promo diciembre'};
- return null;
+ const installments={octubre:3,noviembre:4,diciembre:4}[month];
+ if(!installments)return null;
+ return{percent:hours===3?(month==='diciembre'?30:40):30,installments,label:'TRANSFERENCIA O PAYPAL',headline:`Promo ${month}`};
 }
 function hasPublicPromo(s,hours){return !!(s&&promoRule(hours,s.month));}
-function cardRule(hours,month,country,cur){
- const allowed=(country==='AR'&&cur==='ARS')||(country==='MX'&&cur==='MXN');
- if(!allowed)return null;
- if(hours===3&&(month==='octubre'||month==='noviembre'))return{percent:25,installments:3,label:`TARJETA DE CRÉDITO · ${cur==='ARS'?'ARGENTINA':'MÉXICO'}`};
- if(hours===2)return{percent:15,installments:3,label:`TARJETA DE CRÉDITO · ${cur==='ARS'?'ARGENTINA':'MÉXICO'}`};
- return null;
-}
+function cardRule(){return null;}
 function splitInstallments(total, installments){const cents=Math.round(total*100),base=Math.floor(cents/installments),last=cents-base*(installments-1);return{base,last,equal:base===last};}
 
 function localTimeRange(s){const country=COUNTRIES[$('country').value]||COUNTRIES.AR,[start,end]=s.time.split('–').map(t=>t.trim()),[sh,sm]=start.split(':').map(Number),[eh,em]=end.split(':').map(Number),[dd,mm]=s.start.split('/').map(Number);let duration=(eh*60+em)-(sh*60+sm);if(duration<=0)duration+=1440;const startUtc=new Date(Date.UTC(2026,mm-1,dd,sh+3,sm)),endUtc=new Date(startUtc.getTime()+duration*60000);const fmt=new Intl.DateTimeFormat('es-AR',{timeZone:country.tz,hour:'2-digit',minute:'2-digit',hour12:false,weekday:'long'});const parts=d=>Object.fromEntries(fmt.formatToParts(d).map(p=>[p.type,p.value]));const startParts=parts(startUtc),endParts=parts(endUtc),startLabel=`${startParts.hour}:${startParts.minute}`,endLabel=`${endParts.hour}:${endParts.minute}`,localDay=startParts.weekday.charAt(0).toUpperCase()+startParts.weekday.slice(1),dayNote=startParts.weekday!==endParts.weekday?`Termina ${endParts.weekday}.`:'';return{country:country.name,range:`${startLabel} – ${endLabel}`,day:localDay,dayNote};}
@@ -44,14 +36,20 @@ function renderPayment(){const l=current(),s=$('group').value!==''?SCHEDULES[Num
 const money=n=>new Intl.NumberFormat('es-AR',{minimumFractionDigits:Number.isInteger(n)?0:2,maximumFractionDigits:2}).format(n)+' '+cur;
 const quotaSummary=(total,parts,n,method)=>`<div class="quota-box"><div><span>Total final</span><strong>${money(total)}</strong></div><div><span>Plan</span><strong>${n} cuotas sin interés</strong></div><div><span>Cada cuota</span><strong>${parts.equal?money(parts.base/100):'desde '+money(parts.base/100)}</strong></div><div><span>Medio</span><strong>${method}</strong></div></div>${!parts.equal?`<p class="quota-note">Por redondeo: ${n-1} cuotas de ${money(parts.base/100)} y una última de ${money(parts.last/100)}.</p>`:''}`;
 if(s){const local=localTimeRange(s);$('schedule').innerHTML=`<p class="when">${esc(local.day)}<br><span>${esc(local.range)} h</span></p><p class="small">Horario local para ${esc(local.country)} calculado con el inicio ${esc(s.start)}/2026. En Argentina: ${esc(s.day)} ${esc(s.time)} h.${local.dayNote?' '+esc(local.dayNote):''}</p><dl><div><dt>Inicio</dt><dd>${esc(s.start)}/2026</dd></div><div><dt>Finalización</dt><dd>${esc(s.end)}/2027</dd></div><div><dt>Recorrido</dt><dd>${s.modules} módulos</dd></div><div><dt>Modalidad</dt><dd>Grupal online</dd></div></dl>`;}else $('schedule').innerHTML='<p class="empty">Podés conocer el programa y consultar con ISA la próxima apertura de este nivel.</p>';
-const tables={standard:{ARS:[172000,277000,49000],USD:[86,89,34],MXN:[1670,1720,590]},english:{ARS:[79000,107000,0],USD:[40,34,0],MXN:[770,670,0]},italian:{ARS:[79000,107000,49000],USD:[40,34,34],MXN:[770,670,620]},games:{ARS:[138000,153000,0],USD:[65,80,0],MXN:[1620,1550,0]}};
-const type=courseIndex===4?'english':courseIndex===6?'italian':courseIndex===8?'games':'standard';
-const row=tables[type][cur];
+const tables={
+ threeH4:{costs:{ARS:[172000,277000,49000],USD:[86,89,34],MXN:[1670,1720,590]},discounts:{45:{ARS:579000,USD:273,MXN:5210},40:{ARS:628000,USD:294,MXN:5630},35:{ARS:676000,USD:316,MXN:6050},30:{ARS:724000,USD:338,MXN:6470},25:{ARS:772000,USD:360,MXN:6890},20:{ARS:820000,USD:381,MXN:7310},15:{ARS:869000,USD:403,MXN:7730}}},
+ threeH5:{costs:{ARS:[172000,277000,49000],USD:[86,89,34],MXN:[1670,1720,590]},discounts:{45:{ARS:674000,USD:320,MXN:6130},40:{ARS:731000,USD:346,MXN:6630},35:{ARS:787000,USD:372,MXN:7130},30:{ARS:844000,USD:398,MXN:7640},25:{ARS:901000,USD:424,MXN:8140},20:{ARS:958000,USD:450,MXN:8640},15:{ARS:1015000,USD:477,MXN:9150}}},
+ english:{costs:{ARS:[79000,107000,0],USD:[40,34,0],MXN:[770,670,0]},discounts:{30:{ARS:296000,USD:135,MXN:2620},25:{ARS:318000,USD:145,MXN:2800},20:{ARS:339000,USD:155,MXN:2990},15:{ARS:360000,USD:165,MXN:3180}}},
+ italian:{costs:{ARS:[79000,107000,49000],USD:[40,34,34],MXN:[770,670,620]},discounts:{30:{ARS:345000,USD:169,MXN:3240},25:{ARS:367000,USD:179,MXN:3420},20:{ARS:388000,USD:188,MXN:3610},15:{ARS:409000,USD:198,MXN:3800}}},
+ games:{costs:{ARS:[138000,153000,0],USD:[65,80,0],MXN:[1620,1550,0]},discounts:{45:{ARS:387000,USD:187,MXN:4410},40:{ARS:423000,USD:204,MXN:4810},35:{ARS:458000,USD:221,MXN:5210},30:{ARS:493000,USD:238,MXN:5620},25:{ARS:528000,USD:255,MXN:5980},20:{ARS:564000,USD:272,MXN:6420},15:{ARS:599000,USD:289,MXN:6800}}}
+};
+const type=courseIndex===4?'english':courseIndex===6?'italian':courseIndex===8?'games':s?.modules===5?'threeH5':'threeH4';
+const row=tables[type].costs[cur];
 let quote='';
 if(s){const rule=promoRule(COURSES[courseIndex].hours,s.month),total=row[0]*s.modules+row[1]+row[2],discountBase=row[0]*s.modules+row[1];
 const choices=[];
-if(rule){const promo=Math.round(discountBase*(1-rule.percent/100)+row[2]),parts=splitInstallments(promo,rule.installments);
-choices.push({id:'main',html:`<span class="promo-tag">${rule.percent}% DE DESCUENTO · ${esc(s.month.toUpperCase())}</span><p class="price-label">Transferencia o PayPal</p><p class="amount"><span>${rule.installments} cuotas de</span>${money(parts.base/100)}</p>${quotaSummary(promo,parts,rule.installments,'Transferencia/PayPal')}<p class="small">El descuento se aplica sobre cursado, matrícula y materiales. El certificado, cuando corresponde, ya está incluido en el total.</p>`,quote:{label:`${rule.percent}% descuento · Transferencia/PayPal`,total:money(promo),installments:`${rule.installments} cuotas sin interés${parts.equal?' de '+money(parts.base/100):`: ${rule.installments-1} de ${money(parts.base/100)} y una última de ${money(parts.last/100)}`}`,method:'Transferencia/PayPal'}});
+if(rule){const promo=tables[type].discounts[rule.percent][cur],parts=splitInstallments(promo,rule.installments);
+choices.push({id:'main',html:`<span class="promo-tag">${rule.percent}% DE DESCUENTO · ${esc(s.month.toUpperCase())}</span><p class="price-label">Transferencia o PayPal</p><p class="amount"><span>${rule.installments} cuotas de</span>${money(parts.base/100)}</p>${quotaSummary(promo,parts,rule.installments,'Transferencia/PayPal')}<p class="small">El descuento aplica sobre cursado, matrícula y materiales. El certificado, cuando corresponde, se suma sin descuento.</p>`,quote:{label:`${rule.percent}% descuento · Transferencia/PayPal`,total:money(promo),installments:`${rule.installments} cuotas sin interés${parts.equal?' de '+money(parts.base/100):`: ${rule.installments-1} de ${money(parts.base/100)} y una última de ${money(parts.last/100)}`}`,method:'Transferencia/PayPal'}});
 }
 const cRule=cardRule(COURSES[courseIndex].hours,s.month,$('country').value,cur);
 if(cRule){const cardTotal=Math.round(discountBase*(1-cRule.percent/100)+row[2]),parts=splitInstallments(cardTotal,cRule.installments);
