@@ -2,6 +2,15 @@ let courseIndex=0,levelIndex=0,intentIndex=0,paymentChoice='main';
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const current=()=>COURSES[courseIndex].levels[levelIndex];
+function renderFinancingRule(){
+ const description=document.querySelector('.enrollment > p:not(.eyebrow)');
+ if(!description||document.getElementById('financing-rule'))return;
+ const rule=document.createElement('p');
+ rule.id='financing-rule';
+ rule.className='small';
+ rule.innerHTML='<strong>Financiación vigente:</strong> octubre hasta 3 cuotas sin interés; noviembre y diciembre hasta 4 cuotas sin interés.';
+ description.insertAdjacentElement('afterend',rule);
+}
 const INTENTS=[
  {label:'Viaje o cultura',title:'Aprendé para viajar o conectar con la cultura',text:n=>`Práctica útil para leer, escuchar y moverte mejor en situaciones cotidianas.`},
  {label:'Trabajo o estudio',title:'Sumá idioma a tu perfil',text:n=>`Bases claras, práctica guiada y continuidad por niveles para avanzar con orden.`},
@@ -67,7 +76,7 @@ if($('intent-picker'))$('intent-picker').addEventListener('click',e=>{const b=e.
 $('quick-course').addEventListener('change',e=>{courseIndex=Number(e.target.value);levelIndex=0;render();});
 $('quick-level').addEventListener('change',e=>{levelIndex=Number(e.target.value);render();});
 $('price').addEventListener('change',e=>{if(e.target.name!=='payment-choice')return;paymentChoice=e.target.value;renderPayment();});
-$('group').addEventListener('change',renderPayment);$('currency').addEventListener('change',renderPayment);$('country').addEventListener('change',renderPayment);render();
+$('group').addEventListener('change',renderPayment);$('currency').addEventListener('change',renderPayment);$('country').addEventListener('change',renderPayment);renderFinancingRule();render();
 if(document.modelContext?.registerTool){
  const lifecycle=new AbortController();
  Promise.resolve(document.modelContext.registerTool({name:'select_course_level',title:'Ver un curso IKARUGA',description:'Selecciona un curso y nivel en la página y devuelve contenidos, programa y comisiones. No inscribe ni envía mensajes.',inputSchema:{type:'object',properties:{level:{type:'string',enum:COURSES.flatMap(c=>c.levels.map(l=>l.name))}},required:['level'],additionalProperties:false},annotations:{readOnlyHint:false},execute(input){const ci=COURSES.findIndex(c=>c.levels.some(l=>l.name===input?.level));if(ci<0)throw new Error('Nivel no disponible');courseIndex=ci;levelIndex=COURSES[ci].levels.findIndex(l=>l.name===input.level);render();$('cursos').scrollIntoView();return{level:current().name,goals:current().goals,program:new URL(''+current().pdf,location.href).href,schedules:SCHEDULES.filter(s=>s.course===current().name)};}},{signal:lifecycle.signal})).catch(()=>{});
