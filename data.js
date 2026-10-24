@@ -503,16 +503,6 @@ const SCHEDULES = [
   },
   {
     "course": "Japonés 2",
-    "group": "H",
-    "modules": 4,
-    "day": "Jueves",
-    "time": "21:00 – 00:00",
-    "start": "17/09",
-    "end": "10/12",
-    "month": "septiembre"
-  },
-  {
-    "course": "Japonés 2",
     "group": "I",
     "modules": 4,
     "day": "Sábados",
@@ -600,6 +590,26 @@ const SCHEDULES = [
     "start": "21/12",
     "end": "08/03",
     "month": "diciembre"
+  },
+  {
+    "course": "Japonés 1",
+    "group": "A",
+    "modules": 4,
+    "day": "Sábados",
+    "time": "16:00 – 19:00",
+    "start": "23/01",
+    "end": "10/04",
+    "month": "enero"
+  },
+  {
+    "course": "Japonés 3",
+    "group": "A",
+    "modules": 4,
+    "day": "Sábados",
+    "time": "16:00 – 19:00",
+    "start": "23/01",
+    "end": "10/04",
+    "month": "enero"
   },
   {
     "course": "Coreano 1",
@@ -692,6 +702,16 @@ const SCHEDULES = [
     "month": "diciembre"
   },
   {
+    "course": "Coreano 1",
+    "group": "A",
+    "modules": 4,
+    "day": "Sábados",
+    "time": "16:00 – 19:00",
+    "start": "23/01",
+    "end": "10/04",
+    "month": "enero"
+  },
+  {
     "course": "Chino 3",
     "group": "A",
     "modules": 4,
@@ -733,16 +753,6 @@ const SCHEDULES = [
   },
   {
     "course": "Tailandés 3",
-    "group": "A",
-    "modules": 5,
-    "day": "Domingos",
-    "time": "14:00 – 17:00",
-    "start": "20/09",
-    "end": "13/12",
-    "month": "septiembre"
-  },
-  {
-    "course": "Tailandés 3",
     "group": "B",
     "modules": 4,
     "day": "Lunes",
@@ -750,16 +760,6 @@ const SCHEDULES = [
     "start": "21/12",
     "end": "08/03",
     "month": "diciembre"
-  },
-  {
-    "course": "Inglés A1",
-    "group": "D",
-    "modules": 4,
-    "day": "Sábados",
-    "time": "16:00 – 18:00",
-    "start": "19/09",
-    "end": "12/12",
-    "month": "septiembre"
   },
   {
     "course": "Inglés A1",
@@ -812,6 +812,16 @@ const SCHEDULES = [
     "month": "diciembre"
   },
   {
+    "course": "Inglés A1",
+    "group": "A",
+    "modules": 4,
+    "day": "Sábados",
+    "time": "16:00 – 18:00",
+    "start": "23/01",
+    "end": "10/04",
+    "month": "enero"
+  },
+  {
     "course": "Alemán A1",
     "group": "C",
     "modules": 4,
@@ -830,16 +840,6 @@ const SCHEDULES = [
     "start": "20/12",
     "end": "14/03",
     "month": "diciembre"
-  },
-  {
-    "course": "Alemán A2",
-    "group": "B",
-    "modules": 5,
-    "day": "Domingos",
-    "time": "14:00 – 17:00",
-    "start": "20/09",
-    "end": "10/01",
-    "month": "septiembre"
   },
   {
     "course": "Alemán A2",
@@ -862,23 +862,13 @@ const SCHEDULES = [
     "month": "diciembre"
   },
   {
-    "course": "Italiano A2",
-    "group": "A",
-    "modules": 4,
-    "day": "Sábados",
-    "time": "17:00 – 19:00",
-    "start": "19/09",
-    "end": "12/12",
-    "month": "septiembre"
-  },
-  {
     "course": "Ruso 1",
-    "group": "A",
+    "group": "B",
     "modules": 4,
     "day": "Sábados",
     "time": "16:00 – 19:00",
-    "start": "19/09",
-    "end": "12/12",
-    "month": "septiembre"
+    "start": "19/12",
+    "end": "13/03",
+    "month": "diciembre"
   }
 ];

@@ -8,7 +8,7 @@ function renderFinancingRule(){
  const rule=document.createElement('p');
  rule.id='financing-rule';
  rule.className='small';
- rule.innerHTML='<strong>Financiación vigente:</strong> octubre hasta 3 cuotas sin interés; noviembre y diciembre hasta 4 cuotas sin interés.';
+ rule.innerHTML='<strong>Financiación vigente:</strong> octubre hasta 3 cuotas sin interés; noviembre y diciembre hasta 4 cuotas; enero hasta 5 cuotas sin interés.';
  description.insertAdjacentElement('afterend',rule);
 }
 const INTENTS=[
@@ -24,9 +24,10 @@ function renderCountryOptions(){
  select.value=selected;
 }
 function promoRule(hours,month){
- const installments={octubre:3,noviembre:4,diciembre:4}[month];
+ const installments={octubre:3,noviembre:4,diciembre:4,enero:5}[month];
  if(!installments)return null;
- return{percent:hours===3?40:30,installments,label:'TRANSFERENCIA O PAYPAL',headline:`Promo ${month}`};
+ const percent=month==='enero'?(hours===3?30:15):(hours===3?40:30);
+ return{percent,installments,label:'TRANSFERENCIA O PAYPAL',headline:`Promo ${month}`};
 }
 function hasPublicPromo(s,hours){return !!(s&&promoRule(hours,s.month));}
 function cardRule(){return null;}
@@ -57,6 +58,7 @@ const tables={
  italian:{costs:{ARS:[79000,107000,49000],USD:[40,34,34],MXN:[770,670,620]},discounts:{30:{ARS:345000,USD:169,MXN:3240},25:{ARS:367000,USD:179,MXN:3420},20:{ARS:388000,USD:188,MXN:3610},15:{ARS:409000,USD:198,MXN:3800}}},
  games:{costs:{ARS:[138000,153000,0],USD:[65,80,0],MXN:[1620,1550,0]},discounts:{45:{ARS:387000,USD:187,MXN:4410},40:{ARS:423000,USD:204,MXN:4810},35:{ARS:458000,USD:221,MXN:5210},30:{ARS:493000,USD:238,MXN:5620},25:{ARS:528000,USD:255,MXN:5980},20:{ARS:564000,USD:272,MXN:6420},15:{ARS:599000,USD:289,MXN:6800}}}
 };
+// The published commission controls the price tier: a 4-module group always uses the 4-module table.
 const type=courseIndex===4?'english':courseIndex===6?'italian':courseIndex===8?'games':s?.modules===5?'threeH5':'threeH4';
 const row=tables[type].costs[cur];
 let quote='';
