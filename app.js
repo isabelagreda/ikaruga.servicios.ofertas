@@ -58,7 +58,8 @@ const tables={
  italian:{costs:{ARS:[81000,110000,50000],USD:[40,34,34],MXN:[770,670,620]},discounts:{30:{ARS:354000,USD:169,MXN:3240},25:{ARS:376000,USD:179,MXN:3420},20:{ARS:397000,USD:188,MXN:3610},15:{ARS:419000,USD:198,MXN:3800}}}
 };
 // The current public commissions from the sales guide are 4 modules.
-const type=c.name==='Inglés'||c.name==='Portugués'?'english':c.name==='Italiano'?'italian':'threeH4';
+const courseName=COURSES[courseIndex].name;
+const type=courseName==='Inglés'||courseName==='Portugués'?'english':courseName==='Italiano'?'italian':'threeH4';
 const row=tables[type].costs[cur];
 let quote='';
 if(s){const rule=promoRule(COURSES[courseIndex].name,s.month),total=row[0]*s.modules+row[1]+row[2],discountBase=row[0]*s.modules+row[1];
