@@ -26,7 +26,7 @@ function renderCountryOptions(){
 function promoRule(courseName,month){
  const installments={octubre:3,noviembre:3,diciembre:4,enero:5}[month];
  if(!installments)return null;
- const percent=['Inglés','Italiano','Portugués'].includes(courseName)?30:40;
+ const percent=courseName==='Portugués'?25:['Inglés','Italiano'].includes(courseName)?30:40;
  return{percent,installments,label:'TRANSFERENCIA O PAYPAL',headline:`Promo ${month}`};
 }
 function hasPublicPromo(s,courseName){return !!(s&&promoRule(courseName,s.month));}
