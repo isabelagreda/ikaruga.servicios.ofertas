@@ -1,4 +1,4 @@
-let courseIndex=0,levelIndex=0,intentIndex=0,paymentChoice='main';
+let courseIndex=0,levelIndex=0,paymentChoice='main';
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const current=()=>COURSES[courseIndex].levels[levelIndex];
@@ -11,12 +11,6 @@ function renderFinancingRule(){
  rule.innerHTML='<strong>Financiación vigente:</strong> octubre y noviembre hasta 3 cuotas sin interés; diciembre hasta 4 cuotas; enero hasta 5 cuotas sin interés.';
  description.insertAdjacentElement('afterend',rule);
 }
-const INTENTS=[
- {label:'Viaje o cultura',title:'Aprendé para viajar o conectar con la cultura',text:n=>`Práctica útil para leer, escuchar y moverte mejor en situaciones cotidianas.`},
- {label:'Trabajo o estudio',title:'Sumá idioma a tu perfil',text:n=>`Bases claras, práctica guiada y continuidad por niveles para avanzar con orden.`},
- {label:'Empezar con guía',title:'Empezá con docente y grupo',text:n=>`No necesitás experiencia previa. Trabajás objetivos concretos semana a semana.`},
- {label:'Seguir avanzando',title:'Continuá tu nivel',text:n=>`Seguís construyendo sobre lo aprendido, con contenidos y grupo acordes a tu etapa.`}
-];
 const COUNTRIES={AR:{name:'Argentina',tz:'America/Argentina/Buenos_Aires'},MX:{name:'México',tz:'America/Mexico_City'},PE:{name:'Perú',tz:'America/Lima'},EC:{name:'Ecuador',tz:'America/Guayaquil'},CL:{name:'Chile',tz:'America/Santiago'},PY:{name:'Paraguay',tz:'America/Asuncion'},CO:{name:'Colombia',tz:'America/Bogota'},HN:{name:'Honduras',tz:'America/Tegucigalpa'},BO:{name:'Bolivia',tz:'America/La_Paz'},ES:{name:'España',tz:'Europe/Madrid'},CU:{name:'Cuba',tz:'America/Havana'},US:{name:'Estados Unidos · hora del Este',tz:'America/New_York'},SV:{name:'El Salvador',tz:'America/El_Salvador'},UY:{name:'Uruguay',tz:'America/Montevideo'}};
 function renderCountryOptions(){
  const select=$('country'),selected=COUNTRIES[select.value]?select.value:'AR';
@@ -32,7 +26,6 @@ function promoRule(courseName,month,levelName=''){
  return{percent,installments,label:'TRANSFERENCIA O PAYPAL',headline:`Promo ${month}`};
 }
 function hasPublicPromo(s,courseName){return !!(s&&promoRule(courseName,s.month));}
-function cardRule(){return null;}
 function splitInstallments(total, installments){const cents=Math.round(total*100),base=Math.floor(cents/installments),last=cents-base*(installments-1);return{base,last,equal:base===last};}
 
 function scheduleStartYear(s){return s.month==='enero'?2027:2026;}
@@ -42,7 +35,6 @@ function renderScheduleCards(){const target=$('schedule-options');if(!target)ret
 function render(){const c=COURSES[courseIndex],l=current();
 $('course-picker').innerHTML=COURSES.map((c,i)=>`<button type="button" data-course="${i}" aria-pressed="${i===courseIndex}"><span class="course-name">${esc(c.name)}</span></button>`).join('');
 $('levels').innerHTML=c.levels.map((l,i)=>`<button type="button" data-level="${i}" aria-pressed="${i===levelIndex}">${esc(l.name)}</button>`).join('');
-if($('intent-picker'))$('intent-picker').innerHTML='';
 $('quick-course').innerHTML=COURSES.map((c,i)=>`<option value="${i}"${i===courseIndex?' selected':''}>${esc(c.name)}</option>`).join('');
 $('quick-level').innerHTML=c.levels.map((l,i)=>`<option value="${i}"${i===levelIndex?' selected':''}>${esc(l.name)}</option>`).join('');
 const visibleGoals=l.goals.slice(0,3),hiddenGoals=l.goals.slice(3);
@@ -66,24 +58,19 @@ const courseName=COURSES[courseIndex].name;
 const type=courseName==='Inglés'||courseName==='Portugués'?'english':courseName==='Italiano'?'italian':'threeH4';
 const row=tables[type].costs[cur];
 let quote='';
-if(s){const rule=promoRule(COURSES[courseIndex].name,s.month,l.name),total=row[0]*s.modules+row[1]+row[2],discountBase=row[0]*s.modules+row[1];
+if(s){const rule=promoRule(COURSES[courseIndex].name,s.month,l.name),total=row[0]*s.modules+row[1]+row[2];
 const choices=[];
 if(rule){const promo=tables[type].discounts[rule.percent][cur],parts=splitInstallments(promo,rule.installments);
 choices.push({id:'main',html:`<span class="promo-tag">${rule.percent}% DE DESCUENTO · ${esc(s.month.toUpperCase())}</span><p class="price-label">Valor promocional por pago total</p><p class="amount"><span>Pagás hoy</span>${money(promo)}</p>${quotaSummary(promo,parts,rule.installments,'Transferencia o PayPal')}<p class="small">El descuento aplica sobre cursado, matrícula y materiales. El certificado, cuando corresponde, se suma sin descuento.</p>`,quote:{label:`${rule.percent}% descuento · Transferencia/PayPal`,total:money(promo),installments:`${rule.installments} cuotas sin interés${parts.equal?' de '+money(parts.base/100):`: ${rule.installments-1} de ${money(parts.base/100)} y una última de ${money(parts.last/100)}`}`,method:'Transferencia/PayPal'}});
 }
-const cRule=cardRule(COURSES[courseIndex].hours,s.month,$('country').value,cur);
-if(cRule){const cardTotal=Math.round(discountBase*(1-cRule.percent/100)+row[2]),parts=splitInstallments(cardTotal,cRule.installments);
-choices.push({id:'card3',html:`<span class="promo-tag">${cRule.label}</span><p class="price-label">${cRule.percent}% de descuento</p><p class="amount"><span>${cRule.installments} cuotas de</span>${money(parts.base/100)}</p>${quotaSummary(cardTotal,parts,cRule.installments,'Tarjeta de crédito')}<p class="small">Solo disponible cuando elegís Argentina/ARS o México/MXN.</p>`,quote:{label:`${cRule.percent}% descuento · Tarjeta de crédito`,total:money(cardTotal),installments:`${cRule.installments} cuotas sin interés${parts.equal?' de '+money(parts.base/100):`: ${cRule.installments-1} de ${money(parts.base/100)} y una última de ${money(parts.last/100)}`}`,method:'Tarjeta de crédito'}});
-}
 if(!choices.length){paymentChoice='main';quote='';}else{if(!choices.some(o=>o.id===paymentChoice))paymentChoice='main';const selected=choices.find(o=>o.id===paymentChoice)||choices[0];quote=selected.quote;}
-$('price').innerHTML=`<div class="regular"><h3>Valor regular</h3><div class="price-line"><span>Cursada: ${s.modules} módulos · cuota mensual ${money(row[0])}</span><span>${money(row[0]*s.modules)}</span></div><div class="price-line"><span>Matrícula y materiales</span><span>${money(row[1])}</span></div>${row[2]?`<div class="price-line"><span>Certificado</span><span>${money(row[2])}</span></div>`:''}<div class="price-line"><strong>Total regular</strong><span>${money(total)}</span></div></div><div class="payment-choice"><h3>Elegí cómo pagar</h3><p class="payment-helper">Tocá una opción. Esa elección se envía en el WhatsApp.</p>${choices.length?choices.map((o,i)=>`<label class="${o.id==='main'?'promo':'card-option'}"><input type="radio" name="payment-choice" value="${o.id}" ${o.id===paymentChoice?'checked':''}>${o.html}</label>`).join(''):'<p class="empty">Esta comisión no tiene promoción vigente para publicar.</p>'}</div><p class="small">Transferencia o PayPal para pagos internacionales.${cRule?' La opción con tarjeta se muestra solo si coincide país y moneda.':''}${l.name==='Coreano 3'?' Confirmá con ISA el alcance del certificado.':''}</p>`;
+$('price').innerHTML=`<div class="regular"><h3>Valor regular</h3><div class="price-line"><span>Cursada: ${s.modules} módulos · cuota mensual ${money(row[0])}</span><span>${money(row[0]*s.modules)}</span></div><div class="price-line"><span>Matrícula y materiales</span><span>${money(row[1])}</span></div>${row[2]?`<div class="price-line"><span>Certificado</span><span>${money(row[2])}</span></div>`:''}<div class="price-line"><strong>Total regular</strong><span>${money(total)}</span></div></div><div class="payment-choice"><h3>Elegí cómo pagar</h3><p class="payment-helper">Tocá una opción. Esa elección se envía en el WhatsApp.</p>${choices.length?choices.map(o=>`<label class="promo"><input type="radio" name="payment-choice" value="${o.id}" ${o.id===paymentChoice?'checked':''}>${o.html}</label>`).join(''):'<p class="empty">Esta comisión no tiene promoción vigente para publicar.</p>'}</div><p class="small">Transferencia o PayPal para pagos internacionales.${l.name==='Coreano 3'?' Confirmá con ISA el alcance del certificado.':''}</p>`;
 }else $('price').innerHTML='<p class="price-label">Sin promoción publicada</p><h3>Consultá la próxima apertura.</h3><p>ISA te puede orientar sobre el nivel y avisarte cuando se abra una comisión con promoción vigente.</p>';
 const local=s?localTimeRange(s):null;
 const msgLines=['Hola ISA, vi la propuesta en la página de IKARUGA.','',`Curso: ${l.name}`];if(s){msgLines.push(`Comisión: ${s.group}`);msgLines.push(`Horario local: ${local.day} ${local.range} h (${local.country})`);msgLines.push(`Horario Argentina: ${s.day} ${s.time} h`);msgLines.push(`Inicio: ${s.start}/${scheduleStartYear(s)}`);msgLines.push(`Recorrido: ${s.modules} módulos`);}if(quote){msgLines.push('');msgLines.push(`Pago elegido: ${quote.label}`);msgLines.push(`Total: ${quote.total}`);msgLines.push(`Cuotas: ${quote.installments}`);msgLines.push(`Medio: ${quote.method}`);}msgLines.push('');msgLines.push('Quiero consultar disponibilidad y pasos para inscribirme.');const msg=msgLines.join('\n');
 $('contact').href='https://wa.me/5493413483263?text='+encodeURIComponent(msg);if($('mobile-contact'))$('mobile-contact').href=$('contact').href;renderScheduleCards();}
 $('course-picker').addEventListener('click',e=>{const b=e.target.closest('[data-course]');if(!b)return;courseIndex=Number(b.dataset.course);levelIndex=0;render();$('course-picker').querySelector(`[data-course="${courseIndex}"]`).focus({preventScroll:true});});
 $('levels').addEventListener('click',e=>{const b=e.target.closest('[data-level]');if(!b)return;levelIndex=Number(b.dataset.level);render();$('levels').querySelector(`[data-level="${levelIndex}"]`).focus({preventScroll:true});});
-if($('intent-picker'))$('intent-picker').addEventListener('click',e=>{const b=e.target.closest('[data-intent]');if(!b)return;intentIndex=Number(b.dataset.intent);render();$('intent-picker').querySelector(`[data-intent="${intentIndex}"]`).focus({preventScroll:true});});
 $('quick-course').addEventListener('change',e=>{courseIndex=Number(e.target.value);levelIndex=0;render();});
 $('quick-level').addEventListener('change',e=>{levelIndex=Number(e.target.value);render();});
 $('price').addEventListener('change',e=>{if(e.target.name!=='payment-choice')return;paymentChoice=e.target.value;renderPayment();});
