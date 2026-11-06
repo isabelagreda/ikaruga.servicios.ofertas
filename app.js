@@ -23,9 +23,11 @@ function renderCountryOptions(){
  select.innerHTML=Object.entries(COUNTRIES).map(([code,country])=>`<option value="${code}">${country.name}</option>`).join('');
  select.value=selected;
 }
-function promoRule(courseName,month){
- const installments={octubre:3,noviembre:3,diciembre:4,enero:5}[month];
- if(!installments)return null;
+function promoRule(courseName,month,levelName=''){
+ const monthlyLimit={octubre:3,noviembre:3,diciembre:4,enero:5}[month];
+ if(!monthlyLimit)return null;
+ const levelMatch=String(levelName).match(/(?:\s|[A-Z])(\d+)$/i);
+ const installments=levelMatch&&Number(levelMatch[1])>=2?Math.min(monthlyLimit,4):monthlyLimit;
  const percent=courseName==='Portugués'?20:['Inglés','Italiano'].includes(courseName)?30:40;
  return{percent,installments,label:'TRANSFERENCIA O PAYPAL',headline:`Promo ${month}`};
 }
@@ -62,7 +64,7 @@ const courseName=COURSES[courseIndex].name;
 const type=courseName==='Inglés'||courseName==='Portugués'?'english':courseName==='Italiano'?'italian':'threeH4';
 const row=tables[type].costs[cur];
 let quote='';
-if(s){const rule=promoRule(COURSES[courseIndex].name,s.month),total=row[0]*s.modules+row[1]+row[2],discountBase=row[0]*s.modules+row[1];
+if(s){const rule=promoRule(COURSES[courseIndex].name,s.month,l.name),total=row[0]*s.modules+row[1]+row[2],discountBase=row[0]*s.modules+row[1];
 const choices=[];
 if(rule){const promo=tables[type].discounts[rule.percent][cur],parts=splitInstallments(promo,rule.installments);
 choices.push({id:'main',html:`<span class="promo-tag">${rule.percent}% DE DESCUENTO · ${esc(s.month.toUpperCase())}</span><p class="price-label">Valor promocional por pago total</p><p class="amount"><span>Pagás hoy</span>${money(promo)}</p>${quotaSummary(promo,parts,rule.installments,'Transferencia o PayPal')}<p class="small">El descuento aplica sobre cursado, matrícula y materiales. El certificado, cuando corresponde, se suma sin descuento.</p>`,quote:{label:`${rule.percent}% descuento · Transferencia/PayPal`,total:money(promo),installments:`${rule.installments} cuotas sin interés${parts.equal?' de '+money(parts.base/100):`: ${rule.installments-1} de ${money(parts.base/100)} y una última de ${money(parts.last/100)}`}`,method:'Transferencia/PayPal'}});
