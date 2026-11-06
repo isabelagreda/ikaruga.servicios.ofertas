@@ -321,6 +321,28 @@ const COURSES = [
     ]
   },
   {
+    "name": "Portugués",
+    "mark": "Português",
+    "hours": 2,
+    "levels": [
+      {
+        "name": "Portugués A1",
+        "pdf": "portugues-a1-programa.pdf",
+        "goals": [
+          "Presentarte, saludar y sostener intercambios iniciales en portugués brasileño.",
+          "Usar vocabulario de la vida cotidiana, viajes y situaciones habituales.",
+          "Comprender y construir frases simples con una base clara de pronunciación.",
+          "Empezar a comunicarte con seguridad en contextos reales."
+        ],
+        "extras": [],
+        "uai": false,
+        "description": "Una propuesta inicial para aprender portugués brasileño desde cero, con clases en vivo y una base práctica para comunicarte.",
+        "campus": true,
+        "recordings": false
+      }
+    ]
+  },
+  {
     "name": "Alemán",
     "mark": "Hallo",
     "hours": 3,
@@ -602,6 +624,16 @@ const SCHEDULES = [
     "month": "enero"
   },
   {
+    "course": "Japonés 1",
+    "group": "B",
+    "modules": 4,
+    "day": "Lunes",
+    "time": "21:00 – 00:00",
+    "start": "18/01",
+    "end": "12/04",
+    "month": "enero"
+  },
+  {
     "course": "Japonés 3",
     "group": "A",
     "modules": 4,
@@ -814,6 +846,16 @@ const SCHEDULES = [
   {
     "course": "Inglés A1",
     "group": "A",
+    "modules": 4,
+    "day": "Sábados",
+    "time": "16:00 – 18:00",
+    "start": "23/01",
+    "end": "10/04",
+    "month": "enero"
+  },
+  {
+    "course": "Portugués A1",
+    "group": "A1",
     "modules": 4,
     "day": "Sábados",
     "time": "16:00 – 18:00",
