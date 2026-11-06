@@ -55,11 +55,10 @@ if(s){const local=localTimeRange(s),startYear=scheduleStartYear(s);$('schedule')
 const tables={
  threeH4:{costs:{ARS:[176000,284000,50000],USD:[86,89,34],MXN:[1670,1720,590]},discounts:{45:{ARS:594000,USD:273,MXN:5210},40:{ARS:643000,USD:294,MXN:5630},35:{ARS:676000,USD:316,MXN:6050},30:{ARS:742000,USD:338,MXN:6470},25:{ARS:791000,USD:360,MXN:6890},20:{ARS:841000,USD:381,MXN:7310},15:{ARS:890000,USD:403,MXN:7730}}},
  english:{costs:{ARS:[81000,110000,0],USD:[40,34,0],MXN:[770,670,0]},discounts:{30:{ARS:304000,USD:135,MXN:2620},25:{ARS:325000,USD:145,MXN:2800},20:{ARS:347000,USD:155,MXN:2990},15:{ARS:369000,USD:165,MXN:3180}}},
- italian:{costs:{ARS:[81000,110000,50000],USD:[40,34,34],MXN:[770,670,620]},discounts:{30:{ARS:354000,USD:169,MXN:3240},25:{ARS:376000,USD:179,MXN:3420},20:{ARS:397000,USD:188,MXN:3610},15:{ARS:419000,USD:198,MXN:3800}}},
- games:{costs:{ARS:[138000,153000,0],USD:[65,80,0],MXN:[1620,1550,0]},discounts:{45:{ARS:387000,USD:187,MXN:4410},40:{ARS:423000,USD:204,MXN:4810},35:{ARS:458000,USD:221,MXN:5210},30:{ARS:493000,USD:238,MXN:5620},25:{ARS:528000,USD:255,MXN:5980},20:{ARS:564000,USD:272,MXN:6420},15:{ARS:599000,USD:289,MXN:6800}}}
+ italian:{costs:{ARS:[81000,110000,50000],USD:[40,34,34],MXN:[770,670,620]},discounts:{30:{ARS:354000,USD:169,MXN:3240},25:{ARS:376000,USD:179,MXN:3420},20:{ARS:397000,USD:188,MXN:3610},15:{ARS:419000,USD:198,MXN:3800}}}
 };
 // The current public commissions from the sales guide are 4 modules.
-const type=c.name==='Inglés'||c.name==='Portugués'?'english':c.name==='Italiano'?'italian':c.name==='Diseño y programación'?'games':'threeH4';
+const type=c.name==='Inglés'||c.name==='Portugués'?'english':c.name==='Italiano'?'italian':'threeH4';
 const row=tables[type].costs[cur];
 let quote='';
 if(s){const rule=promoRule(COURSES[courseIndex].name,s.month),total=row[0]*s.modules+row[1]+row[2],discountBase=row[0]*s.modules+row[1];

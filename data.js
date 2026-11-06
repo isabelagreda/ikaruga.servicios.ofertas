@@ -447,29 +447,6 @@ const COURSES = [
         "recordings": false
       }
     ]
-  },
-  {
-    "name": "Videojuegos",
-    "mark": "Unity 6 + C#",
-    "hours": 3,
-    "levels": [
-      {
-        "name": "Diseño y programación",
-        "pdf": "programa-videojuegos.pdf",
-        "description": "Dale forma a tu primer proyecto jugable. Una formación teórico-práctica de 4 módulos y 48 horas reloj para crear videojuegos 3D con Unity 6 y C#.",
-        "goals": [
-          "Usar Unity 6 como motor principal para crear videojuegos 3D.",
-          "Programar la lógica base del juego con C#.",
-          "Integrar personajes, sonidos, modelos, efectos y recursos visuales.",
-          "Comprender GameManager, Raycasting, herencia e interfaz de usuario.",
-          "Desarrollar un proyecto final ejecutable en PC."
-        ],
-        "extras": [],
-        "uai": false,
-        "campus": false,
-        "recordings": false
-      }
-    ]
   }
 ];
 const SCHEDULES = [
