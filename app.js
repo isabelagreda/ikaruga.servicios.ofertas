@@ -53,13 +53,12 @@ const quotaSummary=(total,parts,n,method)=>`<div class="quota-box"><span>Tambié
 if(s){const local=localTimeRange(s);$('schedule').innerHTML=`<p class="when">${esc(local.day)}<br><span>${esc(local.range)} h</span></p><p class="small">Horario local para ${esc(local.country)} calculado con el inicio ${esc(s.start)}/2026. En Argentina: ${esc(s.day)} ${esc(s.time)} h.${local.dayNote?' '+esc(local.dayNote):''}</p><dl><div><dt>Inicio</dt><dd>${esc(s.start)}/2026</dd></div><div><dt>Finalización</dt><dd>${esc(s.end)}/2027</dd></div><div><dt>Recorrido</dt><dd>${s.modules} módulos</dd></div><div><dt>Modalidad</dt><dd>Grupal online</dd></div></dl>`;}else $('schedule').innerHTML='<p class="empty">Podés conocer el programa y consultar con ISA la próxima apertura de este nivel.</p>';
 const tables={
  threeH4:{costs:{ARS:[172000,277000,49000],USD:[86,89,34],MXN:[1670,1720,590]},discounts:{45:{ARS:579000,USD:273,MXN:5210},40:{ARS:628000,USD:294,MXN:5630},35:{ARS:676000,USD:316,MXN:6050},30:{ARS:724000,USD:338,MXN:6470},25:{ARS:772000,USD:360,MXN:6890},20:{ARS:820000,USD:381,MXN:7310},15:{ARS:869000,USD:403,MXN:7730}}},
- threeH5:{costs:{ARS:[172000,277000,49000],USD:[86,89,34],MXN:[1670,1720,590]},discounts:{45:{ARS:674000,USD:320,MXN:6130},40:{ARS:731000,USD:346,MXN:6630},35:{ARS:787000,USD:372,MXN:7130},30:{ARS:844000,USD:398,MXN:7640},25:{ARS:901000,USD:424,MXN:8140},20:{ARS:958000,USD:450,MXN:8640},15:{ARS:1015000,USD:477,MXN:9150}}},
  english:{costs:{ARS:[79000,107000,0],USD:[40,34,0],MXN:[770,670,0]},discounts:{30:{ARS:296000,USD:135,MXN:2620},25:{ARS:318000,USD:145,MXN:2800},20:{ARS:339000,USD:155,MXN:2990},15:{ARS:360000,USD:165,MXN:3180}}},
  italian:{costs:{ARS:[79000,107000,49000],USD:[40,34,34],MXN:[770,670,620]},discounts:{30:{ARS:345000,USD:169,MXN:3240},25:{ARS:367000,USD:179,MXN:3420},20:{ARS:388000,USD:188,MXN:3610},15:{ARS:409000,USD:198,MXN:3800}}},
  games:{costs:{ARS:[138000,153000,0],USD:[65,80,0],MXN:[1620,1550,0]},discounts:{45:{ARS:387000,USD:187,MXN:4410},40:{ARS:423000,USD:204,MXN:4810},35:{ARS:458000,USD:221,MXN:5210},30:{ARS:493000,USD:238,MXN:5620},25:{ARS:528000,USD:255,MXN:5980},20:{ARS:564000,USD:272,MXN:6420},15:{ARS:599000,USD:289,MXN:6800}}}
 };
-// The published commission controls the price tier: a 4-module group always uses the 4-module table.
-const type=courseIndex===4?'english':courseIndex===6?'italian':courseIndex===8?'games':s?.modules===5?'threeH5':'threeH4';
+// All public 3-hour commissions in the sales guide are 4 modules and use this table.
+const type=courseIndex===4?'english':courseIndex===6?'italian':courseIndex===8?'games':'threeH4';
 const row=tables[type].costs[cur];
 let quote='';
 if(s){const rule=promoRule(COURSES[courseIndex].name,s.month),total=row[0]*s.modules+row[1]+row[2],discountBase=row[0]*s.modules+row[1];
