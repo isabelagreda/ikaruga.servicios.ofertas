@@ -8,7 +8,7 @@ function renderFinancingRule(){
  const rule=document.createElement('p');
  rule.id='financing-rule';
  rule.className='small';
- rule.innerHTML='<strong>Financiación vigente:</strong> octubre hasta 3 cuotas sin interés; noviembre y diciembre hasta 4 cuotas; enero hasta 5 cuotas sin interés.';
+ rule.innerHTML='<strong>Financiación vigente:</strong> octubre y noviembre hasta 3 cuotas sin interés; diciembre hasta 4 cuotas; enero hasta 5 cuotas sin interés.';
  description.insertAdjacentElement('afterend',rule);
 }
 const INTENTS=[
@@ -23,13 +23,13 @@ function renderCountryOptions(){
  select.innerHTML=Object.entries(COUNTRIES).map(([code,country])=>`<option value="${code}">${country.name}</option>`).join('');
  select.value=selected;
 }
-function promoRule(hours,month){
- const installments={octubre:3,noviembre:4,diciembre:4,enero:5}[month];
+function promoRule(courseName,month){
+ const installments={octubre:3,noviembre:3,diciembre:4,enero:5}[month];
  if(!installments)return null;
- const percent=month==='enero'?(hours===3?30:15):(hours===3?40:30);
+ const percent=['Inglés','Italiano','Portugués'].includes(courseName)?30:40;
  return{percent,installments,label:'TRANSFERENCIA O PAYPAL',headline:`Promo ${month}`};
 }
-function hasPublicPromo(s,hours){return !!(s&&promoRule(hours,s.month));}
+function hasPublicPromo(s,courseName){return !!(s&&promoRule(courseName,s.month));}
 function cardRule(){return null;}
 function splitInstallments(total, installments){const cents=Math.round(total*100),base=Math.floor(cents/installments),last=cents-base*(installments-1);return{base,last,equal:base===last};}
 
@@ -41,11 +41,11 @@ if($('intent-picker'))$('intent-picker').innerHTML='';
 $('quick-course').innerHTML=COURSES.map((c,i)=>`<option value="${i}"${i===courseIndex?' selected':''}>${esc(c.name)}</option>`).join('');
 $('quick-level').innerHTML=c.levels.map((l,i)=>`<option value="${i}"${i===levelIndex?' selected':''}>${esc(l.name)}</option>`).join('');
 const visibleGoals=l.goals.slice(0,3),hiddenGoals=l.goals.slice(3);
-const groupsForLevel=SCHEDULES.filter(s=>s.course===l.name&&hasPublicPromo(s,c.hours)),groupCount=groupsForLevel.length,certLabel=l.uai?'Certificado UAI':l.name==='Coreano 3'?'Asistencia':'Certificado IKARUGA';
+const groupsForLevel=SCHEDULES.filter(s=>s.course===l.name&&hasPublicPromo(s,c.name)),groupCount=groupsForLevel.length,certLabel=l.uai?'Certificado UAI':l.name==='Coreano 3'?'Asistencia':'Certificado IKARUGA';
 $('course-detail').innerHTML=`<div class="course-detail-grid"><div><p class="eyebrow">${levelIndex===0?'TU PUNTO DE PARTIDA':'SEGUÍ AVANZANDO'}</p><h3 class="course-heading">${esc(l.name)}</h3>${l.description?`<p class="course-desc">${esc(l.description)}</p>`:''}<div class="quick-summary"><div><strong>${c.hours} h semanales</strong><span>en vivo</span></div><div><strong>${groupCount?groupCount+' horarios':'A consultar'}</strong><span>${groupCount?'disponibles':'próxima apertura'}</span></div><div><strong>${esc(certLabel)}</strong><span>según programa</span></div></div><details class="program-details" open><summary>Contenidos principales</summary><ol class="goals">${visibleGoals.map(g=>`<li>${esc(g)}</li>`).join('')}${hiddenGoals.map(g=>`<li class="secondary-goal">${esc(g)}</li>`).join('')}</ol></details><a class="text-link" href="${esc(l.pdf)}" download>Descargar programa completo en PDF ↓</a></div><aside class="benefits"><h3>Lo que recibís</h3><div class="benefit main-benefit"><strong>Comunidad IKARUGA</strong>Docente, grupo por nivel y acompañamiento para sostener la práctica.</div><details class="benefit-drop" open><summary>Clases, material y práctica</summary><div class="benefit"><strong>${c.hours} horas semanales</strong>Clases en vivo, corrección y práctica guiada.</div><div class="benefit"><strong>${l.campus?'Campus virtual':'Proyecto final en PC'}</strong>${l.campus?'Materiales de cursada.':'Aplicá lo aprendido en un videojuego 3D ejecutable.'}${l.recordings?' Grabaciones incluidas.':''}</div></details><details class="benefit-drop"><summary>Certificación</summary><div class="benefit"><strong>${l.uai?'Certificación IKARUGA + respaldo UAI':l.name==='Coreano 3'?'Certificado de asistencia':'Certificación institucional IKARUGA'}</strong>Según los requisitos del programa.</div></details>${l.extras.length?`<div class="community"><span>Comunidad IKARUGA</span><strong>Más que la clase semanal</strong>${l.extras.map(e=>`<p>${esc(e.replace(/^[^A-Za-zÁÉÍÓÚáéíóúÑñ0-9]+/,''))}</p>`).join('')}</div>`:''}</aside></div>`;
 $('cert-text').textContent=l.uai?`Para ${l.name}, la propuesta incluye certificación IKARUGA con respaldo UAI.`:l.name==='Coreano 3'?'Coreano 3 indica certificado de asistencia según requisitos del programa.':`En ${l.name} recibís certificación institucional IKARUGA según requisitos del programa.`;const uaiVisible=!!l.uai;if($('uai-link')){ $('uai-link').hidden=!uaiVisible; $('uai-link').style.display=uaiVisible?'':'none'; $('uai-link').textContent=uaiVisible?'Descargar muestra UAI en PDF ↓':'';}if($('uai-figure')){ $('uai-figure').hidden=!uaiVisible; $('uai-figure').style.display=uaiVisible?'':'none'; $('uai-figure').setAttribute('aria-hidden',uaiVisible?'false':'true');}
 $('selected-name').textContent=l.name;
-const groups=SCHEDULES.filter(s=>s.course===l.name&&hasPublicPromo(s,c.hours));$('group').innerHTML=groups.length?groups.map((s,i)=>`<option value="${SCHEDULES.indexOf(s)}">${esc(s.month[0].toUpperCase()+s.month.slice(1))} · ${esc(s.day)} · Comisión ${esc(s.group)}</option>`).join(''):'<option value="">Sin comisión promocionada</option>';
+const groups=SCHEDULES.filter(s=>s.course===l.name&&hasPublicPromo(s,c.name));$('group').innerHTML=groups.length?groups.map((s,i)=>`<option value="${SCHEDULES.indexOf(s)}">${esc(s.month[0].toUpperCase()+s.month.slice(1))} · ${esc(s.day)} · Comisión ${esc(s.group)}</option>`).join(''):'<option value="">Sin comisión promocionada</option>';
 renderPayment();}
 function renderPayment(){const l=current(),s=$('group').value!==''?SCHEDULES[Number($('group').value)]:null,cur=$('currency').value;
 const money=n=>new Intl.NumberFormat('es-AR',{minimumFractionDigits:Number.isInteger(n)?0:2,maximumFractionDigits:2}).format(n)+' '+cur;
@@ -62,7 +62,7 @@ const tables={
 const type=courseIndex===4?'english':courseIndex===6?'italian':courseIndex===8?'games':s?.modules===5?'threeH5':'threeH4';
 const row=tables[type].costs[cur];
 let quote='';
-if(s){const rule=promoRule(COURSES[courseIndex].hours,s.month),total=row[0]*s.modules+row[1]+row[2],discountBase=row[0]*s.modules+row[1];
+if(s){const rule=promoRule(COURSES[courseIndex].name,s.month),total=row[0]*s.modules+row[1]+row[2],discountBase=row[0]*s.modules+row[1];
 const choices=[];
 if(rule){const promo=tables[type].discounts[rule.percent][cur],parts=splitInstallments(promo,rule.installments);
 choices.push({id:'main',html:`<span class="promo-tag">${rule.percent}% DE DESCUENTO · ${esc(s.month.toUpperCase())}</span><p class="price-label">Valor promocional por pago total</p><p class="amount"><span>Pagás hoy</span>${money(promo)}</p>${quotaSummary(promo,parts,rule.installments,'Transferencia o PayPal')}<p class="small">El descuento aplica sobre cursado, matrícula y materiales. El certificado, cuando corresponde, se suma sin descuento.</p>`,quote:{label:`${rule.percent}% descuento · Transferencia/PayPal`,total:money(promo),installments:`${rule.installments} cuotas sin interés${parts.equal?' de '+money(parts.base/100):`: ${rule.installments-1} de ${money(parts.base/100)} y una última de ${money(parts.last/100)}`}`,method:'Transferencia/PayPal'}});
