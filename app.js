@@ -8,7 +8,7 @@ function renderFinancingRule(){
  const rule=document.createElement('p');
  rule.id='financing-rule';
  rule.className='small';
- rule.innerHTML='<strong>Financiación vigente:</strong> octubre y noviembre hasta 3 cuotas sin interés; diciembre hasta 4 cuotas; enero hasta 5 cuotas sin interés.';
+ rule.innerHTML='<strong>Financiación vigente:</strong> noviembre hasta 3 cuotas sin interés; diciembre hasta 4 cuotas; enero y marzo hasta 5 cuotas sin interés.';
  description.insertAdjacentElement('afterend',rule);
 }
 const COUNTRIES={AR:{name:'Argentina',tz:'America/Argentina/Buenos_Aires'},MX:{name:'México',tz:'America/Mexico_City'},PE:{name:'Perú',tz:'America/Lima'},EC:{name:'Ecuador',tz:'America/Guayaquil'},CL:{name:'Chile',tz:'America/Santiago'},PY:{name:'Paraguay',tz:'America/Asuncion'},CO:{name:'Colombia',tz:'America/Bogota'},HN:{name:'Honduras',tz:'America/Tegucigalpa'},BO:{name:'Bolivia',tz:'America/La_Paz'},ES:{name:'España',tz:'Europe/Madrid'},CU:{name:'Cuba',tz:'America/Havana'},US:{name:'Estados Unidos · hora del Este',tz:'America/New_York'},SV:{name:'El Salvador',tz:'America/El_Salvador'},UY:{name:'Uruguay',tz:'America/Montevideo'}};
@@ -18,7 +18,7 @@ function renderCountryOptions(){
  select.value=selected;
 }
 function promoRule(courseName,month,levelName=''){
- const monthlyLimit={octubre:3,noviembre:3,diciembre:4,enero:5}[month];
+ const monthlyLimit={octubre:3,noviembre:3,diciembre:4,enero:5,marzo:5}[month];
  if(!monthlyLimit)return null;
  const levelMatch=String(levelName).match(/(?:\s|[A-Z])(\d+)$/i);
  const installments=levelMatch&&Number(levelMatch[1])>=2?Math.min(monthlyLimit,4):monthlyLimit;
@@ -28,7 +28,7 @@ function promoRule(courseName,month,levelName=''){
 function hasPublicPromo(s,courseName){return !!(s&&promoRule(courseName,s.month));}
 function splitInstallments(total, installments){const cents=Math.round(total*100),base=Math.floor(cents/installments),last=cents-base*(installments-1);return{base,last,equal:base===last};}
 
-function scheduleStartYear(s){return s.month==='enero'?2027:2026;}
+function scheduleStartYear(s){return ['enero','marzo'].includes(s.month)?2027:2026;}
 function suggestedSchedule(groups){const now=Date.now(),dated=groups.map(s=>{const [day,month]=s.start.split('/').map(Number);return{schedule:s,time:new Date(scheduleStartYear(s),month-1,day,23,59,59).getTime()};}).filter(item=>item.time>=now).sort((a,b)=>a.time-b.time);return dated[0]?.schedule||groups[0]||null;}
 function localTimeRange(s){const country=COUNTRIES[$('country').value]||COUNTRIES.AR,[start,end]=s.time.split('–').map(t=>t.trim()),[sh,sm]=start.split(':').map(Number),[eh,em]=end.split(':').map(Number),[dd,mm]=s.start.split('/').map(Number);let duration=(eh*60+em)-(sh*60+sm);if(duration<=0)duration+=1440;const startUtc=new Date(Date.UTC(scheduleStartYear(s),mm-1,dd,sh+3,sm)),endUtc=new Date(startUtc.getTime()+duration*60000);const fmt=new Intl.DateTimeFormat('es-AR',{timeZone:country.tz,hour:'2-digit',minute:'2-digit',hour12:false,weekday:'long'});const parts=d=>Object.fromEntries(fmt.formatToParts(d).map(p=>[p.type,p.value]));const startParts=parts(startUtc),endParts=parts(endUtc),startLabel=`${startParts.hour}:${startParts.minute}`,endLabel=`${endParts.hour}:${endParts.minute}`,localDay=startParts.weekday.charAt(0).toUpperCase()+startParts.weekday.slice(1),dayNote=startParts.weekday!==endParts.weekday?`Termina ${endParts.weekday}.`:'';return{country:country.name,range:`${startLabel} – ${endLabel}`,day:localDay,dayNote};}
 function renderScheduleCards(){const target=$('schedule-options');if(!target)return;const level=current(),course=COURSES[courseIndex],selected=Number($('group').value),groups=SCHEDULES.filter(s=>s.course===level.name&&hasPublicPromo(s,course.name)),suggested=suggestedSchedule(groups);target.innerHTML=groups.map(s=>{const index=SCHEDULES.indexOf(s),local=localTimeRange(s),promo=promoRule(course.name,s.month,level.name),isSelected=index===selected,isSuggested=s===suggested;return `<button type="button" class="schedule-card${isSelected?' is-selected':''}${isSuggested?' is-suggested':''}" data-schedule="${index}" aria-pressed="${isSelected}"><span class="schedule-card-top"><strong>${esc(s.month[0].toUpperCase()+s.month.slice(1))} · Comisión ${esc(s.group)}</strong><span class="schedule-badges">${isSuggested?'<b>Opción sugerida</b>':''}<em>${promo.percent}% OFF</em></span></span><span class="schedule-card-time">${esc(local.day)} · ${esc(local.range)} h</span><span class="schedule-card-meta">Inicia ${esc(s.start)}/${scheduleStartYear(s)} · ${s.modules} módulos · hasta ${promo.installments} cuotas</span></button>`;}).join('');}
@@ -49,13 +49,14 @@ const money=n=>new Intl.NumberFormat('es-AR',{minimumFractionDigits:Number.isInt
 const quotaSummary=(total,parts,n,method)=>`<div class="quota-box"><span>O si preferís cuotas</span><strong>${n} cuotas sin interés de ${money(parts.base/100)}</strong><small>Medio de pago: ${method}</small></div>${!parts.equal?`<p class="quota-note">La última cuota puede variar ${money(Math.abs(parts.last-parts.base)/100)} por redondeo.</p>`:''}`;
 if(s){const local=localTimeRange(s),startYear=scheduleStartYear(s);$('schedule').innerHTML=`<p class="when">${esc(local.day)}<br><span>${esc(local.range)} h</span></p><p class="small"><strong>Horario en ${esc(local.country)}.</strong> En Argentina: ${esc(s.day)} ${esc(s.time)} h.${local.dayNote?' '+esc(local.dayNote):''}</p><dl><div><dt>Inicio</dt><dd>${esc(s.start)}/${startYear}</dd></div><div><dt>Finalización</dt><dd>${esc(s.end)}/2027</dd></div><div><dt>Duración</dt><dd>${s.modules} módulos</dd></div><div><dt>Modalidad</dt><dd>Grupal online</dd></div></dl>`;}else $('schedule').innerHTML='<p class="empty">Podés conocer el programa y consultar con ISA la próxima apertura de este nivel.</p>';
 const tables={
+ threeH5:{costs:{ARS:[176000,284000,50000],USD:[86,89,34],MXN:[1670,1720,590]},discounts:{45:{ARS:691000,USD:320,MXN:6130},40:{ARS:749000,USD:346,MXN:6630},35:{ARS:807000,USD:372,MXN:7130},30:{ARS:865000,USD:398,MXN:7640},25:{ARS:923000,USD:424,MXN:8140},20:{ARS:982000,USD:450,MXN:8640},15:{ARS:1040000,USD:477,MXN:9150}}},
  threeH4:{costs:{ARS:[176000,284000,50000],USD:[86,89,34],MXN:[1670,1720,590]},discounts:{45:{ARS:594000,USD:273,MXN:5210},40:{ARS:643000,USD:294,MXN:5630},35:{ARS:676000,USD:316,MXN:6050},30:{ARS:742000,USD:338,MXN:6470},25:{ARS:791000,USD:360,MXN:6890},20:{ARS:841000,USD:381,MXN:7310},15:{ARS:890000,USD:403,MXN:7730}}},
  english:{costs:{ARS:[81000,110000,0],USD:[40,34,0],MXN:[770,670,0]},discounts:{30:{ARS:304000,USD:135,MXN:2620},25:{ARS:325000,USD:145,MXN:2800},20:{ARS:347000,USD:155,MXN:2990},15:{ARS:369000,USD:165,MXN:3180}}},
  italian:{costs:{ARS:[81000,110000,50000],USD:[40,34,34],MXN:[770,670,620]},discounts:{30:{ARS:354000,USD:169,MXN:3240},25:{ARS:376000,USD:179,MXN:3420},20:{ARS:397000,USD:188,MXN:3610},15:{ARS:419000,USD:198,MXN:3800}}}
 };
 // The current public commissions from the sales guide are 4 modules.
 const courseName=COURSES[courseIndex].name;
-const type=courseName==='Inglés'||courseName==='Portugués'?'english':courseName==='Italiano'?'italian':'threeH4';
+const type=courseName==='Inglés'||courseName==='Portugués'?'english':courseName==='Italiano'?'italian':s.modules===5?'threeH5':'threeH4';
 const row=tables[type].costs[cur];
 let quote='';
 if(s){const rule=promoRule(COURSES[courseIndex].name,s.month,l.name),total=row[0]*s.modules+row[1]+row[2];
