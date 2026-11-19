@@ -51,6 +51,7 @@ header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-
 
 /* Do not imply content exists when the sales guide has no approved program file. */
 #course-detail .program-details:has(.goals:empty),#course-detail a[href=""]{display:none}
+.purchase-guide{display:grid;gap:4px;margin-top:14px;padding:12px 13px;border-left:3px solid var(--gold);border-radius:0 10px 10px 0;background:rgba(201,154,61,.1);color:var(--ink);font-size:.78rem;line-height:1.42}.purchase-guide strong{color:var(--navy);font-size:.82rem}
 @media(max-width:760px){
   .hero-note{display:none}
   .hero{padding-bottom:22px}
@@ -59,4 +60,5 @@ header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-
   .course-detail-grid,.certificate-grid,.enrollment-grid{gap:24px}
   .benefits{padding:16px}.benefit{padding:11px 0}.program-details,.benefit-drop{margin-top:12px}
   .schedule{margin-top:14px}.schedule dl{margin:14px 0}.payment{margin-top:0}
+  .purchase-guide{margin-top:12px;padding:10px 11px;font-size:.76rem}
 }

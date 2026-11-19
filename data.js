@@ -79,10 +79,17 @@ const COURSES = [
       {
         "name": "Japonés 5",
         "pdf": "japones-v-programa.pdf",
-        "goals": [],
-        "extras": [],
+        "goals": [
+          "Profundizar estructuras gramaticales y vocabulario orientados a un uso avanzado del japonés.",
+          "Leer y analizar artículos, noticias, textos literarios y materiales de circulación real.",
+          "Sostener conversaciones complejas con mayor precisión, fluidez y matiz."
+        ],
+        "extras": [
+          "Inmersión cultural: 3 clases temáticas durante el recorrido.",
+          "Práctica comunicativa, lectura y escritura con acompañamiento docente."
+        ],
         "uai": true,
-        "description": "Comisión disponible para marzo de 2027. Isa te comparte el programa actualizado antes de la inscripción.",
+        "description": "Nivel avanzado para profundizar lectura, conversación y comprensión. La comisión vigente inicia en marzo de 2027.",
         "campus": true,
         "recordings": true
       }
