@@ -77,6 +77,12 @@ $('quick-level').addEventListener('change',e=>{levelIndex=Number(e.target.value)
 $('price').addEventListener('change',e=>{if(e.target.name!=='payment-choice')return;paymentChoice=e.target.value;renderPayment();});
 $('group').addEventListener('change',renderPayment);$('currency').addEventListener('change',renderPayment);$('country').addEventListener('change',()=>{const country=$('country').value;$('currency').value=country==='AR'?'ARS':country==='MX'?'MXN':'USD';renderPayment();});renderCountryOptions();renderFinancingRule();render();
 $('schedule-options')?.addEventListener('click',e=>{const card=e.target.closest('[data-schedule]');if(!card)return;$('group').value=card.dataset.schedule;renderPayment();});
+const mobileContact=$('mobile-contact');
+if(mobileContact){
+ const updateMobileContact=()=>mobileContact.classList.toggle('is-visible',window.scrollY>520);
+ window.addEventListener('scroll',updateMobileContact,{passive:true});
+ updateMobileContact();
+}
 if(document.modelContext?.registerTool){
  const lifecycle=new AbortController();
  Promise.resolve(document.modelContext.registerTool({name:'select_course_level',title:'Ver un curso IKARUGA',description:'Selecciona un curso y nivel en la página y devuelve contenidos, programa y comisiones. No inscribe ni envía mensajes.',inputSchema:{type:'object',properties:{level:{type:'string',enum:COURSES.flatMap(c=>c.levels.map(l=>l.name))}},required:['level'],additionalProperties:false},annotations:{readOnlyHint:false},execute(input){const ci=COURSES.findIndex(c=>c.levels.some(l=>l.name===input?.level));if(ci<0)throw new Error('Nivel no disponible');courseIndex=ci;levelIndex=COURSES[ci].levels.findIndex(l=>l.name===input.level);render();$('cursos').scrollIntoView();return{level:current().name,goals:current().goals,program:new URL(''+current().pdf,location.href).href,schedules:SCHEDULES.filter(s=>s.course===current().name)};}},{signal:lifecycle.signal})).catch(()=>{});
