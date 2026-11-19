@@ -148,7 +148,10 @@ const COURSES = [
           "Ampliar vocabulario y comprensión cultural con historia, política, filosofía, religión y cultura coreana.",
           "Trabajar contenido audiovisual recomendado: doramas, películas, programas, manhwas y documentales."
         ],
-        "extras": [],
+        "extras": [
+          "Práctica para opinar, sugerir y comunicarte con registros de respeto.",
+          "Contenido cultural y audiovisual para comprender el idioma en contexto."
+        ],
         "uai": false,
         "description": "Este nivel está pensado para estudiantes que ya tienen base en Coreano y quieren ganar más naturalidad para opinar, sugerir, aconsejar y comprender mejor el idioma en contexto real.",
         "campus": true,
@@ -296,7 +299,10 @@ const COURSES = [
           "Describir familia, ropa, colores y espacios de la casa.",
           "Usar vocabulario básico de meses, estaciones y clima en conversaciones simples."
         ],
-        "extras": [],
+        "extras": [
+          "Práctica guiada para usar el inglés desde la primera clase.",
+          "Situaciones cotidianas: presentaciones, rutinas, horarios y familia."
+        ],
         "uai": false,
         "description": "Este nivel está pensado para que empieces a usar el inglés en situaciones simples y reales, con una base clara para hablar, comprender y avanzar sin frustrarte.",
         "campus": true,
@@ -312,7 +318,10 @@ const COURSES = [
           "Escribir notas, cartas, e-mails y mensajes simples con mejor organización y cohesión.",
           "Trabajar comprensión de audios, textos, series o lecturas breves para dar feedback en inglés."
         ],
-        "extras": [],
+        "extras": [
+          "Práctica para pasar de frases básicas a intercambios más completos.",
+          "Lecturas, audios y mensajes breves para ganar autonomía."
+        ],
         "uai": false,
         "description": "Este nivel te ayuda a pasar del inglés básico a una comunicación más completa, con más seguridad para hablar de tu vida diaria, planes y experiencias.",
         "campus": true,
@@ -329,7 +338,10 @@ const COURSES = [
           "Reforzar estructuras intermedias: tiempos presentes y pasados, present perfect, condicionales, voz pasiva, reported speech, preguntas indirectas y comparativos.",
           "Ampliar vocabulario de casa, decisiones de vida, viajes, hobbies, clima, deportes, salud, servicios y medio ambiente."
         ],
-        "extras": [],
+        "extras": [
+          "Práctica de conversación sobre experiencias, planes y temas cotidianos.",
+          "Trabajo con audios y lecturas adaptadas al nivel intermedio."
+        ],
         "uai": false,
         "description": "Este nivel está pensado para consolidar la base A2 y avanzar hacia una comunicación más segura, práctica y flexible en inglés.",
         "campus": true,
@@ -351,7 +363,10 @@ const COURSES = [
           "Comprender y construir frases simples con una base clara de pronunciación.",
           "Empezar a comunicarte con seguridad en contextos reales."
         ],
-        "extras": [],
+        "extras": [
+          "Pronunciación y vocabulario para comunicarte en situaciones reales.",
+          "Enfoque inicial en portugués brasileño para viajes y vida cotidiana."
+        ],
         "uai": false,
         "description": "Una propuesta inicial para aprender portugués brasileño desde cero, con clases en vivo y una base práctica para comunicarte.",
         "campus": true,
@@ -418,7 +433,10 @@ const COURSES = [
           "Describir personas y ambientes de la casa con recursos simples.",
           "Manejar números, meses del año y días de la semana en contextos cotidianos."
         ],
-        "extras": [],
+        "extras": [
+          "Práctica de pronunciación, vocabulario y conversación desde situaciones cotidianas.",
+          "Una base clara para entender el ritmo y la estructura del italiano."
+        ],
         "uai": true,
         "description": "Este nivel está pensado para que empieces a comunicarte en italiano desde lo cotidiano, entendiendo su sonido, su estructura y su ritmo natural.",
         "campus": true,
@@ -434,7 +452,10 @@ const COURSES = [
           "Conjugar verbos regulares e irregulares frecuentes en presente en frases afirmativas, negativas e interrogativas.",
           "Ampliar vocabulario de saludos, familia, comida, bebida, tiempo libre, ciudad y actividades."
         ],
-        "extras": [],
+        "extras": [
+          "Práctica para describir, conversar y expresar opiniones simples en italiano.",
+          "Vocabulario útil para la ciudad, la comida, el tiempo libre y la vida diaria."
+        ],
         "uai": true,
         "description": "Este nivel te ayuda a pasar de lo básico a una comunicación más natural, con más herramientas para contar experiencias, describir y desenvolverte en contextos cotidianos.",
         "campus": true,
@@ -457,7 +478,10 @@ const COURSES = [
           "Saludar, despedirte, presentarte, hablar de profesiones, familia, rutina, clima, compras y actividades.",
           "Acercarte a la cultura rusa: dinastía Romanov, literatura rusa, costumbres, comida rusa y tren transiberiano."
         ],
-        "extras": [],
+        "extras": [
+          "Acercamiento gradual al alfabeto cirílico, pronunciación y primeras conversaciones.",
+          "Cultura rusa integrada en los temas de clase: literatura, costumbres y viajes."
+        ],
         "uai": true,
         "description": "Este nivel está pensado para que empieces desde cero con una base real: lectura del alfabeto cirílico, pronunciación, primeras estructuras gramaticales y vocabulario para presentarte, hablar de tu entorno y acercarte a la cultura rusa.",
         "campus": true,
