@@ -48,3 +48,15 @@ header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-
 /* Keep the opening focused: users should reach course selection quickly. */
 .hero{grid-template-columns:minmax(0,1fr) minmax(290px,.62fr);gap:42px;min-height:390px;padding-block:46px}.hero h1{max-width:600px;font-size:clamp(2.55rem,4vw,3.7rem)}.intro{margin:16px 0;font-size:.94rem}.hero-note{padding:24px}.hero-note:before{inset:10px}.hero-note h2{margin:8px 0;font-size:1.65rem}.hero-note p{margin:10px 0;font-size:.84rem}.isa-welcome{margin-top:14px}.course-section{padding-top:58px}
 @media(max-width:760px){.hero{gap:18px;min-height:0;padding-block:32px}.hero h1{font-size:2.45rem}.intro{font-size:.88rem}.hero-note{padding:20px}.hero-note h2{font-size:1.42rem}.isa-welcome{margin-top:12px}.course-section{padding-top:42px}}
+
+/* Do not imply content exists when the sales guide has no approved program file. */
+#course-detail .program-details:has(.goals:empty),#course-detail a[href=""]{display:none}
+@media(max-width:760px){
+  .hero-note{display:none}
+  .hero{padding-bottom:22px}
+  .isa-welcome{padding:8px 11px}
+  .isa-welcome img{width:48px;height:48px;flex-basis:48px}
+  .course-detail-grid,.certificate-grid,.enrollment-grid{gap:24px}
+  .benefits{padding:16px}.benefit{padding:11px 0}.program-details,.benefit-drop{margin-top:12px}
+  .schedule{margin-top:14px}.schedule dl{margin:14px 0}.payment{margin-top:0}
+}

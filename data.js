@@ -75,6 +75,16 @@ const COURSES = [
         "description": "Este nivel está pensado para que ganes fluidez y puedas conectar ideas con más naturalidad, acercándote a un uso más autónomo del japonés.",
         "campus": true,
         "recordings": true
+      },
+      {
+        "name": "Japonés 5",
+        "pdf": "",
+        "goals": [],
+        "extras": [],
+        "uai": true,
+        "description": "Comisión disponible para marzo de 2027. Isa te comparte el programa actualizado antes de la inscripción.",
+        "campus": true,
+        "recordings": true
       }
     ]
   },
@@ -197,7 +207,7 @@ const COURSES = [
         "description": "Este nivel está pensado para estudiantes que ya tienen una base previa y quieren seguir avanzando con una estructura clara, práctica progresiva y acompañamiento docente.",
         "campus": true,
         "recordings": true
-      }
+      },
     ]
   },
   {
@@ -518,6 +528,16 @@ const SCHEDULES = [
     "time": "21:00 – 00:00",
     "start": "22/03",
     "end": "12/07",
+    "month": "marzo"
+  },
+  {
+    "course": "Japonés 5",
+    "group": "A",
+    "modules": 5,
+    "day": "Domingos",
+    "time": "14:00 – 17:00",
+    "start": "21/03",
+    "end": "18/07",
     "month": "marzo"
   },
   {
