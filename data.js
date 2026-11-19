@@ -78,7 +78,7 @@ const COURSES = [
       },
       {
         "name": "Japonés 5",
-        "pdf": "",
+        "pdf": "japones-v-programa.pdf",
         "goals": [],
         "extras": [],
         "uai": true,
