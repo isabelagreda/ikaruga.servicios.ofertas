@@ -53,6 +53,7 @@ header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-
 #course-detail .program-details:has(.goals:empty),#course-detail a[href=""]{display:none}
 .purchase-guide{display:grid;gap:4px;margin-top:14px;padding:12px 13px;border-left:3px solid var(--gold);border-radius:0 10px 10px 0;background:rgba(201,154,61,.1);color:var(--ink);font-size:.78rem;line-height:1.42}.purchase-guide strong{color:var(--navy);font-size:.82rem}
 .community{padding:15px 0 2px}.community span{color:var(--gold);font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.community strong{margin-top:3px;color:var(--navy);font-size:1rem}.community p{position:relative;margin:9px 0 0;padding-left:14px;color:var(--ink);font-size:.83rem;line-height:1.45}.community p:before{position:absolute;left:0;color:var(--gold);content:"•"}
+.main-benefit{position:relative;margin:4px 0 16px;padding:18px!important;border:0!important;border-radius:14px;background:var(--navy);color:#fff;box-shadow:0 10px 20px rgba(16,43,78,.14)}.main-benefit:before{display:block;margin-bottom:6px;color:var(--gold);content:"BENEFICIO IKARUGA";font-size:.68rem;font-weight:800;letter-spacing:.1em}.main-benefit strong{margin-bottom:6px;color:#fff;font-size:1.1rem}.main-benefit:after{display:block;margin-top:9px;padding-top:9px;border-top:1px solid rgba(201,154,61,.48);color:#ffffffdf;content:"Grupo de tu nivel · práctica guiada · acompañamiento cercano";font-size:.76rem;font-weight:700;line-height:1.4}
 @media(max-width:760px){
   .hero-note{display:none}
   .wrap{width:calc(100% - 28px)}
@@ -65,6 +66,7 @@ header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-
   .schedule{margin-top:14px}.schedule dl{margin:14px 0}.payment{margin-top:0}
   .purchase-guide{margin-top:12px;padding:10px 11px;font-size:.76rem}
   .community{padding-top:12px}.community p{font-size:.8rem}
+  .main-benefit{margin-bottom:13px;padding:15px!important}.main-benefit strong{font-size:1.02rem}.main-benefit:after{font-size:.73rem}
   .mobile-contact{display:block;transform:translateY(125%);opacity:0;pointer-events:none;transition:transform .22s ease,opacity .22s ease}
   .mobile-contact.is-visible{transform:translateY(0);opacity:1;pointer-events:auto}
 }
