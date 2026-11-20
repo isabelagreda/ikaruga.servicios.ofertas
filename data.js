@@ -743,6 +743,16 @@ const SCHEDULES = [
   },
   {
     "course": "Chino 1",
+    "group": "C",
+    "modules": 4,
+    "day": "Jueves",
+    "time": "21:00 – 00:00",
+    "start": "21/01",
+    "end": "08/04",
+    "month": "enero"
+  },
+  {
+    "course": "Chino 1",
     "group": "A",
     "modules": 5,
     "day": "Sábados",
@@ -867,8 +877,8 @@ const SCHEDULES = [
     "modules": 4,
     "day": "Jueves",
     "time": "20:00 – 22:00",
-    "start": "19/11",
-    "end": "11/02",
+    "start": "26/11",
+    "end": "18/02",
     "month": "noviembre"
   },
   {
@@ -903,7 +913,7 @@ const SCHEDULES = [
   },
   {
     "course": "Portugués A1",
-    "group": "A1",
+    "group": "A",
     "modules": 4,
     "day": "Sábados",
     "time": "16:00 – 18:00",
